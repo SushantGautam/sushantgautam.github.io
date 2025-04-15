@@ -22,9 +22,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install scholarly httpx==0.24.1
 
-      - name: Run citation fetcher
+      - name: Run citation fetcher (with retry)
         run: |
-          python fetch_citations.py
+          for i in {1..5}; do
+            echo "Attempt $i of 5..."
+            python fetch_citations.py && break || sleep 10
+          done
 
       - name: Commit changes
         run: |
