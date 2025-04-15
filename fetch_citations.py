@@ -72,9 +72,10 @@ html_template = """
                 return `
             <li class="list-group-item">
               <a href="${url}" target="_blank"><strong>${toTitle(p.bib.title)}</strong></a>
-              ${p.num_citations >= 2 ? `<small> - Cited ${p.num_citations} times</small>` : ""}
-              ${p.bib.author ? `<br><em>${p.bib.author}</em>` : ""}
-              <br><em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}"${p.bib.citation}</a></em>
+              ${p.num_citations > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}<br>
+              ${p.bib.author ? `<em>${p.bib.author.replace(/ and /g, ', ').replace(/Sushant Gautam/g, '<b>Sushant Gautam</b>')}</em><br>` : ""}
+              In <em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}" ${p.bib.citation}</a></em>
+              ${p.bib.citation}</em>
             </li>`;
             }).join("");
         };
