@@ -21,10 +21,29 @@ html_template = """
 <div class="container">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body, .container { padding: 0; width: 100%; font-size: 14px; line-height: 1.4; overflow-x: hidden; }
-        .list-group-item, .form-check-label, a { font-size: inherit; }
-        .list-group-item { padding: 5px 10px; border: none; }
-        .form-check-input { transform: scale(0.8); }
+        body,
+        .container {
+            padding: 0;
+            width: 100%;
+            font-size: 14px;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        .list-group-item,
+        .form-check-label,
+        a {
+            font-size: inherit;
+        }
+
+        .list-group-item {
+            padding: 5px 10px;
+            border: none;
+        }
+
+        .form-check-input {
+            transform: scale(0.8);
+        }
     </style>
     <label>Sort by:</label>
     <div class="form-check form-check-inline">
@@ -41,10 +60,11 @@ html_template = """
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+    function initCitationsWidget() {
+
         const publications = REPLACEME;
         const list = document.getElementById("publication-list");
-        const toTitle = str => str.replace(/\\w\\S*/g, t => t[0].toUpperCase() + t.slice(1).toLowerCase());
+        const toTitle = str => str.replace(/\w\S*/g, t => t[0].toUpperCase() + t.slice(1).toLowerCase());
 
         const render = sortBy => {
             publications.sort((a, b) => sortBy === "year"
@@ -71,7 +91,9 @@ html_template = """
         );
 
         render("citations");
-    });
+    };
+
+    initCitationsWidget()
 </script>
 """
 
