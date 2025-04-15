@@ -1,36 +1,20 @@
-from scholarly import scholarly, ProxyGenerator
+from scholarly import ProxyGenerator
+from scholarly import scholarly
 import json
 import os
 
-# Set up the proxy generator
 pg = ProxyGenerator()
 pg.FreeProxies()
 scholarly.use_proxy(pg)
 
 # Fetch author's publications
-author = scholarly.search_author_id("t3Iie8cAAAAJ")
-author = scholarly.fill(author, sections=["publications"])
+authorx = scholarly.search_author_id("t3Iie8cAAAAJ")
+author = scholarly.fill(authorx, sections=["publications",])
 publications = author.get("publications", [])
 
-# Strip down to relevant fields and convert to JSON-safe
-pubs_data = []
-for pub in publications:
-    bib = pub.get("bib", {})
-    pubs_data.append({
-        "bib": {
-            "title": bib.get("title", ""),
-            "author": bib.get("author", ""),
-            "pub_year": int(bib.get("pub_year", 0)) if bib.get("pub_year") else 0,
-            "citation": bib.get("citation", ""),
-        },
-        "num_citations": pub.get("num_citations", 0),
-        "pub_url": pub.get("pub_url", ""),
-        "cites_id": pub.get("cites_id", []),
-    })
-
-json_data = json.dumps(pubs_data)
+json_data = json.dumps(publications)
 with open('citations.json', 'w') as f:
-    json.dump(pubs_data, f)
+    json.dump(publications, f)
 
 # Read the HTML template
 html_template = """
