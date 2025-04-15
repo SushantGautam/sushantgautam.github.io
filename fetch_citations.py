@@ -73,7 +73,8 @@ html_template = """
             <li class="list-group-item">
               <a href="${url}" target="_blank"><strong>${toTitle(p.bib.title)}</strong></a>
               ${p.num_citations > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}
-              ${p.bib.author ? `<br><em>${p.bib.author}</em>` : ""}<em><br>${p.bib.citation}</em>
+              ${p.bib.author ? `<br><em>${p.bib.author}</em>` : ""}
+              <br><em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}"${p.bib.citation}</a></em>
             </li>`;
             }).join("");
         };
