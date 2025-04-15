@@ -29,6 +29,8 @@ for pub in publications:
     })
 
 json_data = json.dumps(pubs_data)
+with open('citations.json', 'w') as f:
+    json.dump(pubs_data, f)
 
 # Read the HTML template
 html_template = """
