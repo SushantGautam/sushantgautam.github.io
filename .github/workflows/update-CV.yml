@@ -11,9 +11,9 @@ jobs:
     - name: Checkout THIS repository
       uses: actions/checkout@v4
 
-    - name: Clone CV source from external repository
+    - name: Clone CV source
       run: |
-        git clone https://github.com/SushantGautam/Sushant-Gautam-CV.git cv-source
+        git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git cv-source
         cp cv-source/* .
 
     - name: Build inside TeXLive container
