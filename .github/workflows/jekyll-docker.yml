@@ -1,0 +1,38 @@
+name: Build and Deploy CV (from external repo)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout THIS repository
+      uses: actions/checkout@v4
+
+    - name: Clone CV source from external repository
+      run: |
+        git clone https://github.com/SushantGautam/Sushant-Gautam-CV.git cv-source
+        cp cv-source/* .
+
+    - name: Build inside TeXLive container
+      uses: addnab/docker-run-action@v3
+      with:
+        image: texlive/texlive:latest
+        options: -v ${{ github.workspace }}:/workspace
+        run: |
+          cd /workspace
+          pdflatex main.tex
+          pdflatex main.tex
+          pandoc main.tex -s -o resume.html --metadata title="Sushant Gautam"
+
+    - name: Commit and Push Generated Files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add resume.html main.pdf
+        git commit -m "Auto-generate resume.html and main.pdf [skip ci]" || echo "No changes to commit"
+        git push
