@@ -13,7 +13,7 @@ jobs:
 
     - name: Clone CV source
       run: |
-        git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git cv-source
+        git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git cv-source
         cp cv-source/* .
 
     - name: Build inside TeXLive container
