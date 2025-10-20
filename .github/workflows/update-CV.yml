@@ -20,15 +20,46 @@ jobs:
           git --version
           latexmk -v || true
 
-      - name: Install CTeX (ctex) + dependencies with tlmgr
+      - name: Install CTeX and deps via tlmgr (resilient mirrors)
+        shell: bash
         run: |
-          # Make sure tlmgr talks to CTAN and is up to date
-          tlmgr option repository ctan
-          tlmgr update --self --all
-          # Install the CTeX stack + common deps/fonts used by resumex-style CVs
-          tlmgr install ctex xeCJK fandol zhnumber xecjkfntef cjkutf8
-          # sanity checks
-          kpsewhich ctexbook.cls || (echo "ctexbook.cls missing after tlmgr install" && exit 1)
+          set -euo pipefail
+      
+          # Try a few good mirrors; start with the meta-mirror that auto-redirects
+          MIRRORS=(
+            "http://mirror.ctan.org/systems/texlive/tlnet"
+            "https://ctan.math.illinois.edu/systems/texlive/tlnet"
+            "https://mirrors.dotsrc.org/ctan/systems/texlive/tlnet"
+            "https://mirror.kumi.systems/ctan/systems/texlive/tlnet"
+          )
+      
+          ok=0
+          for m in "${MIRRORS[@]}"; do
+            echo "::group::Trying TeX Live mirror: $m"
+            tlmgr option repository "$m" || true
+      
+            # Update tlmgr itself; if the mirror is slightly behind, don't fail the job
+            tlmgr update --self || true
+      
+            # Install the packages we need; if this mirror fails, try the next one
+            if tlmgr install ctex xeCJK fandol zhnumber xecjkfntef cjkutf8; then
+              ok=1
+              echo "Installed CTeX from $m"
+              echo "::endgroup::"
+              break
+            fi
+            echo "::warning ::Failed on mirror $m; trying next..."
+            echo "::endgroup::"
+          done
+      
+          if [ "$ok" -ne 1 ]; then
+            echo "::error ::All CTAN mirrors failed for tlmgr install"
+            exit 1
+          fi
+      
+          # Sanity check
+          kpsewhich ctexbook.cls || (echo "::error ::ctexbook.cls missing after install" && exit 1)
+
 
       - name: Checkout THIS repository
         uses: actions/checkout@v4
