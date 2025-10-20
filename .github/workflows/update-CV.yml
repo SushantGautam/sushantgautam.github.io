@@ -10,33 +10,44 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu  # Official image with Pandoc + TeX Live + XeLaTeX
+      image: texlive/texlive:2025  # close match to Overleaf (TL2025)
 
     steps:
-      - name: Install git (required by checkout + clone)
+      - name: Install git + pandoc (HTML optional)
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates
+          DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates pandoc
           git --version
+          xelatex --version | head -n1
+          latexmk --version || tlmgr install latexmk
 
       - name: Checkout THIS repository
         uses: actions/checkout@v4
 
       - name: Mark working directory as safe for git
-        run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Clone CV source (external repo)
         run: |
-          git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
+          git clone "https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git" source-repo
 
-      - name: Convert LaTeX to HTML
+      - name: Ensure XeLaTeX packages (fontspec etc.)
+        working-directory: source-repo
+        run: |
+          tlmgr update --self || true
+          tlmgr install xetex latexmk fontspec xunicode xltxtra unicode-math lm lmodern ifxetex ifluatex \
+                        geometry setspace etoolbox enumitem titlesec xcolor hyperref csquotes \
+                        microtype biblatex || true
+
+      - name: Build PDF with XeLaTeX (latexmk)
+        working-directory: source-repo
+        run: |
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error -pdf main.tex
+          cp main.pdf "$GITHUB_WORKSPACE/resume.pdf"
+
+      - name: Convert LaTeX to HTML (Pandoc)
         run: |
           pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
-
-      - name: Convert LaTeX to PDF (XeLaTeX)
-        run: |
-          pandoc source-repo/main.tex -o resume.pdf --pdf-engine=xelatex
 
       - name: Commit and Push Generated Files
         env:
@@ -45,6 +56,6 @@ jobs:
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
-          git add resume.html resume.pdf
-          git commit -m "Auto-generate resume.html and resume.pdf [skip ci]" || echo "No changes to commit"
+          git add resume.pdf resume.html
+          git commit -m "Auto-generate resume (TL2025 XeLaTeX) + HTML [skip ci]" || echo "No changes to commit"
           git push
