@@ -10,68 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu  # TeX Live from TUG; tlmgr available
+      image: quay.io/sharelatex/texlive-full:2023.1  # Full TeX Live + XeLaTeX + git + latexmk
 
     steps:
-      - name: Ensure git + latexmk exist
-        shell: bash
-        run: |
-          set -e
-          if ! command -v git >/dev/null 2>&1; then
-            echo "Installing git..."
-            apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates
-          else
-            echo "git already installed: $(git --version)"
-          fi
-
-          if ! command -v latexmk >/dev/null 2>&1; then
-            echo "Installing latexmk..."
-            apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y latexmk
-          else
-            echo "latexmk already installed: $(latexmk -v | head -n1)"
-          fi
-
-      - name: Install CTeX and deps via tlmgr (resilient mirrors)
-        shell: bash
-        run: |
-          set -euo pipefail
-      
-          # Try a few good mirrors; start with the meta-mirror that auto-redirects
-          MIRRORS=(
-            "http://mirror.ctan.org/systems/texlive/tlnet"
-            "https://ctan.math.illinois.edu/systems/texlive/tlnet"
-            "https://mirrors.dotsrc.org/ctan/systems/texlive/tlnet"
-            "https://mirror.kumi.systems/ctan/systems/texlive/tlnet"
-          )
-      
-          ok=0
-          for m in "${MIRRORS[@]}"; do
-            echo "::group::Trying TeX Live mirror: $m"
-            tlmgr option repository "$m" || true
-      
-            # Update tlmgr itself; if the mirror is slightly behind, don't fail the job
-            tlmgr update --self || true
-      
-            # Install the packages we need; if this mirror fails, try the next one
-            if tlmgr install ctex xeCJK fandol zhnumber xecjkfntef cjkutf8; then
-              ok=1
-              echo "Installed CTeX from $m"
-              echo "::endgroup::"
-              break
-            fi
-            echo "::warning ::Failed on mirror $m; trying next..."
-            echo "::endgroup::"
-          done
-      
-          if [ "$ok" -ne 1 ]; then
-            echo "::error ::All CTAN mirrors failed for tlmgr install"
-            exit 1
-          fi
-      
-          # Sanity check
-          kpsewhich ctexbook.cls || (echo "::error ::ctexbook.cls missing after install" && exit 1)
-
-
       - name: Checkout THIS repository
         uses: actions/checkout@v4
 
@@ -82,11 +23,9 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
 
-      # Optional: HTML via Pandoc
       - name: Convert LaTeX to HTML
         run: pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
 
-      # PDF via XeLaTeX to match Overleaf output
       - name: Build PDF with XeLaTeX (latexmk)
         working-directory: source-repo
         run: |
