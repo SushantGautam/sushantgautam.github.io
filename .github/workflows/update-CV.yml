@@ -10,17 +10,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu  # TeX Live + xelatex + pandoc
+      image: pandoc/latex:latest-ubuntu
 
     steps:
-      - name: Install git + latexmk (and basic fonts)
+      - name: Install git + latexmk + CTeX + fonts
         run: |
           apt-get update
           DEBIAN_FRONTEND=noninteractive apt-get install -y \
             git ca-certificates latexmk \
-            fonts-noto fonts-noto-mono fonts-noto-unhinted || true
-          git --version
-          latexmk -v || true
+            texlive-lang-chinese \
+            texlive-fonts-extra \
+            fonts-noto-cjk \
+            fonts-noto-emoji
+          # sanity check: confirm ctex is present
+          kpsewhich ctexbook.cls || (echo "ctexbook.cls still missing" && exit 1)
 
       - name: Checkout THIS repository
         uses: actions/checkout@v4
@@ -32,16 +35,15 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
 
-      # HTML via Pandoc (fine to keep)
+      # (Optional) HTML via Pandoc
       - name: Convert LaTeX to HTML
         run: pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
 
-      # PDF via XeLaTeX directly to match Overleaf
+      # PDF with XeLaTeX to match Overleaf
       - name: Build PDF with XeLaTeX (latexmk)
         working-directory: source-repo
         run: |
-          # If your doc needs shell-escape, keep the flag; otherwise remove it.
-          latexmk -xelatex -interaction=nonstopmode -halt-on-error -shell-escape main.tex
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
           cp main.pdf "$GITHUB_WORKSPACE/resume.pdf"
 
       - name: Commit and Push Generated Files
