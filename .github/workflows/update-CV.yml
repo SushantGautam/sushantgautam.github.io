@@ -13,12 +13,23 @@ jobs:
       image: pandoc/latex:latest-ubuntu  # TeX Live from TUG; tlmgr available
 
     steps:
-      - name: Install git + latexmk (OS pkgs)
+      - name: Ensure git + latexmk exist
+        shell: bash
         run: |
-          apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates latexmk
-          git --version
-          latexmk -v || true
+          set -e
+          if ! command -v git >/dev/null 2>&1; then
+            echo "Installing git..."
+            apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates
+          else
+            echo "git already installed: $(git --version)"
+          fi
+
+          if ! command -v latexmk >/dev/null 2>&1; then
+            echo "Installing latexmk..."
+            apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y latexmk
+          else
+            echo "latexmk already installed: $(latexmk -v | head -n1)"
+          fi
 
       - name: Install CTeX and deps via tlmgr (resilient mirrors)
         shell: bash
