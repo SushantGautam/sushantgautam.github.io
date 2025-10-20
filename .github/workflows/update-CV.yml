@@ -10,20 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu  # includes TeX Live + xelatex
+      image: pandoc/latex:latest-ubuntu  # TeX Live from TUG; tlmgr available
 
     steps:
-      - name: Install git + latexmk + CTeX + fonts
+      - name: Install git + latexmk (OS pkgs)
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            git ca-certificates latexmk \
-            texlive-lang-chinese \
-            texlive-fonts-extra \
-            fonts-noto-cjk
-          # sanity check
-          kpsewhich ctexbook.cls || (echo "ctexbook.cls still missing" && exit 1)
+          DEBIAN_FRONTEND=noninteractive apt-get install -y git ca-certificates latexmk
           git --version
+          latexmk -v || true
+
+      - name: Install CTeX (ctex) + dependencies with tlmgr
+        run: |
+          # Make sure tlmgr talks to CTAN and is up to date
+          tlmgr option repository ctan
+          tlmgr update --self --all
+          # Install the CTeX stack + common deps/fonts used by resumex-style CVs
+          tlmgr install ctex xeCJK fandol zhnumber xecjkfntef cjkutf8
+          # sanity checks
+          kpsewhich ctexbook.cls || (echo "ctexbook.cls missing after tlmgr install" && exit 1)
 
       - name: Checkout THIS repository
         uses: actions/checkout@v4
@@ -35,9 +40,11 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
 
-      - name: Convert LaTeX to HTML (optional)
+      # Optional: HTML via Pandoc
+      - name: Convert LaTeX to HTML
         run: pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
 
+      # PDF via XeLaTeX to match Overleaf output
       - name: Build PDF with XeLaTeX (latexmk)
         working-directory: source-repo
         run: |
