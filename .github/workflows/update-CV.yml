@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest-ubuntu  # official image w/ LaTeX + xelatex
+      image: pandoc/latex:latest-ubuntu  # Official image with Pandoc + TeX Live + XeLaTeX
 
     steps:
       - name: Install git (required by checkout + clone)
@@ -21,6 +21,10 @@ jobs:
 
       - name: Checkout THIS repository
         uses: actions/checkout@v4
+
+      - name: Mark working directory as safe for git
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
 
       - name: Clone CV source (external repo)
         run: |
