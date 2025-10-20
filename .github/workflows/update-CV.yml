@@ -4,33 +4,60 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # allow pushing generated files
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: quay.io/sharelatex/texlive-full:2023.1  # Full TeX Live + XeLaTeX + git + latexmk
+      # Use the Docker Hub image for TeX Live
+      image: texlive/texlive:latest   # full TeX Live image from Docker Hub :contentReference[oaicite:1]{index=1}
 
     steps:
       - name: Checkout THIS repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Mark working directory as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Clone CV source (external repo)
+      - name: Install Pandoc (inside TeX Live container)
         run: |
-          git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
+          apt-get update
+          apt-get install -y --no-install-recommends pandoc
+          pandoc --version
 
-      - name: Convert LaTeX to HTML
-        run: pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
+      - name: Clone CV source (external repo)
+        env:
+          EXT_TOKEN: ${{ secrets.GH__TOKEN }}
+        run: |
+          test -n "$EXT_TOKEN" || { echo "❌ secrets.GH__TOKEN is missing"; exit 1; }
+          git clone --depth 1 "https://x-access-token:${EXT_TOKEN}@github.com/SushantGautam/Sushant-Gautam-CV.git" source-repo
 
       - name: Build PDF with XeLaTeX (latexmk)
         working-directory: source-repo
         run: |
           latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
           cp main.pdf "$GITHUB_WORKSPACE/resume.pdf"
+
+      - name: Convert LaTeX to HTML (Pandoc)
+        run: |
+          pandoc source-repo/main.tex \
+            -s \
+            -o resume.html \
+            --metadata title="Sushant Gautam"
+          test -f resume.html
+
+      - name: Upload artifacts (HTML + PDF)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-build
+          path: |
+            resume.pdf
+            resume.html
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Commit and Push Generated Files
         env:
@@ -39,6 +66,7 @@ jobs:
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
+          git status --porcelain
           git add resume.html resume.pdf
           git commit -m "Auto-generate resume.html and resume.pdf [skip ci]" || echo "No changes to commit"
           git push
