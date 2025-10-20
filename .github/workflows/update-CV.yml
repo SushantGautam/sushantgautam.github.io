@@ -4,15 +4,20 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # allow pushing to this repo
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: pandoc/latex:latest  # includes pandoc + TeX Live + LaTeX engines
+      image: pandoc/latex:latest  # has pandoc + TeX Live, but not git
 
     steps:
+      - name: Install git
+        run: |
+          apt-get update
+          apt-get install -y git ca-certificates
+
       - name: Checkout THIS repository
         uses: actions/checkout@v4
 
