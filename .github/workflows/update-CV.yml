@@ -3,31 +3,44 @@ name: Build and Deploy CV (from external repo)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write  # required to push back to this repo
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout THIS repository
-      uses: actions/checkout@v4
+      - name: Checkout THIS repository
+        uses: actions/checkout@v4
 
-    - name: Clone CV source
-      run: |
-        git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
-        
-    - name: Install pandoc
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y pandoc
+      - name: Clone CV source
+        run: |
+          git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
 
-    - name: Convert LaTeX to HTML
-      run: |
-        pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
+      - name: Install Pandoc and LaTeX engine
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc \
+                                  texlive-latex-base \
+                                  texlive-fonts-recommended \
+                                  texlive-latex-extra
 
-    - name: Commit and Push Generated Files
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add resume.html 
-        git commit -m "Auto-generate resume.html and main.pdf [skip ci]" || echo "No changes to commit"
-        git push
+      - name: Convert LaTeX to HTML
+        run: |
+          pandoc source-repo/main.tex -s -o resume.html --metadata title="Sushant Gautam"
+
+      - name: Convert LaTeX to PDF
+        run: |
+          pandoc source-repo/main.tex -o resume.pdf --pdf-engine=xelatex
+
+      - name: Commit and Push Generated Files
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+        run: |
+          git add resume.html resume.pdf
+          git commit -m "Auto-generate resume.html and resume.pdf [skip ci]" || echo "No changes to commit"
+          git push
