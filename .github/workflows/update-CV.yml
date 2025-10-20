@@ -4,11 +4,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # required to push back to this repo
+  contents: write  # allow pushing to this repo
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: pandoc/latex:latest  # includes pandoc + TeX Live + LaTeX engines
 
     steps:
       - name: Checkout THIS repository
@@ -17,14 +19,6 @@ jobs:
       - name: Clone CV source
         run: |
           git clone https://x-access-token:${{ secrets.GH__TOKEN }}@github.com/SushantGautam/Sushant-Gautam-CV.git source-repo
-
-      - name: Install Pandoc and LaTeX engine
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc \
-                                  texlive-latex-base \
-                                  texlive-fonts-recommended \
-                                  texlive-latex-extra
 
       - name: Convert LaTeX to HTML
         run: |
