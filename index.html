@@ -88,6 +88,16 @@
             margin-top: 20%;
         }
     </style>
+
+  <script>
+setTimeout(() => {
+  // redirect for users, not bots
+  if (!/bot|googlebot|crawler|spider|robot/i.test(navigator.userAgent)) {
+    window.location.href = "https://www.sushant.info.np/";
+  }
+}, 7000); // 7 seconds delay
+</script>
+
 </head>
 <body>
     <h1>You are being redirected to my homepage</h1>
