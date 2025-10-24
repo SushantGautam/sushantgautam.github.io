@@ -52,14 +52,43 @@ jobs:
 
       - name: Add EXIF/XMP metadata to PDF
         run: |
-          exiftool -overwrite_original \
-            -Title="Sushant Gautam – AI & Machine Learning Researcher Resume" \
-            -Author="Sushant Gautam" \
-            -Subject="Artificial Intelligence, Deep Learning, Research, Computer Vision" \
-            -Keywords="Sushant Gautam, AI Researcher, Machine Learning Engineer, Oslo, Simula" \
-            sushant-gautam-resume.pdf
-          # Validate the metadata was written
-          exiftool -Title -Author -Subject -Keywords sushant-gautam-resume.pdf
+            exiftool -overwrite_original \
+              -Title="Sushant Gautam – AI & Machine Learning Researcher Resume" \
+              -Author="Sushant Gautam" \
+              -Subject="Multimodal AI, Computer Vision, Medical Imaging, Sports Analytics" \
+              -Keywords="Sushant Gautam, AI Researcher, Machine Learning Engineer, Multimodal Learning, Computer Vision, Medical Imaging, Sports Analytics, Vision-Language Models, LLMs, Oslo, Simula" \
+              \
+              -Creator="Sushant Gautam" \
+              -Trapped=False \
+              \
+              -XMP-dc:Identifier="https://sushant.info.np" \
+              -XMP-dc:Language="en" \
+              -XMP-dc:Publisher="Simula Metropolitan Center for Digital Engineering" \
+              -XMP-dc:Coverage="Oslo, Norway" \
+              -XMP-dc:Format="application/pdf" \
+              -XMP-dc:Type="Text" \
+              -XMP-dc:Description="PhD student working on multimodal learning with applications in medical imaging and sports analytics." \
+              \
+              -XMP-xmpRights:Marked=True \
+              -XMP-xmpRights:UsageTerms="© Sushant Gautam. For hiring use only." \
+              -XMP-xmpRights:WebStatement="https://sushant.info.np" \
+              \
+              -XMP-iptcCore:CreatorWorkEmail="susant.gautam@gmail.com" \
+              -XMP-iptcCore:CreatorWorkURL="https://sushant.info.np" \
+              -XMP-iptcCore:CreatorCity="Oslo" \
+              -XMP-iptcCore:CreatorCountry="Norway" \
+              \
+              -XMP-xmp:CreatorTool="Automatically built from Overleaf source." \
+              sushant-gautam-resume.pdf
+            
+            # Validate (concise)
+            exiftool -Title -Author -Subject -Keywords -Creator \
+                     -XMP-dc:Identifier -XMP-dc:Language \
+                     -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
+                     -XMP-iptcCore:CreatorWorkEmail -XMP-iptcCore:CreatorWorkURL \
+                     -XMP-iptcCore:CreatorCity -XMP-iptcCore:CreatorCountry \
+                     sushant-gautam-resume.pdf
+
 
       - name: Upload artifacts (HTML + PDF)
         uses: actions/upload-artifact@v4
