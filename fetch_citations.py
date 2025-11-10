@@ -14,7 +14,7 @@ publications = author.get("publications", [])
 
 json_data = json.dumps(publications)
 with open('citations.json', 'w') as f:
-    json.dump(publications, f)
+    json.dump(publications, f, indent=4)
 
 # Read the HTML template
 html_template = """
