@@ -13,8 +13,10 @@ author = scholarly.fill(authorx, sections=["publications",])
 publications = author.get("publications", [])
 
 json_data = json.dumps(publications)
+
+publications_sorted = sorted(publications, key=lambda x: x.get("bib", {}).get("title", "").lower())
 with open('citations.json', 'w') as f:
-    json.dump(publications, f, indent=4)
+    json.dump(publications_sorted, f, indent=4)
 
 # Read the HTML template
 html_template = """
