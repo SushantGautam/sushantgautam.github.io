@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      # Use the Docker Hub image for TeX Live
       image: texlive/texlive:latest
 
     steps:
@@ -22,19 +21,20 @@ jobs:
       - name: Mark working directory as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Install Pandoc & ExifTool (inside TeX Live container)
+      - name: Install ExifTool (inside TeX Live container)
         run: |
           apt-get update
-          apt-get install -y --no-install-recommends pandoc libimage-exiftool-perl 
-          pandoc --version
+          apt-get install -y --no-install-recommends libimage-exiftool-perl
           exiftool -ver
+
       - name: Install icon fonts for XeLaTeX (tlmgr)
         run: |
           tlmgr update --self --all
-          tlmgr install collection-fontsrecommended   # Zapf Dingbats (pzdr)
-          tlmgr install collection-fontsextra         # Academicons, FA5, etc.
+          tlmgr install collection-fontsrecommended
+          tlmgr install collection-fontsextra
           tlmgr install fontawesome5 academicons pifont psnfss fontspec xetex
           fc-cache -f
+
       - name: Clone CV source (external repo)
         env:
           EXT_TOKEN: ${{ secrets.GH__TOKEN }}
@@ -48,65 +48,49 @@ jobs:
           latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
           cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
 
-      - name: Convert LaTeX to HTML (Pandoc)
-        run: |
-          pandoc source-repo/main.tex \
-            -s \
-            -o resume.html \
-            --metadata title="Sushant Gautam"
-          test -f resume.html
-
       - name: Add EXIF/XMP metadata to PDF
         run: |
-            exiftool -overwrite_original \
-              -Title="Sushant Gautam – AI & Machine Learning Researcher Resume" \
-              -Author="Sushant Gautam" \
-              -Subject="Multimodal AI, Computer Vision, Medical Imaging, Sports Analytics" \
-              -Keywords="Sushant Gautam, AI Researcher, Machine Learning Engineer, Multimodal Learning, Computer Vision, Medical Imaging, Sports Analytics, Vision-Language Models, LLMs, Oslo, Simula" \
-              \
-              -Creator="Sushant Gautam" \
-              -Trapped=False \
-              \
-              -XMP-dc:Identifier="https://sushant.info.np" \
-              -XMP-dc:Language="en" \
-              -XMP-dc:Publisher="Simula Metropolitan Center for Digital Engineering" \
-              -XMP-dc:Coverage="Oslo, Norway" \
-              -XMP-dc:Format="application/pdf" \
-              -XMP-dc:Type="Text" \
-              -XMP-dc:Description="PhD student working on multimodal learning with applications in medical imaging and sports analytics." \
-              \
-              -XMP-xmpRights:Marked=True \
-              -XMP-xmpRights:UsageTerms="© Sushant Gautam. For hiring use only." \
-              -XMP-xmpRights:WebStatement="https://sushantgautam.github.io/sushant-gautam-resume.pdf" \
-              \
-              -XMP-iptcCore:CreatorWorkEmail="susant.gautam@gmail.com" \
-              -XMP-iptcCore:CreatorWorkURL="https://sushant.info.np" \
-              -XMP-iptcCore:CreatorCity="Oslo" \
-              -XMP-iptcCore:CreatorCountry="Norway" \
-              \
-              -XMP-xmp:CreatorTool="Automatically built from Overleaf source." \
-              sushant-gautam-resume.pdf
-            
-            # Validate (concise)
-            exiftool -Title -Author -Subject -Keywords -Creator \
-                     -XMP-dc:Identifier -XMP-dc:Language \
-                     -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
-                     -XMP-iptcCore:CreatorWorkEmail -XMP-iptcCore:CreatorWorkURL \
-                     -XMP-iptcCore:CreatorCity -XMP-iptcCore:CreatorCountry \
-                     sushant-gautam-resume.pdf
+          exiftool -overwrite_original \
+            -Title="Sushant Gautam – AI & Machine Learning Researcher Resume" \
+            -Author="Sushant Gautam" \
+            -Subject="Multimodal AI, Computer Vision, Medical Imaging, Sports Analytics" \
+            -Keywords="Sushant Gautam, AI Researcher, Machine Learning Engineer, Multimodal Learning, Computer Vision, Medical Imaging, Sports Analytics, Vision-Language Models, LLMs, Oslo, Simula" \
+            -Creator="Sushant Gautam" \
+            -Trapped=False \
+            -XMP-dc:Identifier="https://sushant.info.np" \
+            -XMP-dc:Language="en" \
+            -XMP-dc:Publisher="Simula Metropolitan Center for Digital Engineering" \
+            -XMP-dc:Coverage="Oslo, Norway" \
+            -XMP-dc:Format="application/pdf" \
+            -XMP-dc:Type="Text" \
+            -XMP-dc:Description="PhD student working on multimodal learning with applications in medical imaging and sports analytics." \
+            -XMP-xmpRights:Marked=True \
+            -XMP-xmpRights:UsageTerms="© Sushant Gautam. For hiring use only." \
+            -XMP-xmpRights:WebStatement="https://sushantgautam.github.io/sushant-gautam-resume.pdf" \
+            -XMP-iptcCore:CreatorWorkEmail="susant.gautam@gmail.com" \
+            -XMP-iptcCore:CreatorWorkURL="https://sushant.info.np" \
+            -XMP-iptcCore:CreatorCity="Oslo" \
+            -XMP-iptcCore:CreatorCountry="Norway" \
+            -XMP-xmp:CreatorTool="Automatically built from Overleaf source." \
+            sushant-gautam-resume.pdf
 
+          # Validate (concise)
+          exiftool -Title -Author -Subject -Keywords -Creator \
+                   -XMP-dc:Identifier -XMP-dc:Language \
+                   -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
+                   -XMP-iptcCore:CreatorWorkEmail -XMP-iptcCore:CreatorWorkURL \
+                   -XMP-iptcCore:CreatorCity -XMP-iptcCore:CreatorCountry \
+                   sushant-gautam-resume.pdf
 
-      - name: Upload artifacts (HTML + PDF)
+      - name: Upload artifact (PDF only)
         uses: actions/upload-artifact@v4
         with:
-          name: resume-build
-          path: |
-            sushant-gautam-resume.pdf
-            resume.html
+          name: resume-pdf
+          path: sushant-gautam-resume.pdf
           if-no-files-found: error
           retention-days: 7
 
-      - name: Commit and Push Generated Files
+      - name: Commit and Push Generated PDF
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
           GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
@@ -114,6 +98,6 @@ jobs:
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
           git status --porcelain
-          git add resume.html sushant-gautam-resume.pdf
-          git commit -m "Auto-generate resume.html and sushant-gautam-resume.pdf [skip ci]" || echo "No changes to commit"
+          git add sushant-gautam-resume.pdf
+          git commit -m "Auto-generate sushant-gautam-resume.pdf [skip ci]" || echo "No changes to commit"
           git push
