@@ -6,6 +6,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: cv-build
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +18,7 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Mark working directory as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -23,32 +27,31 @@ jobs:
         env:
           EXT_TOKEN: ${{ secrets.GH__TOKEN }}
         run: |
-          test -n "$EXT_TOKEN" || { echo "❌ Missing secrets.GH__TOKEN"; exit 1; }
+          test -n "$EXT_TOKEN" || { echo "::error::Missing secrets.GH__TOKEN"; exit 1; }
           git clone --depth 1 "https://x-access-token:${EXT_TOKEN}@github.com/SushantGautam/Sushant-Gautam-CV.git" source-repo
 
-      # --------------------------------------------------------------
-      # Build PDF without container overhead using xu-cheng/texlive-action
-      # --------------------------------------------------------------
-
-      - name: Build PDF with LuaLaTeX (xu-cheng/texlive-action)
+      # Build inside a lightweight TeX Live action (with cache) to minimize runtime.
+      - name: Build PDF with LuaLaTeX (cached TeX Live)
         uses: xu-cheng/texlive-action@v2
         with:
-          scheme: full
+          # Use a small base scheme; tlmgr will fetch missing packages, and they’ll be cached.
+          scheme: small
+          cache: true
           run: |
+            set -euo pipefail
             cd source-repo
-            latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
+            latexmk -lualatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
             cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
 
-      # --------------------------------------------------------------
-
-      - name: Install ExifTool (only)
+      - name: Install ExifTool
         run: |
-          apt-get update
-          apt-get install -y --no-install-recommends libimage-exiftool-perl
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends exiftool
           exiftool -ver
 
       - name: Add EXIF/XMP metadata to PDF
         run: |
+          set -euo pipefail
           exiftool -overwrite_original \
             -Title="Sushant Gautam – AI & Machine Learning Researcher Resume" \
             -Author="Sushant Gautam" \
@@ -73,6 +76,7 @@ jobs:
             -XMP-xmp:CreatorTool="Automatically built via GitHub Actions" \
             sushant-gautam-resume.pdf
 
+          # Validation
           exiftool -Title -Author -Subject -Keywords -Creator \
                    -XMP-dc:Identifier -XMP-dc:Language \
                    -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
@@ -95,7 +99,11 @@ jobs:
           GIT_COMMITTER_NAME: github-actions[bot]
           GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
         run: |
-          git status --porcelain
-          git add sushant-gautam-resume.pdf
-          git commit -m "Auto-generate resume PDF (LuaLaTeX) [skip ci]" || echo "No changes to commit"
-          git push
+          set -euo pipefail
+          if ! git diff --quiet -- sushant-gautam-resume.pdf 2>/dev/null; then
+            git add sushant-gautam-resume.pdf
+            git commit -m "Auto-generate resume PDF (LuaLaTeX) [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
