@@ -25,9 +25,12 @@ jobs:
       - name: Install Pandoc & ExifTool (inside TeX Live container)
         run: |
           apt-get update
-          apt-get install -y --no-install-recommends pandoc libimage-exiftool-perl
+          apt-get install -y --no-install-recommends pandoc libimage-exiftool-perl 
           pandoc --version
           exiftool -ver
+      - name: Install icon fonts for XeLaTeX
+        run: |
+          apt-get install -y --no-install-recommends texlive-fonts-extra texlive-xetex
 
       - name: Clone CV source (external repo)
         env:
