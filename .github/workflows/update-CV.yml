@@ -34,9 +34,6 @@ jobs:
       - name: Build PDF with LuaLaTeX (cached TeX Live)
         uses: xu-cheng/texlive-action@v2
         with:
-          # Use a small base scheme; tlmgr will fetch missing packages, and they’ll be cached.
-          scheme: small
-          cache: true
           run: |
             set -euo pipefail
             cd source-repo
