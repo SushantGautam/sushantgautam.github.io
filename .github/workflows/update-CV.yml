@@ -9,8 +9,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: texlive/texlive:latest
 
     steps:
       - name: Checkout this repository
@@ -28,11 +26,20 @@ jobs:
           test -n "$EXT_TOKEN" || { echo "❌ Missing secrets.GH__TOKEN"; exit 1; }
           git clone --depth 1 "https://x-access-token:${EXT_TOKEN}@github.com/SushantGautam/Sushant-Gautam-CV.git" source-repo
 
-      - name: Build PDF with LuaLaTeX
-        working-directory: source-repo
-        run: |
-          latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
-          cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
+      # --------------------------------------------------------------
+      # Build PDF without container overhead using xu-cheng/texlive-action
+      # --------------------------------------------------------------
+
+      - name: Build PDF with LuaLaTeX (xu-cheng/texlive-action)
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            cd source-repo
+            latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
+            cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
+
+      # --------------------------------------------------------------
 
       - name: Install ExifTool (only)
         run: |
@@ -66,7 +73,6 @@ jobs:
             -XMP-xmp:CreatorTool="Automatically built via GitHub Actions" \
             sushant-gautam-resume.pdf
 
-          # Validation
           exiftool -Title -Author -Subject -Keywords -Creator \
                    -XMP-dc:Identifier -XMP-dc:Language \
                    -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
