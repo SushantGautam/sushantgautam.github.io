@@ -28,10 +28,13 @@ jobs:
           apt-get install -y --no-install-recommends pandoc libimage-exiftool-perl 
           pandoc --version
           exiftool -ver
-      - name: Install icon fonts for XeLaTeX
+      - name: Install icon fonts for XeLaTeX (tlmgr)
         run: |
-          apt-get install -y --no-install-recommends texlive-fonts-extra texlive-xetex
-
+          tlmgr update --self --all
+          tlmgr install collection-fontsrecommended   # Zapf Dingbats (pzdr)
+          tlmgr install collection-fontsextra         # Academicons, FA5, etc.
+          tlmgr install fontawesome5 academicons pifont psnfss fontspec xetex
+          fc-cache -f
       - name: Clone CV source (external repo)
         env:
           EXT_TOKEN: ${{ secrets.GH__TOKEN }}
