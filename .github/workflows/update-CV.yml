@@ -27,14 +27,6 @@ jobs:
           apt-get install -y --no-install-recommends libimage-exiftool-perl
           exiftool -ver
 
-      - name: Install XeLaTeX essentials + icon packages (tlmgr)
-        run: |
-          tlmgr update --self
-          tlmgr install xetex latexmk fontspec
-          tlmgr install fontawesome5 academicons
-          tlmgr install pifont
-          tlmgr install psnfss || true
-
       - name: Clone CV source (external repo)
         env:
           EXT_TOKEN: ${{ secrets.GH__TOKEN }}
