@@ -30,9 +30,9 @@ jobs:
       - name: Install icon fonts for XeLaTeX (tlmgr)
         run: |
           tlmgr update --self --all
-          tlmgr install collection-fontsrecommended
-          tlmgr install collection-fontsextra
-          tlmgr install fontawesome5 academicons pifont psnfss fontspec xetex
+          tlmgr install collection-fontsrecommended   # Zapf Dingbats (pzdr), etc.
+          tlmgr install collection-fontsextra         # Academicons, FA5, etc.
+          tlmgr install fontawesome5 academicons psnfss fontspec xetex
           fc-cache -f
 
       - name: Clone CV source (external repo)
