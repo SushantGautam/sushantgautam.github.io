@@ -4,14 +4,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # allow pushing generated files
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: texlive/texlive:latest
 
     steps:
-      - name: Checkout THIS repository
+      - name: Checkout this repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -19,31 +21,24 @@ jobs:
       - name: Mark working directory as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Install ExifTool
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libimage-exiftool-perl
-          exiftool -ver
-
       - name: Clone CV source (external repo)
         env:
           EXT_TOKEN: ${{ secrets.GH__TOKEN }}
         run: |
-          test -n "$EXT_TOKEN" || { echo "❌ secrets.GH__TOKEN is missing"; exit 1; }
+          test -n "$EXT_TOKEN" || { echo "❌ Missing secrets.GH__TOKEN"; exit 1; }
           git clone --depth 1 "https://x-access-token:${EXT_TOKEN}@github.com/SushantGautam/Sushant-Gautam-CV.git" source-repo
 
-      - name: Build PDF with XeLaTeX (latexmk) via texlive-action
-        uses: xu-cheng/texlive-action@v2
-        with:
-          scheme: full
-          run: |
-            # Update Academicons ONLY (fix missing glyphs)
-            tlmgr update academicons
+      - name: Build PDF with LuaLaTeX
+        working-directory: source-repo
+        run: |
+          latexmk -lualatex -interaction=nonstopmode -halt-on-error main.tex
+          cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
 
-            # Build
-            cd source-repo
-            latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
-            cp main.pdf "$GITHUB_WORKSPACE/sushant-gautam-resume.pdf"
+      - name: Install ExifTool (only)
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends libimage-exiftool-perl
+          exiftool -ver
 
       - name: Add EXIF/XMP metadata to PDF
         run: |
@@ -60,7 +55,7 @@ jobs:
             -XMP-dc:Coverage="Oslo, Norway" \
             -XMP-dc:Format="application/pdf" \
             -XMP-dc:Type="Text" \
-            -XMP-dc:Description="PhD student working on multimodal learning with applications in medical imaging and sports analytics." \
+            -XMP-dc:Description="PhD student working on multimodal learning in medical imaging and sports analytics." \
             -XMP-xmpRights:Marked=True \
             -XMP-xmpRights:UsageTerms="© Sushant Gautam. For hiring use only." \
             -XMP-xmpRights:WebStatement="https://sushantgautam.github.io/sushant-gautam-resume.pdf" \
@@ -68,9 +63,10 @@ jobs:
             -XMP-iptcCore:CreatorWorkURL="https://sushant.info.np" \
             -XMP-iptcCore:CreatorCity="Oslo" \
             -XMP-iptcCore:CreatorCountry="Norway" \
-            -XMP-xmp:CreatorTool="Automatically built from Overleaf source." \
+            -XMP-xmp:CreatorTool="Automatically built via GitHub Actions" \
             sushant-gautam-resume.pdf
 
+          # Validation
           exiftool -Title -Author -Subject -Keywords -Creator \
                    -XMP-dc:Identifier -XMP-dc:Language \
                    -XMP-dc:Publisher -XMP-dc:Coverage -XMP-xmpRights:* \
@@ -78,7 +74,7 @@ jobs:
                    -XMP-iptcCore:CreatorCity -XMP-iptcCore:CreatorCountry \
                    sushant-gautam-resume.pdf
 
-      - name: Upload artifact (PDF only)
+      - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
@@ -86,7 +82,7 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Commit and Push Generated PDF
+      - name: Commit and Push PDF
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
           GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
@@ -95,5 +91,5 @@ jobs:
         run: |
           git status --porcelain
           git add sushant-gautam-resume.pdf
-          git commit -m "Auto-generate sushant-gautam-resume.pdf [skip ci]" || echo "No changes to commit"
+          git commit -m "Auto-generate resume PDF (LuaLaTeX) [skip ci]" || echo "No changes to commit"
           git push
