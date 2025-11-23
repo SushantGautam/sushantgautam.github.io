@@ -32,7 +32,7 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "AI-based sports highlight generation for social media",
+            "title": "AI-Based Sports Highlight Generation for Social Media",
             "pub_year": "2024",
             "citation": "Proceedings of the 3rd Mile-High Video Conference, 7-13, 2024"
         },
@@ -136,6 +136,23 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
+            "title": "Demo: Soccer Information Retrieval via Natural Queries using SoccerRAG",
+            "pub_year": "2024",
+            "citation": "2024 International Conference on Content-Based Multimedia Indexing (CBMI), 1-7, 2024"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
+        "num_citations": 6,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
+        "cites_id": [
+            "14059836908797980227",
+            "17343144849562763508"
+        ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
             "title": "Enhancing structured-data retrieval with graphrag: Soccer data case study",
             "pub_year": "2024",
             "citation": "arXiv preprint arXiv:2409.17580, 2024"
@@ -163,6 +180,18 @@
         "cites_id": [
             "14152010282732285598"
         ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "HEDGE: Hallucination Estimation via Dense Geometric Entropy for VQA with Vision-Language Models",
+            "pub_year": "2025",
+            "citation": "arXiv preprint arXiv:2511.12693, 2025"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:e5wmG9Sq2KIC",
+        "num_citations": 0
     },
     {
         "container_type": "Publication",
@@ -210,7 +239,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hFOr9nPyWt4C",
-        "num_citations": 9,
+        "num_citations": 11,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9034106780643941046,16934291058456833160",
         "cites_id": [
             "9034106780643941046",
@@ -227,7 +256,12 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 0
+        "num_citations": 4,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
+        "cites_id": [
+            "15349487002698236806",
+            "8918181203505947311"
+        ]
     },
     {
         "container_type": "Publication",
@@ -239,7 +273,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 26,
+        "num_citations": 33,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
             "14697964148878031877"
@@ -255,7 +289,11 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:IWHjjKOFINEC",
-        "num_citations": 0
+        "num_citations": 5,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12906389315703579252",
+        "cites_id": [
+            "12906389315703579252"
+        ]
     },
     {
         "container_type": "Publication",
@@ -348,7 +386,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:L8Ckcad2t8MC",
-        "num_citations": 1,
+        "num_citations": 2,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14301969766245621064",
         "cites_id": [
             "14301969766245621064"
@@ -364,9 +402,10 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:QIV2ME_5wuYC",
-        "num_citations": 1,
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15155644207586633761",
+        "num_citations": 7,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=38321581371502626,15155644207586633761",
         "cites_id": [
+            "38321581371502626",
             "15155644207586633761"
         ]
     },
@@ -406,7 +445,7 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "Soccer game summarization using audio commentary, metadata, and captions",
+            "title": "Soccer Game Summarization using Audio Commentary, Metadata, and Captions",
             "pub_year": "2022",
             "citation": "Proceedings of the 1st Workshop on User-centric Narrative Summarization of \u2026, 2022"
         },
@@ -417,18 +456,6 @@
         "cites_id": [
             "3669151806115340913"
         ]
-    },
-    {
-        "container_type": "Publication",
-        "source": "AUTHOR_PUBLICATION_ENTRY",
-        "bib": {
-            "title": "Soccer Information Retrieval via Natural Queries using SoccerRAG",
-            "pub_year": "2024",
-            "citation": "2024 International Conference on Content-Based Multimedia Indexing (CBMI), 1-5, 2024"
-        },
-        "filled": false,
-        "author_pub_id": "t3Iie8cAAAAJ:3fE2CSJIrl8C",
-        "num_citations": 0
     },
     {
         "container_type": "Publication",
@@ -450,7 +477,7 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "Soccer-graphrag: Applications of graphrag in soccer",
+            "title": "Soccer-GraphRAG: Applications of GraphRAG in Soccer",
             "pub_year": "2024",
             "citation": "International Workshop on Graph-Based Approaches in Information Retrieval, 1-10, 2024"
         },
@@ -492,22 +519,6 @@
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
             "14535664106504492751"
-        ]
-    },
-    {
-        "container_type": "Publication",
-        "source": "AUTHOR_PUBLICATION_ENTRY",
-        "bib": {
-            "title": "Soccerrag: Multimodal soccer information retrieval via natural queries",
-            "pub_year": "2024",
-            "citation": "2024 International Conference on Content-Based Multimedia Indexing (CBMI), 1-7, 2024"
-        },
-        "filled": false,
-        "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 6,
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227",
-        "cites_id": [
-            "14059836908797980227"
         ]
     },
     {
