@@ -66,7 +66,7 @@
         "bib": {
             "title": "Beyond Audio: Enhancing SoccerNet-Echoes with Multimodal Event Extraction Using LLMs",
             "pub_year": "2025",
-            "citation": "International Journal of Semantic Computing, 2025"
+            "citation": "International Journal of Semantic Computing, 1-25, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
@@ -82,7 +82,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:_FxGoFyzp5QC",
-        "num_citations": 20,
+        "num_citations": 22,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8278977087668232527",
         "cites_id": [
             "8278977087668232527"
@@ -142,7 +142,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 7,
+        "num_citations": 8,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -191,7 +191,11 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:e5wmG9Sq2KIC",
-        "num_citations": 0
+        "num_citations": 1,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6063754614833800149",
+        "cites_id": [
+            "6063754614833800149"
+        ]
     },
     {
         "container_type": "Publication",
@@ -227,7 +231,11 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:qxL8FJ1GzNcC",
-        "num_citations": 0
+        "num_citations": 1,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8759086640049940315",
+        "cites_id": [
+            "8759086640049940315"
+        ]
     },
     {
         "container_type": "Publication",
@@ -239,7 +247,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hFOr9nPyWt4C",
-        "num_citations": 12,
+        "num_citations": 13,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9034106780643941046,16934291058456833160",
         "cites_id": [
             "9034106780643941046",
@@ -317,7 +325,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:0EnyYjriUFMC",
-        "num_citations": 19,
+        "num_citations": 20,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16786986163287249223",
         "cites_id": [
             "16786986163287249223"
