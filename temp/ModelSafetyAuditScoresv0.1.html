@@ -26,7 +26,7 @@
     <h1>Model Safety Audit Scores v0.1</h1>
     </div>
     <div class="bg-light p-3 mb-4 rounded">
-    <div id="violin-plot" style="width:100%;height:90vh;"></div>
+    <div id="violin-plot" style="width:100%;min-height:600px;"></div>
     </div>
     <div class="bg-light p-3 mb-4 rounded">
     <h2>Scores Table</h2>
@@ -416,7 +416,8 @@
         var layout = {
             yaxis: { title: 'Score' },
             xaxis: { title: '', tickangle: -45 },
-            margin: { t: 60, b: 300 },
+            margin: { t: 60, b: 120 },
+            height: 850,
             legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.6, yanchor: 'top', bgcolor: 'white' },
             annotations: [
                 {
