@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Safety Audit Scores v0.1</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="bg-light p-3 mb-4 rounded">
+    <h1>Model Safety Audit Scores v0.1</h1>
+    </div>
+    <div class="bg-light p-3 mb-4 rounded">
+    <div id="violin-plot" style="width:100%;height:90vh;"></div>
+    </div>
+    <div class="bg-light p-3 mb-4 rounded">
+    <h2>Scores Table</h2>
+    <div class="table-responsive">
+    <table id="scores-table">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Average Score</th>
+                <th>Average Severity Distribution</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <tr>
+            <td>Apertus-8B-Instruct-2509</td>
+            <td>28.20</td>
+            <td>critical: 18.4, high: 9.1, medium: 1.1, pass: 7.1</td>
+        </tr>
+
+        <tr>
+            <td>EXAONE-3.5-7.8B-Instruct</td>
+            <td>0.84</td>
+            <td>critical: 35.4, medium: 0.6</td>
+        </tr>
+
+        <tr>
+            <td>EXAONE-Deep-7.8B</td>
+            <td>0.56</td>
+            <td>critical: 35.6</td>
+        </tr>
+
+        <tr>
+            <td>EuroLLM-9B</td>
+            <td>0.56</td>
+            <td>critical: 35.8</td>
+        </tr>
+
+        <tr>
+            <td>EuroLLM-9B-Instruct</td>
+            <td>6.72</td>
+            <td>critical: 30.5, high: 3.6, medium: 0.7, pass: 1.1</td>
+        </tr>
+
+        <tr>
+            <td>Falcon-H1-7B-Base</td>
+            <td>0.42</td>
+            <td>critical: 35.7, medium: 0.3</td>
+        </tr>
+
+        <tr>
+            <td>Falcon-H1-7B-Instruct</td>
+            <td>5.42</td>
+            <td>critical: 32.3, high: 0.2, medium: 3.2, pass: 0.3</td>
+        </tr>
+
+        <tr>
+            <td>Llama-3.1-8B</td>
+            <td>0.35</td>
+            <td>critical: 35.7</td>
+        </tr>
+
+        <tr>
+            <td>Llama-3.1-8B-Instruct</td>
+            <td>23.94</td>
+            <td>critical: 21.5, high: 7.1, medium: 1.0, pass: 6.2</td>
+        </tr>
+
+        <tr>
+            <td>Ministral-3-8B-Base-2512</td>
+            <td>1.89</td>
+            <td>critical: 34.2, high: 1.3</td>
+        </tr>
+
+        <tr>
+            <td>Ministral-3-8B-Instruct-2512</td>
+            <td>6.81</td>
+            <td>critical: 32.0, medium: 3.1</td>
+        </tr>
+
+        <tr>
+            <td>Qwen3-4B-Base</td>
+            <td>1.26</td>
+            <td>critical: 35.4, medium: 0.3</td>
+        </tr>
+
+        <tr>
+            <td>Qwen3-4B-Instruct-2507</td>
+            <td>26.74</td>
+            <td>critical: 24.7, high: 1.8, pass: 8.7</td>
+        </tr>
+
+        <tr>
+            <td>Qwen3-8B-Base</td>
+            <td>1.12</td>
+            <td>critical: 35.5</td>
+        </tr>
+
+        <tr>
+            <td>Qwen3-VL-8B-Instruct</td>
+            <td>32.35</td>
+            <td>critical: 22.8, high: 1.6, medium: 0.6, pass: 10.8</td>
+        </tr>
+
+        <tr>
+            <td>borealis-4b-instruct-preview</td>
+            <td>48.46</td>
+            <td>critical: 12.5, high: 7.5, pass: 15.1</td>
+        </tr>
+
+        <tr>
+            <td>gemma-3-4b-it</td>
+            <td>48.40</td>
+            <td>critical: 16.1, high: 2.9, medium: 0.6, pass: 16.4</td>
+        </tr>
+
+        <tr>
+            <td>gemma-3-4b-pt</td>
+            <td>1.23</td>
+            <td>critical: 35.25</td>
+        </tr>
+
+        <tr>
+            <td>granite-4.0-h-tiny</td>
+            <td>2.38</td>
+            <td>critical: 34.4, high: 0.8</td>
+        </tr>
+
+        <tr>
+            <td>granite-4.0-h-tiny-base</td>
+            <td>0.56</td>
+            <td>critical: 35.8</td>
+        </tr>
+
+        <tr>
+            <td>granite-4.0-tiny-base-preview</td>
+            <td>0.14</td>
+            <td>critical: 35.9</td>
+        </tr>
+
+        <tr>
+            <td>granite-4.0-tiny-preview</td>
+            <td>0.70</td>
+            <td>critical: 35.6</td>
+        </tr>
+
+        <tr>
+            <td>nb-notram-llama-3.1-8b-instruct</td>
+            <td>33.81</td>
+            <td>critical: 19.9, high: 4.5, medium: 1.0, pass: 10.4</td>
+        </tr>
+
+        <tr>
+            <td>normistral-7b-warm-instruct</td>
+            <td>19.67</td>
+            <td>critical: 24.4, high: 5.4, medium: 0.9, pass: 5.2</td>
+        </tr>
+
+        <tr>
+            <td>shisa-v2.1-qwen3-8b</td>
+            <td>28.87</td>
+            <td>critical: 23.0, high: 3.0, medium: 0.6, pass: 9.2</td>
+        </tr>
+
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <footer class="bg-light p-3 mb-4 rounded text-center mt-4">
+        <p>This page presents a safety evaluation of publicly available language models conducted by researchers at Simula Metropolitan Center for Digital Engineering.</p>
+        <p>For more information, see <a href="https://www.simula.no/about/news/safety-evaluation-language-models-norwegian-deployment">this news article</a>.</p>
+        <p>Models were tested in BF16 (full precision) using Norwegian-specific, multi-turn scenarios covering healthcare, legal and regulatory questions, public services, and crisis situations. The goal is to assess real-world deployment safety, not benchmark performance.</p>
+        <p>Violin plots show how safety scores are distributed across scenarios, revealing variability and outliers over 10 runs. Tables summarize each model's average safety score.</p>
+        <p>The safety score (0–100) is an average over all scenarios, where higher values indicate more consistently safe behavior. Results are intended to support informed deployment decisions and should be read as comparative evidence, not as guarantees of safe behavior in all settings.</p>
+        <p>Contact sushant@simula.no for more info.</p>
+        <p>&copy; 2026 <a href="https://www.simulamet.no/">SimulaMet</a></p>
+    </footer>
+    <script>
+        var scoresData = {"Qwen3-VL-8B-Instruct": [28.5, 24.3, 43.1, 32.6, 33.3, 33.3, 27.1, 31.2, 36.1, 34.0], "Ministral-3-8B-Instruct-2512": [4.2, 6.9, 5.6, 13.9, 1.4, 11.1, 5.6, 6.9, 9.7, 2.8], "Qwen3-4B-Instruct-2507": [20.1, 24.3, 27.1, 25.7, 28.5, 35.4, 30.6, 25.7, 21.5, 28.5], "Ministral-3-8B-Base-2512": [0.7, 1.4, 0.0, 2.8, 3.5, 0.0, 4.2, 4.9, 1.4, 0.0], "Qwen3-4B-Base": [1.4, 0.0, 1.4, 0.0, 1.4, 0.0, 5.6, 0.0, 0.0, 2.8], "Qwen3-8B-Base": [0.0, 1.4, 0.0, 4.2, 0.0, 0.0, 2.8, 0.0, 0.0, 2.8], "Llama-3.1-8B": [0.0, 0.0, 1.4, 0.0, 0.7, 1.4, 0.0, 0.0, 0.0, 0.0], "Llama-3.1-8B-Instruct": [16.0, 21.5, 19.4, 22.2, 20.8, 35.4, 33.3, 24.3, 20.8, 25.7], "granite-4.0-tiny-preview": [0.0, 0.0, 0.0, 0.0, 1.4, 0.0, 1.4, 0.0, 0.0, 4.2], "granite-4.0-h-tiny": [0.7, 2.8, 2.8, 0.7, 0.7, 2.8, 4.2, 4.9, 1.4, 2.8], "granite-4.0-tiny-base-preview": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.4, 0.0, 0.0], "granite-4.0-h-tiny-base": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.8, 0.0, 0.0, 2.8], "Falcon-H1-7B-Base": [1.4, 1.4, 0.0, 0.0, 0.0, 0.0, 0.0, 1.4, 0.0, 0.0], "Falcon-H1-7B-Instruct": [6.2, 5.6, 4.2, 8.3, 4.2, 4.2, 5.6, 7.6, 1.4, 6.9], "EXAONE-Deep-7.8B": [0.0, 0.0, 0.0, 1.4, 1.4, 1.4, 0.0, 0.0, 0.0, 1.4], "EXAONE-3.5-7.8B-Instruct": [1.4, 0.0, 4.2, 0.0, 0.0, 0.0, 1.4, 1.4, 0.0, 0.0], "shisa-v2.1-qwen3-8b": [25.0, 22.2, 31.9, 29.9, 33.3, 31.2, 22.2, 38.2, 31.9, 22.9], "EuroLLM-9B-Instruct": [5.6, 5.6, 7.6, 9.7, 7.6, 6.2, 5.6, 6.2, 6.2, 6.9], "EuroLLM-9B": [0.0, 0.0, 0.0, 2.8, 0.0, 0.0, 0.0, 0.0, 2.8, 0.0], "Apertus-8B-Instruct-2509": [27.8, 25.7, 30.6, 20.8, 36.8, 31.9, 28.5, 27.1, 25.7, 27.1], "normistral-7b-warm-instruct": [15.3, 11.8, 29.2, 17.4, 18.1, 14.6, 27.8, 23.6, 22.2, 16.7], "nb-notram-llama-3.1-8b-instruct": [44.4, 29.2, 31.9, 33.3, 38.9, 34.0, 30.6, 34.0, 29.9, 31.9], "borealis-4b-instruct-preview": [54.2, 33.3, 48.6, 45.8, 46.5, 52.1, 56.9, 49.3, 49.3, 48.6], "gemma-3-4b-it": [41.0, 45.1, 45.8, 50.7, 61.8, 47.9, 52.1, 46.5, 49.3, 43.8], "gemma-3-4b-pt": [0.0, 2.8, 4.2, 1.4, 0.0, 0.0, 1.4, 0.0]};
+        var data = [];
+        var models = Object.keys(scoresData).sort();
+        for (var i = 0; i < models.length; i++) {
+            var model = models[i];
+            data.push({
+                type: 'violin',
+                y: scoresData[model],
+                name: model,
+                box: { visible: true },
+                meanline: { visible: true }
+            });
+        }
+        var layout = {
+            yaxis: { title: 'Score' },
+            xaxis: { title: { text: 'Model', standoff: 120 }, tickangle: -45 },
+            margin: { b: 300 },
+            legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.3, yanchor: 'top' }
+        };
+        Plotly.newPlot('violin-plot', data, layout);
+        $(document).ready(function() {
+            $('#scores-table').DataTable({ pageLength: 100 });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+</body>
+</html>
