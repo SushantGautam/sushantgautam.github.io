@@ -54,7 +54,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:W7OEmFMy1HYC",
-        "num_citations": 20,
+        "num_citations": 21,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6550662659819212560",
         "cites_id": [
             "6550662659819212560"
@@ -82,7 +82,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:_FxGoFyzp5QC",
-        "num_citations": 22,
+        "num_citations": 23,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8278977087668232527",
         "cites_id": [
             "8278977087668232527"
@@ -142,7 +142,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 8,
+        "num_citations": 7,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -281,7 +281,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 34,
+        "num_citations": 35,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
             "14697964148878031877"
@@ -325,7 +325,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:0EnyYjriUFMC",
-        "num_citations": 20,
+        "num_citations": 21,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16786986163287249223",
         "cites_id": [
             "16786986163287249223"
@@ -459,7 +459,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Y0pCki6q_DkC",
-        "num_citations": 34,
+        "num_citations": 35,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3669151806115340913",
         "cites_id": [
             "3669151806115340913"
@@ -475,7 +475,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:LkGwnXOMwfcC",
-        "num_citations": 17,
+        "num_citations": 18,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2252379872870936916",
         "cites_id": [
             "2252379872870936916"
@@ -507,7 +507,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:7PzlFSSx8tAC",
-        "num_citations": 1,
+        "num_citations": 2,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5577454901734736224",
         "cites_id": [
             "5577454901734736224"
@@ -560,5 +560,17 @@
         "cites_id": [
             "18300955658900806957"
         ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "VideoHEDGE: Entropy-Based Hallucination Detection for Video-VLMs via Semantic Clustering and Spatiotemporal Perturbations",
+            "pub_year": "2026",
+            "citation": "arXiv preprint arXiv:2601.08557, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:_Qo2XoVZTnwC",
+        "num_citations": 0
     }
 ]
