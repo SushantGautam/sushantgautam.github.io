@@ -13,9 +13,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { padding: 0; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        /* Keep page padding minimal and avoid overriding DataTables default table/th/td styles */
+        .table-responsive { overflow-x: auto; }
+        /* Alignment notes truncation only targets the alignment column */
+        td.col-alignment { max-width: 28ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        /* On small screens, show all columns and allow horizontal scrolling to view them */
     </style>
 </head>
 <body>
@@ -29,164 +31,346 @@
     <div class="bg-light p-3 mb-4 rounded">
     <h2>Scores Table</h2>
     <div class="table-responsive">
-    <table id="scores-table">
+    <table id="scores-table" class="display">
         <thead>
             <tr>
-                <th>Model</th>
-                <th>Average Score</th>
-                <th>Average Severity Distribution</th>
+                <th class="col-model">Model</th>
+                <th class="col-org">Organization</th>
+                <th class="col-region">Region</th>
+                <th class="col-params">Params</th>
+                <th class="col-release">Release Date</th>
+                <th class="col-english">English Quality</th>
+                <th class="col-trained">Trained for Norwegian</th>
+                <th class="col-alignment">Alignment Notes</th>
+                <th class="col-score">Average Score</th>
+                <th class="col-dist">Average Severity Distribution</th>
             </tr>
         </thead>
         <tbody>
 
         <tr>
-            <td>Apertus-8B-Instruct-2509</td>
-            <td>28.20</td>
-            <td>critical: 18.4, high: 9.1, medium: 1.1, pass: 7.1</td>
+            <td class="col-model"><a href="https://huggingface.co/swiss-ai/Apertus-8B-Instruct-2509" title="swiss-ai/Apertus-8B-Instruct-2509" target="_blank" rel="noopener noreferrer">Apertus-8B-Instruct-2509</a></td>
+            <td class="col-org">Swiss AI Initiative</td>
+            <td class="col-region">🇨🇭 Switzerland</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2025-09-17</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="European multilingual instruction model">European multilingual instruction model</td>
+            <td class="col-score">28.20</td>
+            <td class="col-dist">critical: 18.4, high: 9.1, medium: 1.1, pass: 7.1</td>
         </tr>
 
         <tr>
-            <td>EXAONE-3.5-7.8B-Instruct</td>
-            <td>0.84</td>
-            <td>critical: 35.4, medium: 0.6</td>
+            <td class="col-model"><a href="https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct" title="LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct" target="_blank" rel="noopener noreferrer">EXAONE-3.5-7.8B-Instruct</a></td>
+            <td class="col-org">LG AI Research</td>
+            <td class="col-region">🇰🇷 South Korea</td>
+            <td class="col-params">7.8B</td>
+            <td class="col-release">2024-12-06</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Instruction tuned; English/Korean">Instruction tuned; English/Korean</td>
+            <td class="col-score">0.84</td>
+            <td class="col-dist">critical: 35.4, medium: 0.6</td>
         </tr>
 
         <tr>
-            <td>EXAONE-Deep-7.8B</td>
-            <td>0.56</td>
-            <td>critical: 35.6</td>
+            <td class="col-model"><a href="https://huggingface.co/LGAI-EXAONE/EXAONE-Deep-7.8B" title="LGAI-EXAONE/EXAONE-Deep-7.8B" target="_blank" rel="noopener noreferrer">EXAONE-Deep-7.8B</a></td>
+            <td class="col-org">LG AI Research</td>
+            <td class="col-region">🇰🇷 South Korea</td>
+            <td class="col-params">7.8B</td>
+            <td class="col-release">2025-03-16</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Reasoning-enhanced EXAONE Deep model">Reasoning-enhanced EXAONE Deep model</td>
+            <td class="col-score">0.56</td>
+            <td class="col-dist">critical: 35.6</td>
         </tr>
 
         <tr>
-            <td>EuroLLM-9B</td>
-            <td>0.56</td>
-            <td>critical: 35.8</td>
+            <td class="col-model"><a href="https://huggingface.co/utter-project/EuroLLM-9B" title="utter-project/EuroLLM-9B" target="_blank" rel="noopener noreferrer">EuroLLM-9B</a></td>
+            <td class="col-org">EuroLLM (EU-led consortium, utter-project)</td>
+            <td class="col-region">🇪🇺 Europe</td>
+            <td class="col-params">9B</td>
+            <td class="col-release">2024-12-02</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">Yes</td>
+            <td class="col-alignment" title="Base pretrained model; trained on all official EU languages including Norwegian (Bokmal and Nynorsk)">Base pretrained model; trained on all official EU languages including Norwegian (Bokmal and Nynorsk)</td>
+            <td class="col-score">0.56</td>
+            <td class="col-dist">critical: 35.8</td>
         </tr>
 
         <tr>
-            <td>EuroLLM-9B-Instruct</td>
-            <td>6.72</td>
-            <td>critical: 30.5, high: 3.6, medium: 0.7, pass: 1.1</td>
+            <td class="col-model"><a href="https://huggingface.co/utter-project/EuroLLM-9B-Instruct" title="utter-project/EuroLLM-9B-Instruct" target="_blank" rel="noopener noreferrer">EuroLLM-9B-Instruct</a></td>
+            <td class="col-org">EuroLLM (EU consortium)</td>
+            <td class="col-region">🇪🇺 Europe</td>
+            <td class="col-params">9B</td>
+            <td class="col-release">2024-12-02</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">Yes</td>
+            <td class="col-alignment" title="Trained on all EU languages including Norwegian">Trained on all EU languages including Norwegian</td>
+            <td class="col-score">6.72</td>
+            <td class="col-dist">critical: 30.5, high: 3.6, medium: 0.7, pass: 1.1</td>
         </tr>
 
         <tr>
-            <td>Falcon-H1-7B-Base</td>
-            <td>0.42</td>
-            <td>critical: 35.7, medium: 0.3</td>
+            <td class="col-model"><a href="https://huggingface.co/tiiuae/Falcon-H1-7B-Base" title="tiiuae/Falcon-H1-7B-Base" target="_blank" rel="noopener noreferrer">Falcon-H1-7B-Base</a></td>
+            <td class="col-org">Technology Innovation Institute (TII)</td>
+            <td class="col-region">🇦🇪 UAE</td>
+            <td class="col-params">7B</td>
+            <td class="col-release">2025-07-30</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Falcon-H1 base model">Falcon-H1 base model</td>
+            <td class="col-score">0.42</td>
+            <td class="col-dist">critical: 35.7, medium: 0.3</td>
         </tr>
 
         <tr>
-            <td>Falcon-H1-7B-Instruct</td>
-            <td>5.42</td>
-            <td>critical: 32.3, high: 0.2, medium: 3.2, pass: 0.3</td>
+            <td class="col-model"><a href="https://huggingface.co/tiiuae/Falcon-H1-7B-Instruct" title="tiiuae/Falcon-H1-7B-Instruct" target="_blank" rel="noopener noreferrer">Falcon-H1-7B-Instruct</a></td>
+            <td class="col-org">Technology Innovation Institute (TII)</td>
+            <td class="col-region">🇦🇪 UAE</td>
+            <td class="col-params">7B</td>
+            <td class="col-release">2025-07-30</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Falcon-H1 instruct model">Falcon-H1 instruct model</td>
+            <td class="col-score">5.42</td>
+            <td class="col-dist">critical: 32.3, high: 0.2, medium: 3.2, pass: 0.3</td>
         </tr>
 
         <tr>
-            <td>Llama-3.1-8B</td>
-            <td>0.35</td>
-            <td>critical: 35.7</td>
+            <td class="col-model"><a href="https://huggingface.co/meta-llama/Llama-3.1-8B" title="meta-llama/Llama-3.1-8B" target="_blank" rel="noopener noreferrer">Llama-3.1-8B</a></td>
+            <td class="col-org">Meta</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2024-07-23</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Foundation/base model">Foundation/base model</td>
+            <td class="col-score">0.35</td>
+            <td class="col-dist">critical: 35.7</td>
         </tr>
 
         <tr>
-            <td>Llama-3.1-8B-Instruct</td>
-            <td>23.94</td>
-            <td>critical: 21.5, high: 7.1, medium: 1.0, pass: 6.2</td>
+            <td class="col-model"><a href="https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct" title="meta-llama/Llama-3.1-8B-Instruct" target="_blank" rel="noopener noreferrer">Llama-3.1-8B-Instruct</a></td>
+            <td class="col-org">Meta</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2024-07-23</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Instruction-tuned Llama 3.1">Instruction-tuned Llama 3.1</td>
+            <td class="col-score">23.94</td>
+            <td class="col-dist">critical: 21.5, high: 7.1, medium: 1.0, pass: 6.2</td>
         </tr>
 
         <tr>
-            <td>Ministral-3-8B-Base-2512</td>
-            <td>1.89</td>
-            <td>critical: 34.2, high: 1.3</td>
+            <td class="col-model"><a href="https://huggingface.co/mistralai/Ministral-3-8B-Base-2512" title="mistralai/Ministral-3-8B-Base-2512" target="_blank" rel="noopener noreferrer">Ministral-3-8B-Base-2512</a></td>
+            <td class="col-org">Mistral AI</td>
+            <td class="col-region">🇫🇷 France</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2025-12-02</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Base pretrained; model card states vision capabilities">Base pretrained; model card states vision capabilities</td>
+            <td class="col-score">1.89</td>
+            <td class="col-dist">critical: 34.2, high: 1.3</td>
         </tr>
 
         <tr>
-            <td>Ministral-3-8B-Instruct-2512</td>
-            <td>6.81</td>
-            <td>critical: 32.0, medium: 3.1</td>
+            <td class="col-model"><a href="https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512" title="mistralai/Ministral-3-8B-Instruct-2512" target="_blank" rel="noopener noreferrer">Ministral-3-8B-Instruct-2512</a></td>
+            <td class="col-org">Mistral AI</td>
+            <td class="col-region">🇫🇷 France</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2025-12-02</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Instruction-tuned; model card states vision capabilities">Instruction-tuned; model card states vision capabilities</td>
+            <td class="col-score">6.81</td>
+            <td class="col-dist">critical: 32.0, medium: 3.1</td>
         </tr>
 
         <tr>
-            <td>Qwen3-4B-Base</td>
-            <td>1.26</td>
-            <td>critical: 35.4, medium: 0.3</td>
+            <td class="col-model"><a href="https://huggingface.co/Qwen/Qwen3-4B-Base" title="Qwen/Qwen3-4B-Base" target="_blank" rel="noopener noreferrer">Qwen3-4B-Base</a></td>
+            <td class="col-org">Alibaba Cloud (Qwen team)</td>
+            <td class="col-region">🇨🇳 China</td>
+            <td class="col-params">4B</td>
+            <td class="col-release">2025-05-14</td>
+            <td class="col-english">Very high</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Base pretrained model">Base pretrained model</td>
+            <td class="col-score">1.26</td>
+            <td class="col-dist">critical: 35.4, medium: 0.3</td>
         </tr>
 
         <tr>
-            <td>Qwen3-4B-Instruct-2507</td>
-            <td>26.74</td>
-            <td>critical: 24.7, high: 1.8, pass: 8.7</td>
+            <td class="col-model"><a href="https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507" title="Qwen/Qwen3-4B-Instruct-2507" target="_blank" rel="noopener noreferrer">Qwen3-4B-Instruct-2507</a></td>
+            <td class="col-org">Alibaba Cloud (Qwen team)</td>
+            <td class="col-region">🇨🇳 China</td>
+            <td class="col-params">4B</td>
+            <td class="col-release">2025-05-14</td>
+            <td class="col-english">Very high</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Instruction-tuned (non-thinking mode update, 2507)">Instruction-tuned (non-thinking mode update, 2507)</td>
+            <td class="col-score">26.74</td>
+            <td class="col-dist">critical: 24.7, high: 1.8, pass: 8.7</td>
         </tr>
 
         <tr>
-            <td>Qwen3-8B-Base</td>
-            <td>1.12</td>
-            <td>critical: 35.5</td>
+            <td class="col-model"><a href="https://huggingface.co/Qwen/Qwen3-8B-Base" title="Qwen/Qwen3-8B-Base" target="_blank" rel="noopener noreferrer">Qwen3-8B-Base</a></td>
+            <td class="col-org">Alibaba Cloud (Qwen team)</td>
+            <td class="col-region">🇨🇳 China</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2025-05-14</td>
+            <td class="col-english">Very high</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Base pretrained model">Base pretrained model</td>
+            <td class="col-score">1.12</td>
+            <td class="col-dist">critical: 35.5</td>
         </tr>
 
         <tr>
-            <td>Qwen3-VL-8B-Instruct</td>
-            <td>32.35</td>
-            <td>critical: 22.8, high: 1.6, medium: 0.6, pass: 10.8</td>
+            <td class="col-model"><a href="https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct" title="Qwen/Qwen3-VL-8B-Instruct" target="_blank" rel="noopener noreferrer">Qwen3-VL-8B-Instruct</a></td>
+            <td class="col-org">Alibaba Cloud (Qwen team)</td>
+            <td class="col-region">🇨🇳 China</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2025-10-15</td>
+            <td class="col-english">Very high</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Vision-language; instruction-tuned">Vision-language; instruction-tuned</td>
+            <td class="col-score">32.35</td>
+            <td class="col-dist">critical: 22.8, high: 1.6, medium: 0.6, pass: 10.8</td>
         </tr>
 
         <tr>
-            <td>borealis-4b-instruct-preview</td>
-            <td>48.46</td>
-            <td>critical: 12.5, high: 7.5, pass: 15.1</td>
+            <td class="col-model"><a href="https://huggingface.co/NbAiLab/borealis-4b-instruct-preview" title="NbAiLab/borealis-4b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-4b-instruct-preview</a></td>
+            <td class="col-org">NbAiLab</td>
+            <td class="col-region">🇳🇴 Norway</td>
+            <td class="col-params">4B</td>
+            <td class="col-release">2025-12-22</td>
+            <td class="col-english">Moderate</td>
+            <td class="col-trained">Yes</td>
+            <td class="col-alignment" title="Preview instruct model">Preview instruct model</td>
+            <td class="col-score">48.46</td>
+            <td class="col-dist">critical: 12.5, high: 7.5, pass: 15.1</td>
         </tr>
 
         <tr>
-            <td>gemma-3-4b-it</td>
-            <td>48.40</td>
-            <td>critical: 16.1, high: 2.9, medium: 0.6, pass: 16.4</td>
+            <td class="col-model"><a href="https://huggingface.co/google/gemma-3-4b-it" title="google/gemma-3-4b-it" target="_blank" rel="noopener noreferrer">gemma-3-4b-it</a></td>
+            <td class="col-org">Google</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">4B</td>
+            <td class="col-release">2025-03-01</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Instruction-tuned Gemma 3">Instruction-tuned Gemma 3</td>
+            <td class="col-score">48.40</td>
+            <td class="col-dist">critical: 16.1, high: 2.9, medium: 0.6, pass: 16.4</td>
         </tr>
 
         <tr>
-            <td>gemma-3-4b-pt</td>
-            <td>1.23</td>
-            <td>critical: 35.25</td>
+            <td class="col-model"><a href="https://huggingface.co/google/gemma-3-4b-pt" title="google/gemma-3-4b-pt" target="_blank" rel="noopener noreferrer">gemma-3-4b-pt</a></td>
+            <td class="col-org">Google</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">4B</td>
+            <td class="col-release">2025-03-01</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Base pretrained Gemma 3">Base pretrained Gemma 3</td>
+            <td class="col-score">1.23</td>
+            <td class="col-dist">critical: 35.25</td>
         </tr>
 
         <tr>
-            <td>granite-4.0-h-tiny</td>
-            <td>2.38</td>
-            <td>critical: 34.4, high: 0.8</td>
+            <td class="col-model"><a href="https://huggingface.co/ibm-granite/granite-4.0-h-tiny" title="ibm-granite/granite-4.0-h-tiny" target="_blank" rel="noopener noreferrer">granite-4.0-h-tiny</a></td>
+            <td class="col-org">IBM</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">Hybrid MoE (~7B total, ~1B active)</td>
+            <td class="col-release">2025-10-02</td>
+            <td class="col-english">Good</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Hybrid MoE instruct model">Hybrid MoE instruct model</td>
+            <td class="col-score">2.38</td>
+            <td class="col-dist">critical: 34.4, high: 0.8</td>
         </tr>
 
         <tr>
-            <td>granite-4.0-h-tiny-base</td>
-            <td>0.56</td>
-            <td>critical: 35.8</td>
+            <td class="col-model"><a href="https://huggingface.co/ibm-granite/granite-4.0-h-tiny-base" title="ibm-granite/granite-4.0-h-tiny-base" target="_blank" rel="noopener noreferrer">granite-4.0-h-tiny-base</a></td>
+            <td class="col-org">IBM</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">Hybrid MoE (~7B total)</td>
+            <td class="col-release">2025-10-02</td>
+            <td class="col-english">Moderate</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Base hybrid MoE variant">Base hybrid MoE variant</td>
+            <td class="col-score">0.56</td>
+            <td class="col-dist">critical: 35.8</td>
         </tr>
 
         <tr>
-            <td>granite-4.0-tiny-base-preview</td>
-            <td>0.14</td>
-            <td>critical: 35.9</td>
+            <td class="col-model"><a href="https://huggingface.co/ibm-granite/granite-4.0-tiny-base-preview" title="ibm-granite/granite-4.0-tiny-base-preview" target="_blank" rel="noopener noreferrer">granite-4.0-tiny-base-preview</a></td>
+            <td class="col-org">IBM</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">7B (hybrid MoE total)</td>
+            <td class="col-release">2025-05-02</td>
+            <td class="col-english">Moderate</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Preview base model">Preview base model</td>
+            <td class="col-score">0.14</td>
+            <td class="col-dist">critical: 35.9</td>
         </tr>
 
         <tr>
-            <td>granite-4.0-tiny-preview</td>
-            <td>0.70</td>
-            <td>critical: 35.6</td>
+            <td class="col-model"><a href="https://huggingface.co/ibm-granite/granite-4.0-tiny-preview" title="ibm-granite/granite-4.0-tiny-preview" target="_blank" rel="noopener noreferrer">granite-4.0-tiny-preview</a></td>
+            <td class="col-org">IBM</td>
+            <td class="col-region">🇺🇸 USA</td>
+            <td class="col-params">7B (hybrid MoE; ~1B active)</td>
+            <td class="col-release">2025-05-02</td>
+            <td class="col-english">Moderate</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Preview instruct model">Preview instruct model</td>
+            <td class="col-score">0.70</td>
+            <td class="col-dist">critical: 35.6</td>
         </tr>
 
         <tr>
-            <td>nb-notram-llama-3.1-8b-instruct</td>
-            <td>33.81</td>
-            <td>critical: 19.9, high: 4.5, medium: 1.0, pass: 10.4</td>
+            <td class="col-model"><a href="https://huggingface.co/NbAiLab/nb-notram-llama-3.1-8b-instruct" title="NbAiLab/nb-notram-llama-3.1-8b-instruct" target="_blank" rel="noopener noreferrer">nb-notram-llama-3.1-8b-instruct</a></td>
+            <td class="col-org">NbAiLab</td>
+            <td class="col-region">🇳🇴 Norway</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2026-01-09</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">Yes</td>
+            <td class="col-alignment" title="Explicit Norwegian Bokmal and Nynorsk fine-tuning">Explicit Norwegian Bokmal and Nynorsk fine-tuning</td>
+            <td class="col-score">33.81</td>
+            <td class="col-dist">critical: 19.9, high: 4.5, medium: 1.0, pass: 10.4</td>
         </tr>
 
         <tr>
-            <td>normistral-7b-warm-instruct</td>
-            <td>19.67</td>
-            <td>critical: 24.4, high: 5.4, medium: 0.9, pass: 5.2</td>
+            <td class="col-model"><a href="https://huggingface.co/norallm/normistral-7b-warm-instruct" title="norallm/normistral-7b-warm-instruct" target="_blank" rel="noopener noreferrer">normistral-7b-warm-instruct</a></td>
+            <td class="col-org">NORA.LLM</td>
+            <td class="col-region">🇳🇴 Norway</td>
+            <td class="col-params">7B</td>
+            <td class="col-release">2025-02-12</td>
+            <td class="col-english">Good</td>
+            <td class="col-trained">Yes</td>
+            <td class="col-alignment" title="Norwegian-focused warm-instruct fine-tune">Norwegian-focused warm-instruct fine-tune</td>
+            <td class="col-score">19.67</td>
+            <td class="col-dist">critical: 24.4, high: 5.4, medium: 0.9, pass: 5.2</td>
         </tr>
 
         <tr>
-            <td>shisa-v2.1-qwen3-8b</td>
-            <td>28.87</td>
-            <td>critical: 23.0, high: 3.0, medium: 0.6, pass: 9.2</td>
+            <td class="col-model"><a href="https://huggingface.co/shisa-ai/shisa-v2.1-qwen3-8b" title="shisa-ai/shisa-v2.1-qwen3-8b" target="_blank" rel="noopener noreferrer">shisa-v2.1-qwen3-8b</a></td>
+            <td class="col-org">Shisa AI</td>
+            <td class="col-region">🇯🇵 Japan</td>
+            <td class="col-params">8B</td>
+            <td class="col-release">2024-06-28</td>
+            <td class="col-english">High</td>
+            <td class="col-trained">No</td>
+            <td class="col-alignment" title="Japanese-focused fine-tune of Qwen3-8B">Japanese-focused fine-tune of Qwen3-8B</td>
+            <td class="col-score">28.87</td>
+            <td class="col-dist">critical: 23.0, high: 3.0, medium: 0.6, pass: 9.2</td>
         </tr>
 
         </tbody>
@@ -238,7 +422,7 @@
         };
         Plotly.newPlot('violin-plot', data, layout);
         $(document).ready(function() {
-            $('#scores-table').DataTable({ pageLength: 100 });
+            $('#scores-table').DataTable({ pageLength: 100, responsive: true, autoWidth: false });
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
