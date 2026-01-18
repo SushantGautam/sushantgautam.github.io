@@ -12,7 +12,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { padding: 20px; }
+        body { padding: 0; }
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
@@ -218,9 +218,23 @@
         }
         var layout = {
             yaxis: { title: 'Score' },
-            xaxis: { title: { text: 'Model', standoff: 120 }, tickangle: -45 },
-            margin: { b: 300 },
-            legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.3, yanchor: 'top' }
+            xaxis: { title: '', tickangle: -45 },
+            margin: { t: 60, b: 300 },
+            legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.6, yanchor: 'top', bgcolor: 'white' },
+            annotations: [
+                {
+                    x: 0.5,
+                    y: 1.0,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Models',
+                    showarrow: false,
+                    xanchor: 'center',
+                    yanchor: 'bottom',
+                    yshift: -8,
+                    font: { size: 14 }
+                }
+            ]
         };
         Plotly.newPlot('violin-plot', data, layout);
         $(document).ready(function() {
