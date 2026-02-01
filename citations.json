@@ -66,7 +66,7 @@
         "bib": {
             "title": "Beyond Audio: Enhancing SoccerNet-Echoes with Multimodal Event Extraction Using LLMs",
             "pub_year": "2025",
-            "citation": "International Journal of Semantic Computing, 1-25, 2025"
+            "citation": "International Journal of Semantic Computing 19 (04), 589-613, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
@@ -142,7 +142,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 7,
+        "num_citations": 8,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -207,7 +207,11 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:aqlVkmm33-oC",
-        "num_citations": 0
+        "num_citations": 1,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14146335014647719198",
+        "cites_id": [
+            "14146335014647719198"
+        ]
     },
     {
         "container_type": "Publication",
@@ -231,7 +235,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:qxL8FJ1GzNcC",
-        "num_citations": 1,
+        "num_citations": 2,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8759086640049940315",
         "cites_id": [
             "8759086640049940315"
@@ -281,7 +285,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 35,
+        "num_citations": 36,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
             "14697964148878031877"
@@ -325,7 +329,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:0EnyYjriUFMC",
-        "num_citations": 21,
+        "num_citations": 20,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16786986163287249223",
         "cites_id": [
             "16786986163287249223"
@@ -475,7 +479,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:LkGwnXOMwfcC",
-        "num_citations": 18,
+        "num_citations": 19,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2252379872870936916",
         "cites_id": [
             "2252379872870936916"
@@ -501,13 +505,13 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "SoccerChat: Integrating Multimodal Data for Enhanced Soccer Game Understanding",
+            "title": "Soccerchat: Integrating multimodal data for enhanced soccer game understanding",
             "pub_year": "2025",
-            "citation": "arXiv preprint arXiv:2505.16630, 2025"
+            "citation": "2025 International Conference on Content-Based Multimedia Indexing (CBMI), 1-8, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:7PzlFSSx8tAC",
-        "num_citations": 2,
+        "num_citations": 3,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5577454901734736224",
         "cites_id": [
             "5577454901734736224"
@@ -523,7 +527,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 9,
+        "num_citations": 11,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
             "14535664106504492751"
@@ -539,7 +543,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hqOjcs7Dif8C",
-        "num_citations": 2,
+        "num_citations": 3,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2910961138576519841",
         "cites_id": [
             "2910961138576519841"
