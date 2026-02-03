@@ -83,6 +83,27 @@
         </tr>
 
         <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+gemma-3-12b-it" title="gemma-3-12b-it" target="_blank" rel="noopener noreferrer">gemma-3-12b-it</a></td>
+            <td class="col-score">66.00</td>
+            <td class="col-dist">critical: 11.5, high: 1.0, pass: 23.5</td>
+            <td class="col-runtime">116</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+gemma-3-1b-it" title="gemma-3-1b-it" target="_blank" rel="noopener noreferrer">gemma-3-1b-it</a></td>
+            <td class="col-score">7.55</td>
+            <td class="col-dist">critical: 31.7, high: 1.5, medium: 0.7, pass: 1.7</td>
+            <td class="col-runtime">51</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+gemma-3-270m-it" title="gemma-3-270m-it" target="_blank" rel="noopener noreferrer">gemma-3-270m-it</a></td>
+            <td class="col-score">1.26</td>
+            <td class="col-dist">critical: 34.5, medium: 0.3</td>
+            <td class="col-runtime">31</td>
+        </tr>
+
+        <tr>
             <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+gemma-3-4b-it" title="gemma-3-4b-it" target="_blank" rel="noopener noreferrer">gemma-3-4b-it</a></td>
             <td class="col-score">48.40</td>
             <td class="col-dist">critical: 16.1, high: 2.9, medium: 0.6, pass: 16.4</td>
@@ -104,7 +125,7 @@
         <p>&copy; 2026 <a href="https://www.simulamet.no/">SimulaMet</a></p>
     </footer>
     <script>
-        var scoresData = {"borealis-4b-instruct-preview": [54.2, 33.3, 48.6, 45.8, 46.5, 52.1, 56.9, 49.3, 49.3, 48.6], "borealis-27b-instruct-preview": [61.8, 62.5, 59.7, 50.0, 75.0, 67.4, 65.3, 68.1, 56.9, 54.9], "borealis-270m-instruct-preview": [0.7, 3.5, 0.0, 0.0, 0.0, 0.0, 2.8, 2.8, 0.0, 2.8], "borealis-1b-instruct-preview": [16.7, 20.1, 16.7, 11.8, 11.8, 21.5, 19.4, 9.7, 15.3, 11.1], "borealis-12b-instruct-preview": [63.2, 58.3, 57.6, 59.0, 52.8, 66.0, 59.7, 61.1, 54.2, 51.4], "gemma-3-4b-it": [41.0, 45.1, 45.8, 50.7, 61.8, 47.9, 52.1, 46.5, 49.3, 43.8], "gpt-5-mini": [72.9, 78.5, 75.7, 76.4, 77.8, 82.6, 77.1, 77.1, 77.1, 75.7]};
+        var scoresData = {"borealis-4b-instruct-preview": [54.2, 33.3, 48.6, 45.8, 46.5, 52.1, 56.9, 49.3, 49.3, 48.6], "borealis-27b-instruct-preview": [61.8, 62.5, 59.7, 50.0, 75.0, 67.4, 65.3, 68.1, 56.9, 54.9], "borealis-270m-instruct-preview": [0.7, 3.5, 0.0, 0.0, 0.0, 0.0, 2.8, 2.8, 0.0, 2.8], "borealis-1b-instruct-preview": [16.7, 20.1, 16.7, 11.8, 11.8, 21.5, 19.4, 9.7, 15.3, 11.1], "borealis-12b-instruct-preview": [63.2, 58.3, 57.6, 59.0, 52.8, 66.0, 59.7, 61.1, 54.2, 51.4], "gemma-3-4b-it": [41.0, 45.1, 45.8, 50.7, 61.8, 47.9, 52.1, 46.5, 49.3, 43.8], "gpt-5-mini": [72.9, 78.5, 75.7, 76.4, 77.8, 82.6, 77.1, 77.1, 77.1, 75.7], "gemma-3-270m-it": [1.4, 0.0, 1.4, 1.4, 0.7, 1.4, 0.7, 1.4, 0.0, 4.2], "gemma-3-1b-it": [11.1, 9.0, 6.9, 8.3, 9.7, 6.2, 4.2, 7.6, 6.9, 5.6], "gemma-3-12b-it": [68.1, 63.9]};
         var data = [];
         var models = Object.keys(scoresData).sort();
         for (var i = 0; i < models.length; i++) {
