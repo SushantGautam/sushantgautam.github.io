@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Safety Audit for borealis-XX-instruct-preview models</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 0; }
+        /* Keep page padding minimal and avoid overriding DataTables default table/th/td styles */
+        .table-responsive { overflow-x: auto; }
+        /* On small screens, show all columns and allow horizontal scrolling to view them */
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Model Safety Audit for borealis-XX-instruct-preview models</h1>
+    <div class="bg-light p-3 mb-4 rounded">
+    <p>This page presents a safety evaluation of borealis-XX-instruct-preview models from Nasjonalbiblioteket AI Lab conducted by researchers at Simula and SimulaMet.</p>
+    <p>This evaluation focuses on health scenarios curated by Michael Rigler using QA material drawn from public-domain sources to reflect realistic, medically-relevant interactions.</p>
+    <p>See <a href="https://huggingface.co/models?search=NbAiLab/borealis" target="_blank" rel="noopener noreferrer">https://huggingface.co/models?search=NbAiLab/borealis</a> for model information.</p>
+    <p>For more information about the evaluation methodology, see <a href="https://www.simula.no/about/news/safety-evaluation-language-models-norwegian-deployment">this news article</a>.</p>
+    <p>Models were tested in BF16 using Norwegian-specific, multi-turn scenarios covering health situations. The goal is to assess real-world deployment safety, not benchmark performance. We have also audited the corresponding base models the Borealis variants were instruction-tuned from (for example, <code>google/gemma-3-XX-it</code>). We also include <code>gpt-4.1</code> as a commercial comparison baseline.</p>
+    <p>Plots show how safety scores are distributed across scenarios, revealing variability and outliers over 10 runs. Tables summarize each model's average safety score.</p>
+    <p>The safety score (0–100) is an average over all scenarios, where higher values indicate more consistently safe behavior. Results are intended to support informed deployment decisions and should be read as comparative evidence, not as guarantees of safe behavior in all settings.</p>
+<p>For more information, contact <a href="mailto:michael@simula.no">michael@simula.no</a>, <a href="mailto:klas@simula.no">klas@simula.no</a>, or <a href="mailto:sushant@simula.no">sushant@simula.no</a>.</p>
+    </div>
+    <div class="bg-light p-3 mb-4 rounded">
+    <div id="box-plot" style="width:100%;min-height:600px;"></div>
+    </div>
+    <div class="bg-light p-3 mb-4 rounded">
+    <h2>Scores Table</h2>
+    <div class="table-responsive">
+    <table id="scores-table" class="display">
+        <thead>
+            <tr>
+                <th class="col-model">Model</th>
+                <th class="col-score">Average Score</th>
+                <th class="col-dist">Average Severity Distribution</th>
+                <th class="col-runtime">Mean Runtime (s)</th>
+            </tr> 
+        </thead>
+        <tbody>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-1b-instruct-preview" title="borealis-1b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-1b-instruct-preview</a></td>
+            <td class="col-score">33.70</td>
+            <td class="col-dist">critical: 390.0, high: 335.0, low: 3.0, medium: 43.0, pass: 229.0</td>
+            <td class="col-runtime">517</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-270m-instruct-preview" title="borealis-270m-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-270m-instruct-preview</a></td>
+            <td class="col-score">2.90</td>
+            <td class="col-dist">critical: 886.0, high: 114.0</td>
+            <td class="col-runtime">500</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-27b-instruct-preview" title="borealis-27b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-27b-instruct-preview</a></td>
+            <td class="col-score">65.50</td>
+            <td class="col-dist">critical: 193.0, high: 187.0, low: 3.0, medium: 23.0, pass: 594.0</td>
+            <td class="col-runtime">923</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-4b-instruct-preview" title="borealis-4b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-4b-instruct-preview</a></td>
+            <td class="col-score">60.80</td>
+            <td class="col-dist">critical: 223.0, high: 209.0, low: 3.0, medium: 24.0, pass: 541.0</td>
+            <td class="col-runtime">755</td>
+        </tr>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+gpt-4.1-2025-04-14" title="gpt-4.1-2025-04-14" target="_blank" rel="noopener noreferrer">gpt-4.1-2025-04-14</a></td>
+            <td class="col-score">79.10</td>
+            <td class="col-dist">critical: 145.0, high: 80.0, low: 1.0, medium: 8.0, pass: 766.0</td>
+            <td class="col-runtime">1961</td>
+        </tr>
+
+        </tbody>
+    </table>
+    </div>
+    </div>
+    <footer class="bg-light p-3 mb-4 rounded text-center mt-4">
+        <p>&copy; 2026 <a href="https://www.simulamet.no/">SimulaMet</a></p>
+    </footer>
+    <script>
+        var scoresData = {"gpt-4.1-2025-04-14": [79.1], "borealis-4b-instruct-preview": [60.8], "borealis-27b-instruct-preview": [65.5], "borealis-270m-instruct-preview": [2.9], "borealis-1b-instruct-preview": [33.7]};
+        var data = [];
+        var models = Object.keys(scoresData).sort();
+        for (var i = 0; i < models.length; i++) {
+            var model = models[i];
+            data.push({
+                type: 'box',
+                y: scoresData[model],
+                name: model,
+                boxpoints: 'outliers',
+                boxmean: true,
+                marker: { size: 4 }
+            });
+        }
+        var layout = {
+            yaxis: { title: 'Score' },
+            xaxis: { title: '', tickangle: -45 },
+            margin: { t: 60, b: 120 },
+            height: 850,
+            legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.6, yanchor: 'top', bgcolor: 'white' },
+            annotations: [
+                {
+                    x: 0.5,
+                    y: 1.0,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: 'Models',
+                    showarrow: false,
+                    xanchor: 'center',
+                    yanchor: 'bottom',
+                    yshift: -8,
+                    font: { size: 14 }
+                }
+            ]
+        };
+        Plotly.newPlot('box-plot', data, layout);
+        $(document).ready(function() {
+            $('#scores-table').DataTable({ pageLength: 100, responsive: true, autoWidth: false });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+</body>
+</html>
