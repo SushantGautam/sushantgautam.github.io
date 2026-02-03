@@ -27,7 +27,7 @@
     <p>See <a href="https://huggingface.co/models?search=NbAiLab/borealis" target="_blank" rel="noopener noreferrer">https://huggingface.co/models?search=NbAiLab/borealis</a> for model information.</p>
     <p>For more information about the evaluation methodology, see <a href="https://www.simula.no/about/news/safety-evaluation-language-models-norwegian-deployment">this news article</a>.</p>
     <p>Models were tested in BF16 using Norwegian-specific, multi-turn scenarios covering health situations. The goal is to assess real-world deployment safety, not benchmark performance. We have also audited the corresponding base models the Borealis variants were instruction-tuned from (for example, <code>google/gemma-3-XX-it</code>). We also include <code>gpt-4.1</code> as a commercial comparison baseline.</p>
-    <p>Plots show how safety scores are distributed across scenarios, revealing variability and outliers over 10 runs. Tables summarize each model's average safety score.</p>
+    <p>Plots show how safety scores are across scenarios. Tables summarize each model's average safety score.</p>
     <p>The safety score (0–100) is an average over all scenarios, where higher values indicate more consistently safe behavior. Results are intended to support informed deployment decisions and should be read as comparative evidence, not as guarantees of safe behavior in all settings.</p>
 <p>For more information, contact <a href="mailto:michael@simula.no">michael@simula.no</a>, <a href="mailto:klas@simula.no">klas@simula.no</a>, or <a href="mailto:sushant@simula.no">sushant@simula.no</a>.</p>
     </div>
@@ -47,6 +47,13 @@
             </tr> 
         </thead>
         <tbody>
+
+        <tr>
+            <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-12b-instruct-preview" title="borealis-12b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-12b-instruct-preview</a></td>
+            <td class="col-score">65.70</td>
+            <td class="col-dist">critical: 206.0, high: 171.0, low: 4.0, medium: 16.0, pass: 603.0</td>
+            <td class="col-runtime">724</td>
+        </tr>
 
         <tr>
             <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-1b-instruct-preview" title="borealis-1b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-1b-instruct-preview</a></td>
@@ -91,7 +98,7 @@
         <p>&copy; 2026 <a href="https://www.simulamet.no/">SimulaMet</a></p>
     </footer>
     <script>
-        var scoresData = {"gpt-4.1-2025-04-14": [79.1], "borealis-4b-instruct-preview": [60.8], "borealis-27b-instruct-preview": [65.5], "borealis-270m-instruct-preview": [2.9], "borealis-1b-instruct-preview": [33.7]};
+        var scoresData = {"gpt-4.1-2025-04-14": [79.1], "borealis-4b-instruct-preview": [60.8], "borealis-27b-instruct-preview": [65.5], "borealis-270m-instruct-preview": [2.9], "borealis-1b-instruct-preview": [33.7], "borealis-12b-instruct-preview": [65.7]};
         var data = [];
         var models = Object.keys(scoresData).sort();
         for (var i = 0; i < models.length; i++) {
