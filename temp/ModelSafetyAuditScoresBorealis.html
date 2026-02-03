@@ -28,10 +28,10 @@
     <p>Models were tested in BF16 (full precision) using Norwegian-specific, multi-turn scenarios covering healthcare, legal and regulatory questions, public services, and crisis situations. The goal is to assess real-world deployment safety, not benchmark performance.</p>
     <p> Plots show how safety scores are distributed across scenarios, revealing variability and outliers over 10 runs. Tables summarize each model's average safety score.</p>
     <p>The safety score (0–100) is an average over all scenarios, where higher values indicate more consistently safe behavior. Results are intended to support informed deployment decisions and should be read as comparative evidence, not as guarantees of safe behavior in all settings.</p>
-<p>For more information, contact <a href="mailto:klas@simula.no">klas@simula.no</a>, <a href="mailto:michael@simula.no">michael@simula.no</a>, or <a href="mailto:sushant@simula.no">sushant@simula.no</a>.</p>
+<p>For more information, contact <a href="mailto:michael@simula.no">michael@simula.no</a>, <a href="mailto:klas@simula.no">klas@simula.no</a>, or <a href="mailto:sushant@simula.no">sushant@simula.no</a>.</p>
     </div>
     <div class="bg-light p-3 mb-4 rounded">
-    <div id="violin-plot" style="width:100%;min-height:600px;"></div>
+    <div id="box-plot" style="width:100%;min-height:600px;"></div>
     </div>
     <div class="bg-light p-3 mb-4 rounded">
     <h2>Scores Table</h2>
@@ -49,8 +49,8 @@
 
         <tr>
             <td class="col-model"><a href="https://duckduckgo.com/?q=!ducky+borealis-1b-instruct-preview" title="borealis-1b-instruct-preview" target="_blank" rel="noopener noreferrer">borealis-1b-instruct-preview</a></td>
-            <td class="col-score">15.89</td>
-            <td class="col-dist">critical: 26.33, high: 5.0, pass: 4.22</td>
+            <td class="col-score">15.41</td>
+            <td class="col-dist">critical: 26.6, high: 4.9, pass: 4.1</td>
             <td class="col-runtime">27</td>
         </tr>
 
@@ -83,17 +83,18 @@
         <p>&copy; 2026 <a href="https://www.simulamet.no/">SimulaMet</a></p>
     </footer>
     <script>
-        var scoresData = {"borealis-4b-instruct-preview": [54.2, 33.3, 48.6, 45.8, 46.5, 52.1, 56.9, 49.3, 49.3, 48.6], "borealis-27b-instruct-preview": [61.8, 62.5, 59.7, 50.0, 75.0, 67.4, 65.3, 68.1, 56.9, 54.9], "borealis-270m-instruct-preview": [0.7, 3.5, 0.0, 0.0, 0.0, 0.0, 2.8, 2.8, 0.0, 2.8], "borealis-1b-instruct-preview": [16.7, 20.1, 16.7, 11.8, 11.8, 21.5, 19.4, 9.7, 15.3]};
+        var scoresData = {"borealis-4b-instruct-preview": [54.2, 33.3, 48.6, 45.8, 46.5, 52.1, 56.9, 49.3, 49.3, 48.6], "borealis-27b-instruct-preview": [61.8, 62.5, 59.7, 50.0, 75.0, 67.4, 65.3, 68.1, 56.9, 54.9], "borealis-270m-instruct-preview": [0.7, 3.5, 0.0, 0.0, 0.0, 0.0, 2.8, 2.8, 0.0, 2.8], "borealis-1b-instruct-preview": [16.7, 20.1, 16.7, 11.8, 11.8, 21.5, 19.4, 9.7, 15.3, 11.1]};
         var data = [];
         var models = Object.keys(scoresData).sort();
         for (var i = 0; i < models.length; i++) {
             var model = models[i];
             data.push({
-                type: 'violin',
+                type: 'box',
                 y: scoresData[model],
                 name: model,
-                box: { visible: true },
-                meanline: { visible: true }
+                boxpoints: 'outliers',
+                boxmean: true,
+                marker: { size: 4 }
             });
         }
         var layout = {
@@ -117,7 +118,7 @@
                 }
             ]
         };
-        Plotly.newPlot('violin-plot', data, layout);
+        Plotly.newPlot('box-plot', data, layout);
         $(document).ready(function() {
             $('#scores-table').DataTable({ pageLength: 100, responsive: true, autoWidth: false });
         });
