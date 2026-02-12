@@ -164,7 +164,28 @@
         document.getElementById('search-input').addEventListener('input', handleFilter);
         document.getElementById('sort-select').addEventListener('change', handleFilter);
 
+        // Load default JSON on page load
+        loadDefaultJSON();
+
         // --- File Handling ---
+
+        function loadDefaultJSON() {
+            const defaultURL = 'https://sushantgautam.github.io/temp/audit_visualizer.html.example.json';
+            fetch(defaultURL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load default JSON');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    processData(data, 'audit_visualizer.html.example.json (default)');
+                })
+                .catch(error => {
+                    console.error('Error loading default JSON:', error);
+                    // Silently fail - user can still upload their own file
+                });
+        }
 
         function handleFileUpload(event) {
             const file = event.target.files[0];
