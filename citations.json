@@ -21,11 +21,27 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:YsMSGLbcyi4C",
-        "num_citations": 5,
+        "num_citations": 4,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5956504715244013678,13043283320329808571",
         "cites_id": [
             "5956504715244013678",
             "13043283320329808571"
+        ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "AI-based Soccer Game Summarization: From Video Highlights to Dynamic Text Summaries. Master's Thesis, Tribhuvan University",
+            "pub_year": "2022",
+            "citation": ""
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:4JMBOYKVnBMC",
+        "num_citations": 2,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12101746341273985725",
+        "cites_id": [
+            "12101746341273985725"
         ]
     },
     {
@@ -38,7 +54,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Se3iqnhoufwC",
-        "num_citations": 30,
+        "num_citations": 28,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16104442376848799462",
         "cites_id": [
             "16104442376848799462"
@@ -54,7 +70,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:W7OEmFMy1HYC",
-        "num_citations": 21,
+        "num_citations": 20,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6550662659819212560",
         "cites_id": [
             "6550662659819212560"
@@ -82,7 +98,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:_FxGoFyzp5QC",
-        "num_citations": 23,
+        "num_citations": 22,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8278977087668232527",
         "cites_id": [
             "8278977087668232527"
@@ -191,7 +207,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:e5wmG9Sq2KIC",
-        "num_citations": 1,
+        "num_citations": 2,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6063754614833800149",
         "cites_id": [
             "6063754614833800149"
@@ -207,7 +223,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:aqlVkmm33-oC",
-        "num_citations": 1,
+        "num_citations": 2,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14146335014647719198",
         "cites_id": [
             "14146335014647719198"
@@ -268,7 +284,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 6,
+        "num_citations": 7,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
         "cites_id": [
             "15349487002698236806",
@@ -285,7 +301,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 37,
+        "num_citations": 36,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
             "14697964148878031877"
@@ -392,7 +408,7 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "Point, Detect, Count: Multi-Task Medical Image Understanding with Instruction-Tuned Vision-Language Models",
+            "title": "Point, detect, count: Multi-task medical image understanding with instruction-tuned vision-language models",
             "pub_year": "2025",
             "citation": "2025 IEEE 38th International Symposium on Computer-Based Medical Systems \u2026, 2025"
         },
@@ -402,6 +418,22 @@
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14301969766245621064",
         "cites_id": [
             "14301969766245621064"
+        ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "Prompt to polyp: Clinically-aware medical image synthesis with diffusion models",
+            "pub_year": "2025",
+            "citation": "arXiv preprint arXiv:2505.05573, 2025"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:j3f4tGmQtD8C",
+        "num_citations": 3,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16204133775607122931",
+        "cites_id": [
+            "16204133775607122931"
         ]
     },
     {
@@ -463,7 +495,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Y0pCki6q_DkC",
-        "num_citations": 35,
+        "num_citations": 34,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3669151806115340913",
         "cites_id": [
             "3669151806115340913"
@@ -480,9 +512,10 @@
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:LkGwnXOMwfcC",
         "num_citations": 19,
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2252379872870936916",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2252379872870936916,4416096225620701267",
         "cites_id": [
-            "2252379872870936916"
+            "2252379872870936916",
+            "4416096225620701267"
         ]
     },
     {
@@ -521,13 +554,13 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "SoccerNet-Echoes: A Soccer game audio commentary dataset",
+            "title": "Soccernet-echoes: A soccer game audio commentary dataset",
             "pub_year": "2024",
             "citation": "2024 International Symposium on Multimedia (ISM), 71-78, 2024"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 11,
+        "num_citations": 12,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
             "14535664106504492751"
@@ -553,7 +586,7 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
-            "title": "The SoccerSum Dataset for Automated Detection, Segmentation, and Tracking of Objects on the Soccer Pitch",
+            "title": "The soccersum dataset for automated detection, segmentation, and tracking of objects on the soccer pitch",
             "pub_year": "2024",
             "citation": "Proceedings of the 15th ACM Multimedia Systems Conference, 353-359, 2024"
         },
