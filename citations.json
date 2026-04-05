@@ -54,7 +54,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Se3iqnhoufwC",
-        "num_citations": 30,
+        "num_citations": 31,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16104442376848799462",
         "cites_id": [
             "16104442376848799462"
@@ -158,7 +158,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 9,
+        "num_citations": 10,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -278,13 +278,37 @@
         "container_type": "Publication",
         "source": "AUTHOR_PUBLICATION_ENTRY",
         "bib": {
+            "title": "ImageCLEF 2026: Multimodal Challenges in Medicine, Science, Agritech, and Security",
+            "pub_year": "2026",
+            "citation": "European Conference on Information Retrieval, 336-344, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:iH-uZ7U-co4C",
+        "num_citations": 0
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "Knowledge-Guided Retrieval-Augmented Generation for Zero-Shot Psychiatric Data: Privacy Preserving Synthetic Data Generation",
+            "pub_year": "2026",
+            "citation": "arXiv preprint arXiv:2603.25186, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:r0BpntZqJG4C",
+        "num_citations": 0
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
             "title": "Kvasir-VQA-x1: A Multimodal Dataset for Medical Reasoning and Robust MedVQA in Gastrointestinal Endoscopy",
             "pub_year": "2025",
             "citation": "Data Engineering in Medical Imaging: Third MICCAI Workshop, DEMI 2025, Held \u2026, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 8,
+        "num_citations": 9,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
         "cites_id": [
             "15349487002698236806",
@@ -560,7 +584,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 15,
+        "num_citations": 16,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
             "14535664106504492751"
@@ -576,7 +600,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hqOjcs7Dif8C",
-        "num_citations": 4,
+        "num_citations": 5,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2910961138576519841",
         "cites_id": [
             "2910961138576519841"
@@ -592,7 +616,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:UebtZRa9Y70C",
-        "num_citations": 8,
+        "num_citations": 9,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18300955658900806957",
         "cites_id": [
             "18300955658900806957"
