@@ -54,7 +54,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Se3iqnhoufwC",
-        "num_citations": 31,
+        "num_citations": 33,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16104442376848799462",
         "cites_id": [
             "16104442376848799462"
@@ -86,7 +86,11 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
-        "num_citations": 0
+        "num_citations": 2,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17395010189774933035",
+        "cites_id": [
+            "17395010189774933035"
+        ]
     },
     {
         "container_type": "Publication",
@@ -158,7 +162,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 10,
+        "num_citations": 11,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -369,7 +373,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:0EnyYjriUFMC",
-        "num_citations": 23,
+        "num_citations": 24,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16786986163287249223",
         "cites_id": [
             "16786986163287249223"
@@ -519,7 +523,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Y0pCki6q_DkC",
-        "num_citations": 34,
+        "num_citations": 35,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3669151806115340913",
         "cites_id": [
             "3669151806115340913"
@@ -584,7 +588,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 16,
+        "num_citations": 17,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
             "14535664106504492751"
