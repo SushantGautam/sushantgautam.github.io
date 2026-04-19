@@ -162,7 +162,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 11,
+        "num_citations": 12,
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
             "14059836908797980227",
@@ -349,6 +349,23 @@
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12906389315703579252",
         "cites_id": [
             "12906389315703579252"
+        ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "Moltbook Observatory Archive: Datasets at Hugging Face",
+            "pub_year": "2026",
+            "citation": "https://huggingface.co/datasets/SimulaMet/moltbook-observatory-archive, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:bEWYMUwI8FkC",
+        "num_citations": 5,
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8517186440387545548,5642913237875567484",
+        "cites_id": [
+            "8517186440387545548",
+            "5642913237875567484"
         ]
     },
     {
@@ -625,6 +642,18 @@
         "cites_id": [
             "18300955658900806957"
         ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "AUTHOR_PUBLICATION_ENTRY",
+        "bib": {
+            "title": "Using Deep Generative-Based Machine and Ensemble Learning Framework for Predicting Ultimate Bending Capacity of Circular Steel Tubes",
+            "pub_year": "2026",
+            "citation": "Results in Engineering, 110464, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:isC4tDSrTZIC",
+        "num_citations": 0
     },
     {
         "container_type": "Publication",
