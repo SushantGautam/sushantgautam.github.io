@@ -121,18 +121,6 @@ tbody tr:hover td{background:#f8fafc}
 .ins-warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412}
 .ins-success{background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d}
 
-/* ── Recs table ── */
-.rec-wrap{border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-.rec-wrap table{width:100%;border-collapse:collapse;font-size:.83rem}
-.rec-wrap thead th{background:#1e293b;color:#fff;padding:10px 14px;text-align:left;font-weight:600}
-.rec-wrap tbody td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
-.rec-wrap tbody tr:last-child td{border-bottom:none}
-.rec-wrap .r-high{background:#fef2f2}
-.rec-wrap .r-med{background:#fffbeb}
-.rec-wrap .r-low{background:#f0fdf4}
-.pill{display:inline-block;padding:2px 9px;border-radius:10px;font-size:.72rem;font-weight:700}
-.p-h{background:#fee2e2;color:#dc2626}.p-m{background:#fef3c7;color:#d97706}.p-l{background:#d1fae5;color:#059669}
-
 /* ── Legend ── */
 .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
 .li{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted)}
@@ -415,26 +403,6 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
       <tbody id="table-body"></tbody>
     </table>
   </div>
-</section>
-
-<!-- ─── RECOMMENDATIONS ─── -->
-<section id="recs">
-  <h2>Recommendations</h2>
-  <div class="rec-wrap">
-    <table>
-      <thead><tr><th>Priority</th><th>Finding</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr class="r-high"><td><span class="pill p-h">High</span></td><td>Public sector gap: 53.5 vs 100.0</td><td>Expand aurora-sft with structured NAV/Skatteetaten/UDI/Lånekassen QA pairs; partner with Norwegian public agencies for task data</td></tr>
-        <tr class="r-high"><td><span class="pill p-h">High</span></td><td>Language quality below Gemma base</td><td>Add supervised grammar correction and dialect comprehension examples; review prompt-bake merge scaling (0.25 may be too aggressive)</td></tr>
-        <tr class="r-high"><td><span class="pill p-h">High</span></td><td>BullshitBench degradation</td><td>Incorporate domain-boundary refusal examples and hallucination-correction pairs into the aurora training recipe</td></tr>
-        <tr class="r-med"><td><span class="pill p-m">Medium</span></td><td>27-pt SOTA gap</td><td>Analyze failure clusters in Safety and Public Sector; generate DPO hard-negatives from current failure cases</td></tr>
-        <tr class="r-med"><td><span class="pill p-m">Medium</span></td><td>4b borealis ≈ instruct-preview (no improvement)</td><td>Review 4b-specific data mixing and learning rate; gains at 27b/12b did not transfer to 4b</td></tr>
-        <tr class="r-low"><td><span class="pill p-l">Low</span></td><td>1b/270m near-zero on safety</td><td>Document 12b as minimum deployment threshold for safety-sensitive NOR tasks; consider dropping 270m fine-tuning</td></tr>
-        <tr class="r-low"><td><span class="pill p-l">Low</span></td><td>Newspaper data (Kopinor) value</td><td>~10k newspaper tasks add +2.5 pts at 27b, concentrated in Safety/Healthcare formal register. Worth retaining, not the primary lever</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="margin-top:16px;font-size:.78rem;color:var(--muted)">Audit date: 2026-05-28 · Judge: Qwen/Qwen3.6-27B · 10 repetitions · Models: borealis, borealis-open, borealis-instruct-preview, gemma-3-it, gpt-5-mini</p>
 </section>
 
 </main>
