@@ -1,18 +1,81 @@
-from scholarly import scholarly
 import json
+import os
+import time
 
-# Fetch author's publications
-authorx = scholarly.search_author_id("t3Iie8cAAAAJ")
-author = scholarly.fill(authorx, sections=["publications"])
-publications = author.get("publications", [])
+import serpapi
 
-json_data = json.dumps(publications)
+AUTHOR_ID = "t3Iie8cAAAAJ"
+PAGE_SIZE = 100
+SERPAPI_API_KEY_ENV = "SERPAPI_API_KEY"
 
-publications_sorted = sorted(publications, key=lambda x: x.get("bib", {}).get("title", "").lower())
-with open("citations.json", "w") as f:
-    json.dump(publications_sorted, f, indent=4)
 
-html_template = """
+def fetch_author_publications(author_id: str, api_key: str):
+    all_articles = []
+    start = 0
+
+    while True:
+        results = serpapi.search({
+            "engine": "google_scholar_author",
+            "author_id": author_id,
+            "hl": "en",
+            "num": PAGE_SIZE,
+            "start": start,
+            "api_key": api_key,
+        })
+
+        results = dict(results)
+
+        if "error" in results:
+            raise RuntimeError(results["error"])
+
+        articles = results.get("articles", [])
+        if not articles:
+            break
+
+        all_articles.extend(articles)
+        print(f"Fetched {len(articles)}; total = {len(all_articles)}")
+
+        if len(articles) < PAGE_SIZE:
+            break
+
+        start += PAGE_SIZE
+        time.sleep(1)
+
+    return all_articles
+
+
+def normalize_article(article: dict) -> dict:
+    cited_by = article.get("cited_by") or {}
+    citation_id = article.get("citation_id")
+    cited_by_link = cited_by.get("link")
+    cites_id = []
+
+    if cited_by_link and "cites=" in cited_by_link:
+        cites_part = cited_by_link.split("cites=", 1)[1].split("&", 1)[0]
+        cites_id = [item for item in cites_part.split(",") if item]
+
+    return {
+        "container_type": "Publication",
+        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
+        "bib": {
+            "title": article.get("title") or "",
+            "pub_year": str(article.get("year") or ""),
+            "author": article.get("authors") or "",
+            "citation": article.get("publication") or "",
+        },
+        "filled": False,
+        "author_pub_id": citation_id,
+        "num_citations": int(cited_by.get("value") or 0),
+        "pub_url": article.get("link"),
+        "citedby_url": cited_by_link,
+        "cites_id": cites_id,
+    }
+
+
+def build_html(publications: list[dict]) -> str:
+    json_data = json.dumps(publications, ensure_ascii=False)
+
+    html_template = """
 <div class="container">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -61,8 +124,8 @@ html_template = """
 
         const render = sortBy => {
             publications.sort((a, b) => sortBy === "year"
-                ? b.bib.pub_year - a.bib.pub_year
-                : b.num_citations - a.num_citations);
+                ? Number(b.bib.pub_year || 0) - Number(a.bib.pub_year || 0)
+                : Number(b.num_citations || 0) - Number(a.num_citations || 0));
 
             list.innerHTML = publications.map(p => {
                 const url = p.pub_url || (p.cites_id?.length
@@ -71,9 +134,9 @@ html_template = """
                 return `
             <li class="list-group-item">
               <a href="${url}" target="_blank"><strong>${p.bib.title}</strong></a>
-              ${p.num_citations > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}<br>
+              ${Number(p.num_citations || 0) > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}<br>
               ${p.bib.author ? `<em>${p.bib.author.replace(/ and /g, ', ').replace(/Sushant Gautam/g, '<b>Sushant Gautam</b>')}</em><br>` : ""}
-              In <em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}">${p.bib.citation}</a></em>
+              ${p.bib.citation ? `In <em><a target="_blank" href="https://www.google.com/search?q=${encodeURIComponent(p.bib.citation)}">${p.bib.citation}</a></em>` : ""}
             </li>`;
             }).join("");
         };
@@ -89,6 +152,24 @@ html_template = """
 </script>
 """
 
-html_output = html_template.replace("REPLACEME", json_data)
-with open("citations.html", "w", encoding="utf-8") as f:
-    f.write(html_output)
+    return html_template.replace("REPLACEME", json_data)
+
+
+def main() -> None:
+    api_key = os.environ.get(SERPAPI_API_KEY_ENV)
+    if not api_key:
+        raise RuntimeError(f"Missing required environment variable: {SERPAPI_API_KEY_ENV}")
+
+    articles = fetch_author_publications(AUTHOR_ID, api_key)
+    publications = [normalize_article(article) for article in articles]
+    publications_sorted = sorted(publications, key=lambda x: x.get("bib", {}).get("title", "").lower())
+
+    with open("citations.json", "w", encoding="utf-8") as f:
+        json.dump(publications_sorted, f, indent=4, ensure_ascii=False)
+
+    with open("citations.html", "w", encoding="utf-8") as f:
+        f.write(build_html(publications))
+
+
+if __name__ == "__main__":
+    main()
