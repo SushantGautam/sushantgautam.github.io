@@ -95,12 +95,20 @@ def build_html(publications: list[dict]) -> str:
         }
 
         .list-group-item {
-            padding: 5px 10px;
+            padding: 6px 10px;
             border: none;
         }
 
         .form-check-input {
             transform: scale(0.8);
+        }
+
+        .citation-meta {
+            color: #555;
+        }
+
+        .citation-links small {
+            margin-right: 8px;
         }
     </style>
     <label>Sort by:</label>
@@ -122,21 +130,51 @@ def build_html(publications: list[dict]) -> str:
         const publications = REPLACEME;
         const list = document.getElementById("publication-list");
 
+        const escapeHtml = value => String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+        const safeUrl = value => {
+            const url = String(value || "");
+            return /^https?:\/\//i.test(url) ? url : "";
+        };
+
+        const highlightAuthor = authors => escapeHtml(authors)
+            .replace(/Sushant Gautam/g, "<b>Sushant Gautam</b>")
+            .replace(/S Gautam/g, "<b>S Gautam</b>");
+
         const render = sortBy => {
             publications.sort((a, b) => sortBy === "year"
                 ? Number(b.bib.pub_year || 0) - Number(a.bib.pub_year || 0)
                 : Number(b.num_citations || 0) - Number(a.num_citations || 0));
 
             list.innerHTML = publications.map(p => {
-                const url = p.pub_url || (p.cites_id?.length
-                    ? `https://scholar.google.com/scholar?cluster=${p.cites_id[0]}`
+                const title = escapeHtml(p.bib.title);
+                const year = escapeHtml(p.bib.pub_year);
+                const authors = highlightAuthor(p.bib.author);
+                const citation = escapeHtml(p.bib.citation);
+                const pubUrl = safeUrl(p.pub_url) || (p.cites_id?.length
+                    ? `https://scholar.google.com/scholar?cluster=${encodeURIComponent(p.cites_id[0])}`
                     : `https://www.google.com/search?q=${encodeURIComponent(p.bib.title)}`);
+                const citedByUrl = safeUrl(p.citedby_url);
+                const citations = Number(p.num_citations || 0);
+                const venueUrl = p.bib.citation
+                    ? `https://www.google.com/search?q=${encodeURIComponent(p.bib.citation)}`
+                    : "";
+
                 return `
             <li class="list-group-item">
-              <a href="${url}" target="_blank"><strong>${p.bib.title}</strong></a>
-              ${Number(p.num_citations || 0) > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}<br>
-              ${p.bib.author ? `<em>${p.bib.author.replace(/ and /g, ', ').replace(/Sushant Gautam/g, '<b>Sushant Gautam</b>')}</em><br>` : ""}
-              ${p.bib.citation ? `In <em><a target="_blank" href="https://www.google.com/search?q=${encodeURIComponent(p.bib.citation)}">${p.bib.citation}</a></em>` : ""}
+              <a href="${pubUrl}" target="_blank" rel="noopener noreferrer"><strong>${title}</strong></a>
+              ${year ? `<small class="citation-meta">(${year})</small>` : ""}<br>
+              ${authors ? `<em>${authors}</em><br>` : ""}
+              ${citation ? `<span class="citation-meta">In <em><a target="_blank" rel="noopener noreferrer" href="${venueUrl}">${citation}</a></em></span><br>` : ""}
+              <span class="citation-links">
+                ${citations > 0 ? `<small>${citedByUrl ? `<a target="_blank" rel="noopener noreferrer" href="${citedByUrl}">Cited by ${citations}</a>` : `Cited by ${citations}`}</small>` : ""}
+                ${pubUrl ? `<small><a target="_blank" rel="noopener noreferrer" href="${pubUrl}">Scholar record</a></small>` : ""}
+              </span>
             </li>`;
             }).join("");
         };
