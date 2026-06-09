@@ -20,7 +20,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install google-search-results
+          pip install serpapi
 
       - name: Run citation fetcher (with retry)
         env:
@@ -28,14 +28,18 @@ jobs:
         run: |
           for i in {1..5}; do
             echo "Attempt $i of 5..."
-            python fetch_citations.py && break || sleep 10
+            if python fetch_citations.py; then
+              exit 0
+            fi
+            sleep 10
           done
+          echo "Citation fetcher failed after 5 attempts"
+          exit 1
 
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add citations.html citations.json
-          git commit -m "Update citations.html citations.json"
+          git commit -m "Update citations.html citations.json" || echo "No citation changes to commit"
           git push
-        continue-on-error: true  # Avoid failure if no changes
