@@ -106,10 +106,6 @@ def build_html(publications: list[dict]) -> str:
         .citation-meta {
             color: #555;
         }
-
-        .citation-links small {
-            margin-right: 8px;
-        }
     </style>
     <label>Sort by:</label>
     <div class="form-check form-check-inline">
@@ -171,10 +167,7 @@ def build_html(publications: list[dict]) -> str:
               ${year ? `<small class="citation-meta">(${year})</small>` : ""}<br>
               ${authors ? `<em>${authors}</em><br>` : ""}
               ${citation ? `<span class="citation-meta">In <em><a target="_blank" rel="noopener noreferrer" href="${venueUrl}">${citation}</a></em></span><br>` : ""}
-              <span class="citation-links">
-                ${citations > 0 ? `<small>${citedByUrl ? `<a target="_blank" rel="noopener noreferrer" href="${citedByUrl}">Cited by ${citations}</a>` : `Cited by ${citations}`}</small>` : ""}
-                ${pubUrl ? `<small><a target="_blank" rel="noopener noreferrer" href="${pubUrl}">Scholar record</a></small>` : ""}
-              </span>
+              ${citations > 0 ? `<small>${citedByUrl ? `<a target="_blank" rel="noopener noreferrer" href="${citedByUrl}">Cited by ${citations}</a>` : `Cited by ${citations}`}</small>` : ""}
             </li>`;
             }).join("");
         };
