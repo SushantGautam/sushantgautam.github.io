@@ -42,7 +42,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 <script>
     async function initCitationsWidget() {
-        const response = await fetch("citations.json");
+        const response = await fetch("https://sushantgautam.github.io/citations.json");
         const publications = await response.json();
         const list = document.getElementById("publication-list");
 
