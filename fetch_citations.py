@@ -1,7 +1,6 @@
 from scholarly import ProxyGenerator
 from scholarly import scholarly
 import json
-import os
 
 pg = ProxyGenerator()
 pg.FreeProxies()
@@ -9,16 +8,15 @@ scholarly.use_proxy(pg)
 
 # Fetch author's publications
 authorx = scholarly.search_author_id("t3Iie8cAAAAJ")
-author = scholarly.fill(authorx, sections=["publications",])
+author = scholarly.fill(authorx, sections=["publications"])
 publications = author.get("publications", [])
 
 json_data = json.dumps(publications)
 
 publications_sorted = sorted(publications, key=lambda x: x.get("bib", {}).get("title", "").lower())
-with open('citations.json', 'w') as f:
+with open("citations.json", "w") as f:
     json.dump(publications_sorted, f, indent=4)
 
-# Read the HTML template
 html_template = """
 <div class="container">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -63,10 +61,8 @@ html_template = """
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 <script>
     function initCitationsWidget() {
-
         const publications = REPLACEME;
         const list = document.getElementById("publication-list");
-        const toTitle = str => str.replace(/\w\S*/g, t => t[0].toUpperCase() + t.slice(1).toLowerCase());
 
         const render = sortBy => {
             publications.sort((a, b) => sortBy === "year"
@@ -79,11 +75,10 @@ html_template = """
                     : `https://www.google.com/search?q=${encodeURIComponent(p.bib.title)}`);
                 return `
             <li class="list-group-item">
-              <a href="${url}" target="_blank"><strong>${toTitle(p.bib.title)}</strong></a>
+              <a href="${url}" target="_blank"><strong>${p.bib.title}</strong></a>
               ${p.num_citations > 2 ? `<small> - Cited by: ${p.num_citations}</small>` : ""}<br>
               ${p.bib.author ? `<em>${p.bib.author.replace(/ and /g, ', ').replace(/Sushant Gautam/g, '<b>Sushant Gautam</b>')}</em><br>` : ""}
-              In <em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}" ${p.bib.citation}</a></em>
-              ${p.bib.citation}</em>
+              In <em><a target="_blank" href="https://www.google.com/search?q=${p.bib.citation}">${p.bib.citation}</a></em>
             </li>`;
             }).join("");
         };
@@ -95,11 +90,10 @@ html_template = """
         render("citations");
     };
 
-    initCitationsWidget()
+    initCitationsWidget();
 </script>
 """
 
-# Inject data and save to HTML
 html_output = html_template.replace("REPLACEME", json_data)
 with open("citations.html", "w", encoding="utf-8") as f:
     f.write(html_output)
