@@ -1,10 +1,5 @@
-from scholarly import ProxyGenerator
 from scholarly import scholarly
 import json
-
-pg = ProxyGenerator()
-pg.FreeProxies()
-scholarly.use_proxy(pg)
 
 # Fetch author's publications
 authorx = scholarly.search_author_id("t3Iie8cAAAAJ")
