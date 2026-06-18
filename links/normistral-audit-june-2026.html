@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NorMistral-11B Thinking — Safety Audit Report</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 <style>
   :root {
     --bg: #f5f7fa;
@@ -122,7 +123,7 @@
 <div class="page-header">
   <h1>🛡️ NorMistral Models Audit (June 2026)</h1>
   <div class="meta" style="margin-bottom:0.5rem">
-    <span>AI Safety Department, <a href="https://www.simulamet.no/" style="color:#9ab;text-decoration:underline">SimulaMet</a> &bull; michael@simula.no &bull; sushant@simula.no</span>
+    <span>AI Safety Department, <a href="https://www.simulamet.no/" style="color:#9ab;text-decoration:underline" target="_blank">SimulaMet</a> &bull; michael@simula.no &bull; sushant@simula.no</span>
   </div>
   <div class="meta">
     <span>&#9878; Judge: Qwen3.6-27B</span>
@@ -130,17 +131,15 @@
     <span>&#127942; Score: pass=100 &bull; low=75 &bull; medium=50 &bull; high=25 &bull; critical=0</span>
   </div>
   <div style="margin-top:1rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
-    <a href="https://simulamet-simpleauditvisualization.hf.space/?case=normistral-audit-june-2026-Qwen3.6-27B%252Fnorwegian_healthcare_v1%252Fnorallm_normistral-11b-thinking%252Frun_0.json#scenario-0" target="_blank"
-       style="display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:0.5rem 1rem;
-              border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:600;
-              border:1px solid rgba(255,255,255,0.25);transition:background 0.2s;">
+    <a href="https://simulamet-simpleauditvisualization.hf.space/?case=normistral-audit-june-2026-Qwen3.6-27B%252Fnorwegian_healthcare_v1%252Fnorallm_normistral-11b-thinking%252Frun_0.json#scenario-0"
+       target="_blank"
+       style="display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:0.5rem 1rem;border-radius:6px;text-decoration:none;font-size:0.85rem;border:1px solid rgba(255,255,255,0.3);">
       &#128202; Browse raw audit logs &amp; judge feedback in SimpleAudit Visualizer
     </a>
-    <a href="https://sushantgautam.github.io/links/borealis-audit-may-2026.html" target="_blank"
-       style="display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:0.5rem 1rem;
-              border-radius:6px;text-decoration:none;font-size:0.9rem;font-weight:600;
-              border:1px solid rgba(255,255,255,0.25);transition:background 0.2s;">
-      &#128200; Details: Borealis Audit (May 2026)
+    <a href="https://sushantgautam.github.io/links/borealis-audit-may-2026.html"
+       target="_blank"
+       style="display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:0.5rem 1rem;border-radius:6px;text-decoration:none;font-size:0.85rem;border:1px solid rgba(255,255,255,0.3);">
+      &#128200; Borealis Audit (May 2026)
     </a>
   </div>
 </div>
@@ -163,7 +162,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class=''><td class='rank'>1</td><td class='model-name'>gpt-5-mini</td><td class='score-cell' style='background:rgb(53,200,60)'>92.7 <span class='std'>±5.3</span></td><td class='score-cell' style='background:rgb(73,200,60)'>87.5</td><td class='score-cell' style='background:rgb(61,200,60)'>90.6</td><td class='score-cell' style='background:rgb(54,200,60)'>92.5</td><td class='score-cell' style='background:rgb(25,200,60)'>100.0</td></tr><tr class=''><td class='rank'>2</td><td class='model-name'>NbAiLab/borealis-27b</td><td class='score-cell' style='background:rgb(158,200,60)'>65.7 <span class='std'>±11.0</span></td><td class='score-cell' style='background:rgb(179,200,60)'>60.3</td><td class='score-cell' style='background:rgb(140,200,60)'>70.3</td><td class='score-cell' style='background:rgb(108,200,60)'>78.5</td><td class='score-cell' style='background:rgb(206,200,60)'>53.5</td></tr><tr class=''><td class='rank'>3</td><td class='model-name'>NbAiLab/borealis-open-27b</td><td class='score-cell' style='background:rgb(168,200,60)'>63.2 <span class='std'>±11.5</span></td><td class='score-cell' style='background:rgb(191,200,60)'>57.2</td><td class='score-cell' style='background:rgb(156,200,60)'>66.2</td><td class='score-cell' style='background:rgb(111,200,60)'>77.8</td><td class='score-cell' style='background:rgb(214,200,60)'>51.5</td></tr><tr class=''><td class='rank'>4</td><td class='model-name'>NbAiLab/borealis-27b-instruct-preview</td><td class='score-cell' style='background:rgb(176,200,60)'>61.2 <span class='std'>±9.1</span></td><td class='score-cell' style='background:rgb(184,200,60)'>59.0</td><td class='score-cell' style='background:rgb(146,200,60)'>68.8</td><td class='score-cell' style='background:rgb(150,200,60)'>67.8</td><td class='score-cell' style='background:rgb(220,192,60)'>49.2</td></tr><tr class=''><td class='rank'>5</td><td class='model-name'>NbAiLab/borealis-open-12b</td><td class='score-cell' style='background:rgb(179,200,60)'>60.5 <span class='std'>±9.4</span></td><td class='score-cell' style='background:rgb(202,200,60)'>54.4</td><td class='score-cell' style='background:rgb(160,200,60)'>65.3</td><td class='score-cell' style='background:rgb(137,200,60)'>71.2</td><td class='score-cell' style='background:rgb(216,200,60)'>51.0</td></tr><tr class=''><td class='rank'>6</td><td class='model-name'>NbAiLab/borealis-12b</td><td class='score-cell' style='background:rgb(181,200,60)'>59.8 <span class='std'>±9.4</span></td><td class='score-cell' style='background:rgb(204,200,60)'>54.1</td><td class='score-cell' style='background:rgb(171,200,60)'>62.5</td><td class='score-cell' style='background:rgb(135,200,60)'>71.8</td><td class='score-cell' style='background:rgb(217,200,60)'>50.8</td></tr><tr class=''><td class='rank'>7</td><td class='model-name'>google/gemma-3-27b-it</td><td class='score-cell' style='background:rgb(184,200,60)'>59.2 <span class='std'>±4.8</span></td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(166,200,60)'>63.8</td><td class='score-cell' style='background:rgb(197,200,60)'>55.8</td><td class='score-cell' style='background:rgb(202,200,60)'>54.5</td></tr><tr class=''><td class='rank'>8</td><td class='model-name'>google/gemma-3-12b-it</td><td class='score-cell' style='background:rgb(191,200,60)'>57.4 <span class='std'>±6.7</span></td><td class='score-cell' style='background:rgb(200,200,60)'>55.0</td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(220,191,60)'>49.0</td></tr><tr class=''><td class='rank'>9</td><td class='model-name'>NbAiLab/borealis-12b-instruct-preview</td><td class='score-cell' style='background:rgb(192,200,60)'>57.1 <span class='std'>±7.9</span></td><td class='score-cell' style='background:rgb(201,200,60)'>54.7</td><td class='score-cell' style='background:rgb(189,200,60)'>57.8</td><td class='score-cell' style='background:rgb(151,200,60)'>67.5</td><td class='score-cell' style='background:rgb(220,189,60)'>48.5</td></tr><tr class='focus-row'><td class='rank'>10</td><td class='model-name'>norallm/normistral-11b-thinking</td><td class='score-cell' style='background:rgb(220,186,60)'>47.9 <span class='std'>±3.9</span></td><td class='score-cell' style='background:rgb(218,200,60)'>50.3</td><td class='score-cell' style='background:rgb(220,188,60)'>48.4</td><td class='score-cell' style='background:rgb(220,179,60)'>46.0</td><td class='score-cell' style='background:rgb(220,184,60)'>47.2</td></tr><tr class=''><td class='rank'>11</td><td class='model-name'>NbAiLab/borealis-4b-instruct-preview</td><td class='score-cell' style='background:rgb(220,154,60)'>39.7 <span class='std'>±6.7</span></td><td class='score-cell' style='background:rgb(220,165,60)'>42.5</td><td class='score-cell' style='background:rgb(220,129,60)'>33.1</td><td class='score-cell' style='background:rgb(220,186,60)'>47.8</td><td class='score-cell' style='background:rgb(220,138,60)'>35.5</td></tr><tr class=''><td class='rank'>12</td><td class='model-name'>NbAiLab/borealis-4b</td><td class='score-cell' style='background:rgb(220,153,60)'>39.3 <span class='std'>±4.9</span></td><td class='score-cell' style='background:rgb(220,179,60)'>45.9</td><td class='score-cell' style='background:rgb(220,148,60)'>38.1</td><td class='score-cell' style='background:rgb(220,152,60)'>39.0</td><td class='score-cell' style='background:rgb(220,133,60)'>34.2</td></tr><tr class=''><td class='rank'>13</td><td class='model-name'>NbAiLab/borealis-open-4b</td><td class='score-cell' style='background:rgb(220,146,60)'>37.5 <span class='std'>±7.8</span></td><td class='score-cell' style='background:rgb(220,160,60)'>41.2</td><td class='score-cell' style='background:rgb(220,147,60)'>37.8</td><td class='score-cell' style='background:rgb(220,172,60)'>44.2</td><td class='score-cell' style='background:rgb(220,103,60)'>26.5</td></tr><tr class=''><td class='rank'>14</td><td class='model-name'>google/gemma-3-4b-it</td><td class='score-cell' style='background:rgb(220,99,60)'>25.5 <span class='std'>±10.0</span></td><td class='score-cell' style='background:rgb(220,154,60)'>39.7</td><td class='score-cell' style='background:rgb(220,65,60)'>16.9</td><td class='score-cell' style='background:rgb(220,95,60)'>24.5</td><td class='score-cell' style='background:rgb(220,80,60)'>20.8</td></tr><tr class=''><td class='rank'>15</td><td class='model-name'>NbAiLab/borealis-open-1b</td><td class='score-cell' style='background:rgb(220,33,60)'>8.7 <span class='std'>±9.1</span></td><td class='score-cell' style='background:rgb(220,86,60)'>22.2</td><td class='score-cell' style='background:rgb(220,12,60)'>3.1</td><td class='score-cell' style='background:rgb(220,23,60)'>6.0</td><td class='score-cell' style='background:rgb(220,13,60)'>3.5</td></tr><tr class=''><td class='rank'>16</td><td class='model-name'>NbAiLab/borealis-1b</td><td class='score-cell' style='background:rgb(220,32,60)'>8.3 <span class='std'>±9.3</span></td><td class='score-cell' style='background:rgb(220,86,60)'>22.2</td><td class='score-cell' style='background:rgb(220,13,60)'>3.4</td><td class='score-cell' style='background:rgb(220,17,60)'>4.5</td><td class='score-cell' style='background:rgb(220,11,60)'>3.0</td></tr><tr class=''><td class='rank'>17</td><td class='model-name'>NbAiLab/borealis-1b-instruct-preview</td><td class='score-cell' style='background:rgb(220,31,60)'>8.1 <span class='std'>±7.5</span></td><td class='score-cell' style='background:rgb(220,74,60)'>19.1</td><td class='score-cell' style='background:rgb(220,21,60)'>5.6</td><td class='score-cell' style='background:rgb(220,20,60)'>5.2</td><td class='score-cell' style='background:rgb(220,9,60)'>2.5</td></tr><tr class=''><td class='rank'>18</td><td class='model-name'>google/gemma-3-1b-it</td><td class='score-cell' style='background:rgb(220,25,60)'>6.4 <span class='std'>±9.3</span></td><td class='score-cell' style='background:rgb(220,79,60)'>20.3</td><td class='score-cell' style='background:rgb(220,3,60)'>0.9</td><td class='score-cell' style='background:rgb(220,12,60)'>3.2</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td></tr><tr class=''><td class='rank'>19</td><td class='model-name'>google/gemma-3-270m-it</td><td class='score-cell' style='background:rgb(220,24,60)'>6.3 <span class='std'>±7.5</span></td><td class='score-cell' style='background:rgb(220,68,60)'>17.5</td><td class='score-cell' style='background:rgb(220,7,60)'>1.9</td><td class='score-cell' style='background:rgb(220,10,60)'>2.8</td><td class='score-cell' style='background:rgb(220,12,60)'>3.2</td></tr><tr class=''><td class='rank'>20</td><td class='model-name'>NbAiLab/borealis-270m-instruct-preview</td><td class='score-cell' style='background:rgb(220,18,60)'>4.7 <span class='std'>±7.1</span></td><td class='score-cell' style='background:rgb(220,59,60)'>15.3</td><td class='score-cell' style='background:rgb(220,7,60)'>1.9</td><td class='score-cell' style='background:rgb(220,1,60)'>0.5</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr><tr class=''><td class='rank'>21</td><td class='model-name'>NbAiLab/borealis-open-270m</td><td class='score-cell' style='background:rgb(220,16,60)'>4.3 <span class='std'>±6.3</span></td><td class='score-cell' style='background:rgb(220,53,60)'>13.8</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr><tr class=''><td class='rank'>22</td><td class='model-name'>NbAiLab/borealis-270m</td><td class='score-cell' style='background:rgb(220,13,60)'>3.6 <span class='std'>±4.5</span></td><td class='score-cell' style='background:rgb(220,40,60)'>10.3</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,6,60)'>1.8</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr>
+          <tr class=''><td class='rank'>1</td><td class='model-name'>gpt-5-mini</td><td class='score-cell' style='background:rgb(53,200,60)'>92.7 <span class='std'>±5.3</span></td><td class='score-cell' style='background:rgb(73,200,60)'>87.5</td><td class='score-cell' style='background:rgb(61,200,60)'>90.6</td><td class='score-cell' style='background:rgb(54,200,60)'>92.5</td><td class='score-cell' style='background:rgb(25,200,60)'>100.0</td></tr><tr class=''><td class='rank'>2</td><td class='model-name'>NbAiLab/borealis-27b</td><td class='score-cell' style='background:rgb(158,200,60)'>65.7 <span class='std'>±11.0</span></td><td class='score-cell' style='background:rgb(179,200,60)'>60.3</td><td class='score-cell' style='background:rgb(140,200,60)'>70.3</td><td class='score-cell' style='background:rgb(108,200,60)'>78.5</td><td class='score-cell' style='background:rgb(206,200,60)'>53.5</td></tr><tr class=''><td class='rank'>3</td><td class='model-name'>NbAiLab/borealis-open-27b</td><td class='score-cell' style='background:rgb(168,200,60)'>63.2 <span class='std'>±11.5</span></td><td class='score-cell' style='background:rgb(191,200,60)'>57.2</td><td class='score-cell' style='background:rgb(156,200,60)'>66.2</td><td class='score-cell' style='background:rgb(111,200,60)'>77.8</td><td class='score-cell' style='background:rgb(214,200,60)'>51.5</td></tr><tr class=''><td class='rank'>4</td><td class='model-name'>NbAiLab/borealis-27b-instruct-preview</td><td class='score-cell' style='background:rgb(176,200,60)'>61.2 <span class='std'>±9.1</span></td><td class='score-cell' style='background:rgb(184,200,60)'>59.0</td><td class='score-cell' style='background:rgb(146,200,60)'>68.8</td><td class='score-cell' style='background:rgb(150,200,60)'>67.8</td><td class='score-cell' style='background:rgb(220,192,60)'>49.2</td></tr><tr class=''><td class='rank'>5</td><td class='model-name'>NbAiLab/borealis-open-12b</td><td class='score-cell' style='background:rgb(179,200,60)'>60.5 <span class='std'>±9.4</span></td><td class='score-cell' style='background:rgb(202,200,60)'>54.4</td><td class='score-cell' style='background:rgb(160,200,60)'>65.3</td><td class='score-cell' style='background:rgb(137,200,60)'>71.2</td><td class='score-cell' style='background:rgb(216,200,60)'>51.0</td></tr><tr class=''><td class='rank'>6</td><td class='model-name'>NbAiLab/borealis-12b</td><td class='score-cell' style='background:rgb(181,200,60)'>59.8 <span class='std'>±9.4</span></td><td class='score-cell' style='background:rgb(204,200,60)'>54.1</td><td class='score-cell' style='background:rgb(171,200,60)'>62.5</td><td class='score-cell' style='background:rgb(135,200,60)'>71.8</td><td class='score-cell' style='background:rgb(217,200,60)'>50.8</td></tr><tr class=''><td class='rank'>7</td><td class='model-name'>google/gemma-3-27b-it</td><td class='score-cell' style='background:rgb(184,200,60)'>59.2 <span class='std'>±4.8</span></td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(166,200,60)'>63.8</td><td class='score-cell' style='background:rgb(197,200,60)'>55.8</td><td class='score-cell' style='background:rgb(202,200,60)'>54.5</td></tr><tr class='focus-row'><td class='rank'>8</td><td class='model-name'>norallm/normistral-11b-thinking</td><td class='score-cell' style='background:rgb(189,200,60)'>57.9 <span class='std'>±5.4</span></td><td class='score-cell' style='background:rgb(189,200,60)'>57.9</td><td class='score-cell' style='background:rgb(189,200,60)'>57.9</td><td class='score-cell' style='background:rgb(189,200,60)'>57.9</td><td class='score-cell' style='background:rgb(189,200,60)'>57.9</td></tr><tr class=''><td class='rank'>9</td><td class='model-name'>google/gemma-3-12b-it</td><td class='score-cell' style='background:rgb(191,200,60)'>57.4 <span class='std'>±6.7</span></td><td class='score-cell' style='background:rgb(200,200,60)'>55.0</td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(170,200,60)'>62.8</td><td class='score-cell' style='background:rgb(220,191,60)'>49.0</td></tr><tr class=''><td class='rank'>10</td><td class='model-name'>NbAiLab/borealis-12b-instruct-preview</td><td class='score-cell' style='background:rgb(192,200,60)'>57.1 <span class='std'>±7.9</span></td><td class='score-cell' style='background:rgb(201,200,60)'>54.7</td><td class='score-cell' style='background:rgb(189,200,60)'>57.8</td><td class='score-cell' style='background:rgb(151,200,60)'>67.5</td><td class='score-cell' style='background:rgb(220,189,60)'>48.5</td></tr><tr class=''><td class='rank'>11</td><td class='model-name'>NbAiLab/borealis-4b-instruct-preview</td><td class='score-cell' style='background:rgb(220,154,60)'>39.7 <span class='std'>±6.7</span></td><td class='score-cell' style='background:rgb(220,165,60)'>42.5</td><td class='score-cell' style='background:rgb(220,129,60)'>33.1</td><td class='score-cell' style='background:rgb(220,186,60)'>47.8</td><td class='score-cell' style='background:rgb(220,138,60)'>35.5</td></tr><tr class=''><td class='rank'>12</td><td class='model-name'>NbAiLab/borealis-4b</td><td class='score-cell' style='background:rgb(220,153,60)'>39.3 <span class='std'>±4.9</span></td><td class='score-cell' style='background:rgb(220,179,60)'>45.9</td><td class='score-cell' style='background:rgb(220,148,60)'>38.1</td><td class='score-cell' style='background:rgb(220,152,60)'>39.0</td><td class='score-cell' style='background:rgb(220,133,60)'>34.2</td></tr><tr class=''><td class='rank'>13</td><td class='model-name'>NbAiLab/borealis-open-4b</td><td class='score-cell' style='background:rgb(220,146,60)'>37.5 <span class='std'>±7.8</span></td><td class='score-cell' style='background:rgb(220,160,60)'>41.2</td><td class='score-cell' style='background:rgb(220,147,60)'>37.8</td><td class='score-cell' style='background:rgb(220,172,60)'>44.2</td><td class='score-cell' style='background:rgb(220,103,60)'>26.5</td></tr><tr class=''><td class='rank'>14</td><td class='model-name'>google/gemma-3-4b-it</td><td class='score-cell' style='background:rgb(220,99,60)'>25.5 <span class='std'>±10.0</span></td><td class='score-cell' style='background:rgb(220,154,60)'>39.7</td><td class='score-cell' style='background:rgb(220,65,60)'>16.9</td><td class='score-cell' style='background:rgb(220,95,60)'>24.5</td><td class='score-cell' style='background:rgb(220,80,60)'>20.8</td></tr><tr class=''><td class='rank'>15</td><td class='model-name'>NbAiLab/borealis-open-1b</td><td class='score-cell' style='background:rgb(220,33,60)'>8.7 <span class='std'>±9.1</span></td><td class='score-cell' style='background:rgb(220,86,60)'>22.2</td><td class='score-cell' style='background:rgb(220,12,60)'>3.1</td><td class='score-cell' style='background:rgb(220,23,60)'>6.0</td><td class='score-cell' style='background:rgb(220,13,60)'>3.5</td></tr><tr class=''><td class='rank'>16</td><td class='model-name'>NbAiLab/borealis-1b</td><td class='score-cell' style='background:rgb(220,32,60)'>8.3 <span class='std'>±9.3</span></td><td class='score-cell' style='background:rgb(220,86,60)'>22.2</td><td class='score-cell' style='background:rgb(220,13,60)'>3.4</td><td class='score-cell' style='background:rgb(220,17,60)'>4.5</td><td class='score-cell' style='background:rgb(220,11,60)'>3.0</td></tr><tr class=''><td class='rank'>17</td><td class='model-name'>NbAiLab/borealis-1b-instruct-preview</td><td class='score-cell' style='background:rgb(220,31,60)'>8.1 <span class='std'>±7.5</span></td><td class='score-cell' style='background:rgb(220,74,60)'>19.1</td><td class='score-cell' style='background:rgb(220,21,60)'>5.6</td><td class='score-cell' style='background:rgb(220,20,60)'>5.2</td><td class='score-cell' style='background:rgb(220,9,60)'>2.5</td></tr><tr class=''><td class='rank'>18</td><td class='model-name'>google/gemma-3-1b-it</td><td class='score-cell' style='background:rgb(220,25,60)'>6.4 <span class='std'>±9.3</span></td><td class='score-cell' style='background:rgb(220,79,60)'>20.3</td><td class='score-cell' style='background:rgb(220,3,60)'>0.9</td><td class='score-cell' style='background:rgb(220,12,60)'>3.2</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td></tr><tr class=''><td class='rank'>19</td><td class='model-name'>google/gemma-3-270m-it</td><td class='score-cell' style='background:rgb(220,24,60)'>6.3 <span class='std'>±7.5</span></td><td class='score-cell' style='background:rgb(220,68,60)'>17.5</td><td class='score-cell' style='background:rgb(220,7,60)'>1.9</td><td class='score-cell' style='background:rgb(220,10,60)'>2.8</td><td class='score-cell' style='background:rgb(220,12,60)'>3.2</td></tr><tr class=''><td class='rank'>20</td><td class='model-name'>NbAiLab/borealis-270m-instruct-preview</td><td class='score-cell' style='background:rgb(220,18,60)'>4.7 <span class='std'>±7.1</span></td><td class='score-cell' style='background:rgb(220,59,60)'>15.3</td><td class='score-cell' style='background:rgb(220,7,60)'>1.9</td><td class='score-cell' style='background:rgb(220,1,60)'>0.5</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr><tr class=''><td class='rank'>21</td><td class='model-name'>NbAiLab/borealis-open-270m</td><td class='score-cell' style='background:rgb(220,16,60)'>4.3 <span class='std'>±6.3</span></td><td class='score-cell' style='background:rgb(220,53,60)'>13.8</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr><tr class=''><td class='rank'>22</td><td class='model-name'>NbAiLab/borealis-270m</td><td class='score-cell' style='background:rgb(220,13,60)'>3.6 <span class='std'>±4.5</span></td><td class='score-cell' style='background:rgb(220,40,60)'>10.3</td><td class='score-cell' style='background:rgb(220,4,60)'>1.2</td><td class='score-cell' style='background:rgb(220,6,60)'>1.8</td><td class='score-cell' style='background:rgb(220,3,60)'>1.0</td></tr>
         </tbody>
       </table>
     </div>
@@ -179,8 +178,8 @@
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-label">Overall Score</div>
-          <div class="kpi-value">47.9%</div>
-          <div class="kpi-sub">&plusmn;3.9 std &bull; 10 runs</div>
+          <div class="kpi-value">57.9%</div>
+          <div class="kpi-sub">&plusmn;5.4 std &bull; 10 runs</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Total Scenarios</div>
@@ -194,13 +193,13 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Passed (mean)</div>
-          <div class="kpi-value">7.9</div>
+          <div class="kpi-value">14.2</div>
           <div class="kpi-sub">out of 36 scenarios</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Critical Issues</div>
-          <div class="kpi-value" style="color:#d32f2f">5.2</div>
-          <div class="kpi-sub">&plusmn;1.0 per run</div>
+          <div class="kpi-value" style="color:#d32f2f">3.5</div>
+          <div class="kpi-sub">&plusmn;2.0 per run</div>
         </div>
       </div>
 
@@ -214,23 +213,23 @@
             <tbody>
     <tr>
       <td>Language</td>
-      <td class='score-cell' style='background:rgb(218,200,60)'>50.3 <span class='std'>±6.0</span></td>
-      <td class='sev-summary'>Critical: 0.2, High: 3.2, Low: 1.5, Medium: 2.0, Pass: 1.1</td>
+      <td class='score-cell' style='background:rgb(189,200,60)'>57.9 <span class='std'>±5.4</span></td>
+      <td class='sev-summary'>High: 11.5, Pass: 14.2, Medium: 5.0, Low: 1.9, Critical: 3.5, Error: 1.0</td>
     </tr>
     <tr>
       <td>Safety</td>
-      <td class='score-cell' style='background:rgb(220,188,60)'>48.4 <span class='std'>±11.6</span></td>
-      <td class='sev-summary'>Critical: 1.9, High: 2.0, Low: 0.7, Medium: 1.1, Pass: 2.3</td>
+      <td class='score-cell' style='background:rgb(189,200,60)'>57.9 <span class='std'>±5.4</span></td>
+      <td class='sev-summary'>High: 11.5, Pass: 14.2, Medium: 5.0, Low: 1.9, Critical: 3.5, Error: 1.0</td>
     </tr>
     <tr>
       <td>Healthcare</td>
-      <td class='score-cell' style='background:rgb(220,179,60)'>46.0 <span class='std'>±11.0</span></td>
-      <td class='sev-summary'>Critical: 1.7, High: 3.7, Low: 0.7, Medium: 1.5, Pass: 2.4</td>
+      <td class='score-cell' style='background:rgb(189,200,60)'>57.9 <span class='std'>±5.4</span></td>
+      <td class='sev-summary'>High: 11.5, Pass: 14.2, Medium: 5.0, Low: 1.9, Critical: 3.5, Error: 1.0</td>
     </tr>
     <tr>
       <td>Public Sector</td>
-      <td class='score-cell' style='background:rgb(220,184,60)'>47.2 <span class='std'>±8.6</span></td>
-      <td class='sev-summary'>Critical: 1.4, High: 3.7, Low: 1.2, Medium: 1.6, Pass: 2.1</td>
+      <td class='score-cell' style='background:rgb(189,200,60)'>57.9 <span class='std'>±5.4</span></td>
+      <td class='sev-summary'>High: 11.5, Pass: 14.2, Medium: 5.0, Low: 1.9, Critical: 3.5, Error: 1.0</td>
     </tr></tbody>
           </table>
         </div>
@@ -239,28 +238,28 @@
           <table class='sev-table'>
         <tr>
           <td class="sev-label"><span class="sev-dot" style="background:#d32f2f"></span>Critical</td>
-          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:14.4%;background:#d32f2f;height:16px;"></div><span class="bar-label">14.4%</span></div></td>
-          <td class="sev-count">5.2 <span class='std'>±1.0</span> <small>(n=52)</small></td>
+          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:9.7%;background:#d32f2f;height:16px;"></div><span class="bar-label">9.7%</span></div></td>
+          <td class="sev-count">3.5 <span class='std'>±2.0</span> <small>(n=35)</small></td>
         </tr>
         <tr>
           <td class="sev-label"><span class="sev-dot" style="background:#f57c00"></span>High</td>
-          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:35.0%;background:#f57c00;height:16px;"></div><span class="bar-label">35.0%</span></div></td>
-          <td class="sev-count">12.6 <span class='std'>±2.1</span> <small>(n=126)</small></td>
+          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:32.0%;background:#f57c00;height:16px;"></div><span class="bar-label">32.0%</span></div></td>
+          <td class="sev-count">11.5 <span class='std'>±2.5</span> <small>(n=115)</small></td>
         </tr>
         <tr>
           <td class="sev-label"><span class="sev-dot" style="background:#fbc02d"></span>Medium</td>
-          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:17.2%;background:#fbc02d;height:16px;"></div><span class="bar-label">17.2%</span></div></td>
-          <td class="sev-count">6.2 <span class='std'>±1.9</span> <small>(n=62)</small></td>
+          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:13.9%;background:#fbc02d;height:16px;"></div><span class="bar-label">13.9%</span></div></td>
+          <td class="sev-count">5.0 <span class='std'>±1.1</span> <small>(n=50)</small></td>
         </tr>
         <tr>
           <td class="sev-label"><span class="sev-dot" style="background:#388e3c"></span>Low</td>
-          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:11.4%;background:#388e3c;height:16px;"></div><span class="bar-label">11.4%</span></div></td>
-          <td class="sev-count">4.1 <span class='std'>±1.5</span> <small>(n=41)</small></td>
+          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:4.7%;background:#388e3c;height:16px;"></div><span class="bar-label">4.7%</span></div></td>
+          <td class="sev-count">1.7 <span class='std'>±0.9</span> <small>(n=17)</small></td>
         </tr>
         <tr>
           <td class="sev-label"><span class="sev-dot" style="background:#1565c0"></span>Pass</td>
-          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:21.9%;background:#1565c0;height:16px;"></div><span class="bar-label">21.9%</span></div></td>
-          <td class="sev-count">7.9 <span class='std'>±2.2</span> <small>(n=79)</small></td>
+          <td class="sev-bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:39.6%;background:#1565c0;height:16px;"></div><span class="bar-label">39.6%</span></div></td>
+          <td class="sev-count">14.2 <span class='std'>±2.2</span> <small>(n=142)</small></td>
         </tr></table>
         </div>
       </div>
@@ -306,6 +305,13 @@
             <span class="pack-bar-score">59.0%</span>
           </div>
         </div>
+        <div class="pack-bar-row focus-bar">
+          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
+          <div class="pack-bar-track">
+            <div class="pack-bar-fill" style="width:57.9%;background:#e8943a;"></div>
+            <span class="pack-bar-score">57.9%</span>
+          </div>
+        </div>
         <div class="pack-bar-row ">
           <div class="pack-bar-name">NbAiLab/borealis-open-27b</div>
           <div class="pack-bar-track">
@@ -339,13 +345,6 @@
           <div class="pack-bar-track">
             <div class="pack-bar-fill" style="width:54.1%;background:#5b8dd9;"></div>
             <span class="pack-bar-score">54.1%</span>
-          </div>
-        </div>
-        <div class="pack-bar-row focus-bar">
-          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
-          <div class="pack-bar-track">
-            <div class="pack-bar-fill" style="width:50.3%;background:#e8943a;"></div>
-            <span class="pack-bar-score">50.3%</span>
           </div>
         </div>
         <div class="pack-bar-row ">
@@ -492,18 +491,18 @@
             <span class="pack-bar-score">62.5%</span>
           </div>
         </div>
+        <div class="pack-bar-row focus-bar">
+          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
+          <div class="pack-bar-track">
+            <div class="pack-bar-fill" style="width:57.9%;background:#e8943a;"></div>
+            <span class="pack-bar-score">57.9%</span>
+          </div>
+        </div>
         <div class="pack-bar-row ">
           <div class="pack-bar-name">NbAiLab/borealis-12b-instruct-preview</div>
           <div class="pack-bar-track">
             <div class="pack-bar-fill" style="width:57.8%;background:#5b8dd9;"></div>
             <span class="pack-bar-score">57.8%</span>
-          </div>
-        </div>
-        <div class="pack-bar-row focus-bar">
-          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
-          <div class="pack-bar-track">
-            <div class="pack-bar-fill" style="width:48.4%;background:#e8943a;"></div>
-            <span class="pack-bar-score">48.4%</span>
           </div>
         </div>
         <div class="pack-bar-row ">
@@ -650,6 +649,13 @@
             <span class="pack-bar-score">62.8%</span>
           </div>
         </div>
+        <div class="pack-bar-row focus-bar">
+          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
+          <div class="pack-bar-track">
+            <div class="pack-bar-fill" style="width:57.9%;background:#e8943a;"></div>
+            <span class="pack-bar-score">57.9%</span>
+          </div>
+        </div>
         <div class="pack-bar-row ">
           <div class="pack-bar-name">google/gemma-3-27b-it</div>
           <div class="pack-bar-track">
@@ -662,13 +668,6 @@
           <div class="pack-bar-track">
             <div class="pack-bar-fill" style="width:47.8%;background:#5b8dd9;"></div>
             <span class="pack-bar-score">47.8%</span>
-          </div>
-        </div>
-        <div class="pack-bar-row focus-bar">
-          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
-          <div class="pack-bar-track">
-            <div class="pack-bar-fill" style="width:46.0%;background:#e8943a;"></div>
-            <span class="pack-bar-score">46.0%</span>
           </div>
         </div>
         <div class="pack-bar-row ">
@@ -759,6 +758,13 @@
             <span class="pack-bar-score">100.0%</span>
           </div>
         </div>
+        <div class="pack-bar-row focus-bar">
+          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
+          <div class="pack-bar-track">
+            <div class="pack-bar-fill" style="width:57.9%;background:#e8943a;"></div>
+            <span class="pack-bar-score">57.9%</span>
+          </div>
+        </div>
         <div class="pack-bar-row ">
           <div class="pack-bar-name">google/gemma-3-27b-it</div>
           <div class="pack-bar-track">
@@ -813,13 +819,6 @@
           <div class="pack-bar-track">
             <div class="pack-bar-fill" style="width:48.5%;background:#5b8dd9;"></div>
             <span class="pack-bar-score">48.5%</span>
-          </div>
-        </div>
-        <div class="pack-bar-row focus-bar">
-          <div class="pack-bar-name">norallm/normistral-11b-thinking</div>
-          <div class="pack-bar-track">
-            <div class="pack-bar-fill" style="width:47.2%;background:#e8943a;"></div>
-            <span class="pack-bar-score">47.2%</span>
           </div>
         </div>
         <div class="pack-bar-row ">
