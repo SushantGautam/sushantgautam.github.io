@@ -83,6 +83,26 @@
       return null;
     }
 
+    function readStateFromIframe() {
+      try {
+        const iframeUrl = treeFrame.contentWindow.location.href;
+        const parsedUrl = new URL(iframeUrl);
+        const searchParams = parsedUrl.searchParams;
+        const viewHash = parsedUrl.hash ? new URLSearchParams(parsedUrl.hash.replace(/^#\/?view\??/, '')) : new URLSearchParams();
+        const currentId = searchParams.get('id') || searchParams.get('indi') || viewHash.get('id') || viewHash.get('indi');
+        const currentGeneration = searchParams.get('gen') || viewHash.get('gen');
+        if (!currentId && !currentGeneration) return null;
+
+        return {
+          id: currentId,
+          gen: currentGeneration,
+          detail: searchParams.get('detail') === 'true' || viewHash.get('detail') === 'true' || searchParams.get('detail') === currentId || viewHash.get('detail') === currentId,
+        };
+      } catch (error) {
+        return null;
+      }
+    }
+
     window.addEventListener('message', (event) => {
       const state = readStateFromMessage(event.data);
       if (!state || !state.id || !state.gen) return;
@@ -91,6 +111,12 @@
 
     treeFrame.src = buildViewerUrl(personId, generation, hasDetail);
     syncPageUrl(personId, generation, hasDetail);
+
+    setInterval(() => {
+      const state = readStateFromIframe();
+      if (!state || !state.id || !state.gen) return;
+      syncPageUrl(state.id, state.gen, state.detail);
+    }, 1000);
   </script>
 </body>
 </html>
