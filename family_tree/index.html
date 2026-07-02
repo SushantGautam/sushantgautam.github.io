@@ -17,20 +17,42 @@
 <body data-version="family-tree-raw-github-common-ancestor">
   <iframe id="treeFrame" title="Interactive family tree"></iframe>
   <script>
+    const treeFrame = document.getElementById('treeFrame');
     const params = new URLSearchParams(window.location.search);
     const personId = params.get('id') || params.get('indi') || 'I87';
     const generation = params.get('gen') || '-1';
-    const gedcomUrlObject = new URL('https://raw.githubusercontent.com/SushantGautam/sushantgautam.github.io/refs/heads/master/family_tree/family-tree.ged');
-    gedcomUrlObject.searchParams.set('timestamp', Date.now().toString());
-    const gedcomUrl = gedcomUrlObject.href;
-    const topolaParams = new URLSearchParams();
-    topolaParams.set('url', gedcomUrl);
-    topolaParams.set('handleCors', 'false');
-    topolaParams.set('view', 'relatives');
-    topolaParams.set('indi', personId);
-    topolaParams.set('gen', generation);
-    if (params.get('detail') === 'true') topolaParams.set('detail', personId);
-    document.getElementById('treeFrame').src = 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
+
+    function buildViewerUrl(currentPersonId, currentGeneration, includeDetail) {
+      const gedcomUrlObject = new URL('https://raw.githubusercontent.com/SushantGautam/sushantgautam.github.io/refs/heads/master/family_tree/family-tree.ged');
+      gedcomUrlObject.searchParams.set('timestamp', Date.now().toString());
+
+      const topolaParams = new URLSearchParams();
+      topolaParams.set('url', gedcomUrlObject.href);
+      topolaParams.set('handleCors', 'false');
+      topolaParams.set('view', 'relatives');
+      topolaParams.set('indi', currentPersonId);
+      topolaParams.set('gen', currentGeneration);
+      if (includeDetail) topolaParams.set('detail', currentPersonId);
+
+      return 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
+    }
+
+    function syncPageUrl(currentPersonId, currentGeneration, includeDetail) {
+      const nextUrl = new URL(window.location.href);
+      nextUrl.searchParams.set('id', currentPersonId);
+      nextUrl.searchParams.set('gen', currentGeneration);
+      if (includeDetail) {
+        nextUrl.searchParams.set('detail', 'true');
+      } else {
+        nextUrl.searchParams.delete('detail');
+      }
+      window.history.replaceState(null, '', nextUrl.pathname + '?' + nextUrl.searchParams.toString() + nextUrl.hash);
+    }
+
+    const includeDetail = params.get('detail') === 'true';
+    treeFrame.src = buildViewerUrl(personId, generation, includeDetail);
+    syncPageUrl(personId, generation, includeDetail);
+    treeFrame.addEventListener('load', () => syncPageUrl(personId, generation, includeDetail));
   </script>
 </body>
 </html>
