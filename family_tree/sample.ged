@@ -1,0 +1,52 @@
+0 HEAD
+1 SOUR family_tree_starter
+2 NAME Sushant's Family Tree Starter
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Grandfather /Gautam/
+1 SEX M
+1 BIRT
+2 DATE 1940
+0 @I2@ INDI
+1 NAME Grandmother /Gautam/
+1 SEX F
+1 BIRT
+2 DATE 1945
+0 @I3@ INDI
+1 NAME Father /Gautam/
+1 SEX M
+1 BIRT
+2 DATE 1970
+1 FAMC @F1@
+1 FAMS @F2@
+0 @I4@ INDI
+1 NAME Mother /Family/
+1 SEX F
+1 BIRT
+2 DATE 1975
+1 FAMS @F2@
+0 @I5@ INDI
+1 NAME Child One /Gautam/
+1 SEX M
+1 BIRT
+2 DATE 2000
+1 FAMC @F2@
+0 @I6@ INDI
+1 NAME Child Two /Gautam/
+1 SEX F
+1 BIRT
+2 DATE 2003
+1 FAMC @F2@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+0 @F2@ FAM
+1 HUSB @I3@
+1 WIFE @I4@
+1 CHIL @I5@
+1 CHIL @I6@
+0 TRLR
