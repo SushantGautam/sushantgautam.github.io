@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Family Tree</title>
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --text: #24292f;
+      --muted: #57606a;
+      --border: #d0d7de;
+      --accent: #0969da;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      padding: 18px 24px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    h1 { margin: 0; font-size: 22px; }
+    .subtitle { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    a.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: calc(100vh - 78px);
+    }
+    aside {
+      padding: 18px;
+      border-right: 1px solid var(--border);
+      background: var(--card);
+    }
+    aside h2 { font-size: 16px; margin: 0 0 8px; }
+    aside p, aside li { color: var(--muted); line-height: 1.5; font-size: 14px; }
+    code {
+      background: #afb8c133;
+      border-radius: 6px;
+      padding: 2px 5px;
+    }
+    .viewer {
+      min-height: calc(100vh - 78px);
+      background: white;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      min-height: calc(100vh - 78px);
+      border: 0;
+      display: block;
+    }
+    @media (max-width: 850px) {
+      main { grid-template-columns: 1fr; }
+      aside { border-right: 0; border-bottom: 1px solid var(--border); }
+      .viewer, iframe { min-height: 70vh; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Family Tree</h1>
+      <p class="subtitle">Interactive GEDCOM viewer for a large family tree.</p>
+    </div>
+    <div class="actions">
+      <a class="button" href="sample.ged">Download GEDCOM</a>
+      <a class="button primary" id="openTopola" target="_blank" rel="noopener">Open full screen</a>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <h2>How to edit</h2>
+      <p>Replace <code>family_tree/sample.ged</code> with your real GEDCOM export from Gramps, MyHeritage, WikiTree, FamilySearch-compatible tools, etc.</p>
+      <ul>
+        <li>Use <strong>GEDCOM</strong> for the data.</li>
+        <li>Use <strong>Topola Viewer</strong> for pan/zoom, focus, details, export, and large-tree browsing.</li>
+        <li>This page loads the GEDCOM from your GitHub Pages URL, so no backend is needed.</li>
+      </ul>
+      <p>After replacing the file, refresh this page. If GitHub Pages cache is slow, wait a minute and hard-refresh.</p>
+    </aside>
+
+    <section class="viewer">
+      <iframe id="treeFrame" title="Interactive family tree"></iframe>
+    </section>
+  </main>
+
+  <script>
+    const gedcomUrl = new URL('sample.ged', window.location.href).href;
+    const topolaUrl = 'https://pewu.github.io/topola-viewer/view?url=' + encodeURIComponent(gedcomUrl) + '&handleCors=false&embedded=true&view=relatives';
+    document.getElementById('treeFrame').src = topolaUrl;
+    document.getElementById('openTopola').href = topolaUrl.replace('&embedded=true', '');
+  </script>
+</body>
+</html>
