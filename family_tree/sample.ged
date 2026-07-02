@@ -19,6 +19,7 @@
 2 DATE 2030 BS
 1 NOTE Mother of Sushant Gautam. Birth year provided as 2030 BS.
 1 FAMS @F1@
+1 FAMC @F2@
 0 @I3@ INDI
 1 NAME Sushant /Gautam/
 1 SEX M
@@ -32,9 +33,92 @@
 1 BIRT
 2 DATE 1998
 1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Hem Prasad /Dahal/
+1 SEX M
+1 NOTE Maternal grandfather of Sushant Gautam.
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Narmada /Dahal/
+1 SEX F
+1 NOTE Maternal grandmother of Sushant Gautam.
+1 FAMS @F2@
+0 @I7@ INDI
+1 NAME Roshan /Dahal/
+1 SEX M
+1 FAMC @F2@
+1 FAMS @F3@
+0 @I8@ INDI
+1 NAME Narmada /Gautam/
+1 SEX F
+1 FAMS @F3@
+0 @I9@ INDI
+1 NAME Yuna /Dahal/
+1 SEX F
+1 FAMC @F3@
+0 @I10@ INDI
+1 NAME Arpan /Dahal/
+1 SEX M
+1 FAMC @F3@
+0 @I11@ INDI
+1 NAME Ranjit /Dahal/
+1 SEX M
+1 FAMC @F2@
+1 FAMS @F4@
+0 @I12@ INDI
+1 NAME Parbti /Pouel/
+1 SEX F
+1 FAMS @F4@
+0 @I13@ INDI
+1 NAME Suyog /Dahal/
+1 SEX M
+1 FAMC @F4@
+0 @I14@ INDI
+1 NAME Sumi /Dahal/
+1 SEX F
+1 FAMC @F4@
+0 @I15@ INDI
+1 NAME Rabin /Dahal/
+1 SEX M
+1 FAMC @F2@
+1 FAMS @F5@
+0 @I16@ INDI
+1 NAME Sumana /Khadka/
+1 SEX F
+1 FAMS @F5@
+0 @I17@ INDI
+1 NAME Divya /Dahal/
+1 SEX F
+1 FAMC @F5@
+0 @I18@ INDI
+1 NAME Deep /Dahal/
+1 SEX M
+1 FAMC @F5@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
 1 CHIL @I3@
 1 CHIL @I4@
+0 @F2@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I2@
+1 CHIL @I7@
+1 CHIL @I11@
+1 CHIL @I15@
+0 @F3@ FAM
+1 HUSB @I7@
+1 WIFE @I8@
+1 CHIL @I9@
+1 CHIL @I10@
+0 @F4@ FAM
+1 HUSB @I11@
+1 WIFE @I12@
+1 CHIL @I13@
+1 CHIL @I14@
+0 @F5@ FAM
+1 HUSB @I15@
+1 WIFE @I16@
+1 CHIL @I17@
+1 CHIL @I18@
 0 TRLR
