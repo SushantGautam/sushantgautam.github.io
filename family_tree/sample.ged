@@ -298,6 +298,14 @@
 1 SEX M
 1 NOTE Shree 108 Surendra Ji Maharaj, GaadiPati of NijanandaDham Najarpur.
 1 FAMC @F6@
+0 @I65@ INDI
+1 NAME Shova //
+1 SEX F
+1 FAMS @F18@
+0 @I66@ INDI
+1 NAME Sudha //
+1 SEX F
+1 FAMS @F20@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
@@ -389,6 +397,7 @@
 1 CHIL @I55@
 0 @F18@ FAM
 1 HUSB @I53@
+1 WIFE @I65@
 1 CHIL @I60@
 1 CHIL @I61@
 0 @F19@ FAM
@@ -399,6 +408,7 @@
 1 CHIL @I59@
 0 @F20@ FAM
 1 HUSB @I54@
+1 WIFE @I66@
 1 CHIL @I62@
 1 CHIL @I63@
 0 TRLR
