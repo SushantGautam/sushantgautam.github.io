@@ -3,54 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
-  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
-  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAICAAAAAAIADcAAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAAKNJREFUeJxj5My89Z9hAAHTQFo+6gAGBgYGFnyS36apwtlcWbdJNpwY/YzYEiGyRnRAjENI0Y83BEi1hJxQwkgD+FxPC/kBT4QD7gCSEyGlAD2dDM4QgAFqhgSuHII3BMjJVqSaM7ijAB+gWUFEbzDqgFEHjDqALAfgKqLJKbqHXghQ2iKi2AHUBkPPAYQqHFIrpAEPAbKrYwYGyntOFDuAGgAAuec+DxJmcAgAAAAASUVORK5CYII=" />
   <title>Family Tree</title>
   <style>
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: #fff;
-    }
-    iframe {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      border: 0;
-      display: block;
-    }
+    html, body { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; background: #fff; }
+    iframe { position: fixed; inset: 0; width: 100vw; height: 100vh; border: 0; display: block; }
   </style>
 </head>
 <body>
   <iframe id="treeFrame" title="Interactive family tree"></iframe>
-
   <script>
     const params = new URLSearchParams(window.location.search);
     const personId = params.get('id') || params.get('indi');
-    const generation = params.get('gen') || '0';
-    const showDetails = params.get('detail') === 'true';
-
+    const generation = params.get('gen') || '-1';
     const gedcomUrl = new URL('sample.ged', window.location.href).href;
-    const topolaParams = new URLSearchParams({
-      url: gedcomUrl,
-      handleCors: 'false',
-      embedded: 'true',
-      view: 'relatives'
-    });
-
+    const topolaParams = new URLSearchParams();
+    topolaParams.set('url', gedcomUrl);
+    topolaParams.set('handleCors', 'false');
+    topolaParams.set('view', 'relatives');
     if (personId) {
       topolaParams.set('indi', personId);
       topolaParams.set('gen', generation);
-      if (showDetails) topolaParams.set('detail', personId);
+      if (params.get('detail') === 'true') topolaParams.set('detail', personId);
     }
-
-    const topolaUrl = 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
-    document.getElementById('treeFrame').src = topolaUrl;
+    document.getElementById('treeFrame').src = 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
   </script>
 </body>
 </html>
