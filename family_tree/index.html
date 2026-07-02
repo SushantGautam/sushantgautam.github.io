@@ -14,11 +14,11 @@
     iframe { position: fixed; inset: 0; width: 100vw; height: 100vh; border: 0; display: block; }
   </style>
 </head>
-<body data-version="family-tree-raw-github-gedcom">
+<body data-version="family-tree-raw-github-common-ancestor">
   <iframe id="treeFrame" title="Interactive family tree"></iframe>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const personId = params.get('id') || params.get('indi');
+    const personId = params.get('id') || params.get('indi') || 'I87';
     const generation = params.get('gen') || '-1';
     const gedcomUrlObject = new URL('https://raw.githubusercontent.com/SushantGautam/sushantgautam.github.io/refs/heads/master/family_tree/family-tree.ged');
     gedcomUrlObject.searchParams.set('v', Date.now().toString());
@@ -27,11 +27,9 @@
     topolaParams.set('url', gedcomUrl);
     topolaParams.set('handleCors', 'false');
     topolaParams.set('view', 'relatives');
-    if (personId) {
-      topolaParams.set('indi', personId);
-      topolaParams.set('gen', generation);
-      if (params.get('detail') === 'true') topolaParams.set('detail', personId);
-    }
+    topolaParams.set('indi', personId);
+    topolaParams.set('gen', generation);
+    if (params.get('detail') === 'true') topolaParams.set('detail', personId);
     document.getElementById('treeFrame').src = 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
   </script>
 </body>
