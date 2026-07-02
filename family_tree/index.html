@@ -30,8 +30,26 @@
   <iframe id="treeFrame" title="Interactive family tree"></iframe>
 
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const personId = params.get('id') || params.get('indi');
+    const generation = params.get('gen') || '0';
+    const showDetails = params.get('detail') === 'true';
+
     const gedcomUrl = new URL('sample.ged', window.location.href).href;
-    const topolaUrl = 'https://pewu.github.io/topola-viewer/#/view?url=' + encodeURIComponent(gedcomUrl) + '&handleCors=false&embedded=true&view=relatives';
+    const topolaParams = new URLSearchParams({
+      url: gedcomUrl,
+      handleCors: 'false',
+      embedded: 'true',
+      view: 'relatives'
+    });
+
+    if (personId) {
+      topolaParams.set('indi', personId);
+      topolaParams.set('gen', generation);
+      if (showDetails) topolaParams.set('detail', personId);
+    }
+
+    const topolaUrl = 'https://pewu.github.io/topola-viewer/#/view?' + topolaParams.toString();
     document.getElementById('treeFrame').src = topolaUrl;
   </script>
 </body>
