@@ -193,7 +193,7 @@
 1 SEX F
 1 FAMC @F13@
 0 @I40@ INDI
-1 NAME Drishyant /Dahal/
+1 NAME Drishyam /Dahal/
 1 SEX M
 1 FAMC @F13@
 0 @I41@ INDI
@@ -405,6 +405,16 @@
 1 SEX F
 1 NOTE Parent placeholder for siblings Saraswoti Koirala and Navaraj Koirala.
 1 FAMS @F30@
+0 @I87@ INDI
+1 NAME Unknown Dahal Ancestor /Dahal/
+1 SEX M
+1 NOTE Unknown parent connecting Suryanath Dahal's father and ChinBaa's father as brothers.
+1 FAMS @F25@
+0 @I88@ INDI
+1 NAME Unknown Spouse of Dahal Ancestor //
+1 SEX F
+1 NOTE Unknown parent connecting Suryanath Dahal's father and ChinBaa's father as brothers.
+1 FAMS @F25@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
@@ -530,6 +540,8 @@
 1 CHIL @I78@
 1 CHIL @I82@
 0 @F25@ FAM
+1 HUSB @I87@
+1 WIFE @I88@
 1 CHIL @I72@
 1 CHIL @I73@
 0 @F26@ FAM
