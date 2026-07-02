@@ -6,14 +6,14 @@
 2 FORM LINEAGE-LINKED
 1 CHAR UTF-8
 0 @I1@ INDI
-1 NAME Bed Prasad /Gatam/
+1 NAME Bed Prasad /Gautam/
 1 SEX M
 1 BIRT
 2 DATE 2028 BS
 1 NOTE Father of Sushant Gautam. Birth year provided as 2028 BS.
 1 FAMS @F1@
 0 @I2@ INDI
-1 NAME Ranju Dahal /Gautam/
+1 NAME Ranju /Dahal/
 1 SEX F
 1 BIRT
 2 DATE 2030 BS
