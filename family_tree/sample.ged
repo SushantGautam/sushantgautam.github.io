@@ -130,7 +130,7 @@
 1 FAMC @F7@
 1 FAMS @F9@
 0 @I26@ INDI
-1 NAME Bibek //
+1 NAME Bibek /Singh/
 1 SEX M
 1 FAMS @F9@
 0 @I27@ INDI
@@ -143,11 +143,15 @@
 1 SEX F
 1 FAMS @F10@
 0 @I29@ INDI
-1 NAME Somu /Dahal/
+1 NAME Somania /Dahal/
+1 SEX F
 1 FAMC @F10@
+1 FAMS @F21@
 0 @I30@ INDI
 1 NAME Supun /Dahal/
+1 SEX F
 1 FAMC @F10@
+1 FAMS @F22@
 0 @I31@ INDI
 1 NAME Data /Dahal/
 1 SEX M
@@ -306,6 +310,29 @@
 1 NAME Sudha //
 1 SEX F
 1 FAMS @F20@
+0 @I67@ INDI
+1 NAME Aayan /Singh/
+1 SEX M
+1 NOTE Older son of Bina Dahal and Bibek Singh.
+1 FAMC @F9@
+0 @I68@ INDI
+1 NAME Shreyan /Singh/
+1 SEX M
+1 NOTE Younger son of Bina Dahal and Bibek Singh.
+1 FAMC @F9@
+0 @I69@ INDI
+1 NAME Abinash /Khanal/
+1 SEX M
+1 FAMS @F21@
+0 @I70@ INDI
+1 NAME Somania Son /Khanal/
+1 SEX M
+1 NOTE Placeholder: son of Somania Dahal and Abinash Khanal; name not yet known.
+1 FAMC @F21@
+0 @I71@ INDI
+1 NAME Niraj /Adhikari/
+1 SEX M
+1 FAMS @F22@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
@@ -353,6 +380,8 @@
 0 @F9@ FAM
 1 HUSB @I26@
 1 WIFE @I25@
+1 CHIL @I67@
+1 CHIL @I68@
 0 @F10@ FAM
 1 HUSB @I27@
 1 WIFE @I28@
@@ -411,4 +440,11 @@
 1 WIFE @I66@
 1 CHIL @I62@
 1 CHIL @I63@
+0 @F21@ FAM
+1 HUSB @I69@
+1 WIFE @I29@
+1 CHIL @I70@
+0 @F22@ FAM
+1 HUSB @I71@
+1 WIFE @I30@
 0 TRLR
