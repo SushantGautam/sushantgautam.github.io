@@ -374,19 +374,15 @@
 1 FAMC @F30@
 1 FAMS @F27@
 0 @I80@ INDI
-1 NAME Namrata /Koirala/
+1 NAME Namuna /Koirala/
 1 SEX F
 1 FAMC @F27@
+1 FAMS @F28@
 0 @I81@ INDI
 1 NAME Nirmal /Koirala/
 1 SEX M
 1 FAMC @F27@
 1 FAMS @F29@
-0 @I82@ INDI
-1 NAME Namuna /Dahal/
-1 SEX F
-1 FAMC @F24@
-1 FAMS @F28@
 0 @I83@ INDI
 1 NAME Suman /Paudel/
 1 SEX M
@@ -538,7 +534,6 @@
 1 CHIL @I75@
 1 CHIL @I76@
 1 CHIL @I78@
-1 CHIL @I82@
 0 @F25@ FAM
 1 HUSB @I87@
 1 WIFE @I88@
@@ -554,7 +549,7 @@
 1 CHIL @I81@
 0 @F28@ FAM
 1 HUSB @I83@
-1 WIFE @I82@
+1 WIFE @I80@
 0 @F29@ FAM
 1 HUSB @I81@
 1 WIFE @I84@
