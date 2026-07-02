@@ -358,7 +358,7 @@
 0 @I76@ INDI
 1 NAME Surendra /Dahal/
 1 SEX M
-1 FAMC @F24@
+1 FAMC @F31@
 1 FAMS @F26@
 0 @I77@ INDI
 1 NAME Suntali /Devkota/
@@ -367,7 +367,7 @@
 0 @I78@ INDI
 1 NAME Geeta /Dahal/
 1 SEX F
-1 FAMC @F24@
+1 FAMC @F31@
 1 FAMS @F27@
 0 @I79@ INDI
 1 NAME Navaraj /Koirala/
@@ -532,8 +532,6 @@
 0 @F24@ FAM
 1 HUSB @I73@
 1 CHIL @I75@
-1 CHIL @I76@
-1 CHIL @I78@
 0 @F25@ FAM
 1 HUSB @I87@
 1 WIFE @I88@
@@ -561,4 +559,6 @@
 0 @F31@ FAM
 1 HUSB @I75@
 1 WIFE @I74@
+1 CHIL @I76@
+1 CHIL @I78@
 0 TRLR
