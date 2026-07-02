@@ -344,16 +344,17 @@
 0 @I73@ INDI
 1 NAME ChinBaa Father /Dahal/
 1 SEX M
-1 NOTE Name not yet known. Brother of Suryanath Dahal's father; married to BhimKumari.
+1 NOTE Name not yet known. Brother of Suryanath Dahal's father and uncle of Suryanath Dahal.
 1 FAMC @F25@
 1 FAMS @F24@
 0 @I74@ INDI
 1 NAME BhimKumari //
 1 SEX F
-1 FAMS @F24@
+1 FAMS @F31@
 0 @I75@ INDI
 1 NAME ChinBaa /Dahal/
 1 FAMC @F24@
+1 FAMS @F31@
 0 @I76@ INDI
 1 NAME Surendra /Dahal/
 1 SEX M
@@ -530,7 +531,6 @@
 1 CHIL @I19@
 0 @F24@ FAM
 1 HUSB @I73@
-1 WIFE @I74@
 1 CHIL @I75@
 1 CHIL @I76@
 1 CHIL @I78@
@@ -558,4 +558,7 @@
 1 WIFE @I86@
 1 CHIL @I22@
 1 CHIL @I79@
+0 @F31@ FAM
+1 HUSB @I75@
+1 WIFE @I74@
 0 TRLR
