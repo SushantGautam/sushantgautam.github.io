@@ -99,12 +99,12 @@
 0 @I19@ INDI
 1 NAME Suryanath /Dahal/
 1 SEX M
-1 NOTE Father of Hem Prasad Dahal and his brothers.
+1 NOTE Father of Hem Prasad Dahal and his siblings.
 1 FAMS @F6@
 0 @I20@ INDI
 1 NAME Ganga Maya /Timalsina/
 1 SEX F
-1 NOTE Mother of Hem Prasad Dahal and his brothers.
+1 NOTE Mother of Hem Prasad Dahal and his siblings.
 1 FAMS @F6@
 0 @I21@ INDI
 1 NAME Vishnu /Dahal/
@@ -233,6 +233,72 @@
 1 NAME Sharvil /Poudel/
 1 SEX M
 1 FAMC @F14@
+0 @I51@ INDI
+1 NAME Maiyaa /Dahal/
+1 SEX F
+1 FAMC @F6@
+1 FAMS @F17@
+0 @I52@ INDI
+1 NAME Nandalal /Bajgain/
+1 SEX M
+1 FAMS @F17@
+0 @I53@ INDI
+1 NAME Madhukar /Bajgain/
+1 SEX M
+1 FAMC @F17@
+1 FAMS @F18@
+0 @I54@ INDI
+1 NAME Raju /Bajgain/
+1 SEX M
+1 FAMC @F17@
+1 FAMS @F20@
+0 @I55@ INDI
+1 NAME Tara /Bajgain/
+1 SEX F
+1 FAMC @F17@
+1 FAMS @F19@
+0 @I56@ INDI
+1 NAME Hari Krishna /Sapkota/
+1 SEX M
+1 FAMS @F19@
+0 @I57@ INDI
+1 NAME Jaya /Sapkota/
+1 SEX F
+1 NOTE Daughter of Tara Bajgain and Hari Krishna Sapkota. Separate person from Jaya Sapkota married to Dinesh Dahal.
+1 FAMC @F19@
+0 @I58@ INDI
+1 NAME Jyoti /Sapkota/
+1 SEX F
+1 FAMC @F19@
+0 @I59@ INDI
+1 NAME Kreepa /Sapkota/
+1 SEX F
+1 FAMC @F19@
+0 @I60@ INDI
+1 NAME Madhukar Son 1 /Bajgain/
+1 SEX M
+1 NOTE Placeholder: first son of Madhukar Bajgain; name not yet known.
+1 FAMC @F18@
+0 @I61@ INDI
+1 NAME Madhukar Son 2 /Bajgain/
+1 SEX M
+1 NOTE Placeholder: second son of Madhukar Bajgain; name not yet known.
+1 FAMC @F18@
+0 @I62@ INDI
+1 NAME Raju Son /Bajgain/
+1 SEX M
+1 NOTE Placeholder: son of Raju Bajgain; name not yet known.
+1 FAMC @F20@
+0 @I63@ INDI
+1 NAME Raju Daughter /Bajgain/
+1 SEX F
+1 NOTE Placeholder: daughter of Raju Bajgain; name not yet known.
+1 FAMC @F20@
+0 @I64@ INDI
+1 NAME Surendra /Dahal/
+1 SEX M
+1 NOTE Shree 108 Surendra Ji Maharaj, GaadiPati of NijanandaDham Najarpur.
+1 FAMC @F6@
 0 @F1@ FAM
 1 HUSB @I1@
 1 WIFE @I2@
@@ -267,6 +333,8 @@
 1 CHIL @I21@
 1 CHIL @I27@
 1 CHIL @I31@
+1 CHIL @I51@
+1 CHIL @I64@
 0 @F7@ FAM
 1 HUSB @I21@
 1 WIFE @I22@
@@ -314,4 +382,24 @@
 1 WIFE @I45@
 1 CHIL @I47@
 1 CHIL @I48@
+0 @F17@ FAM
+1 HUSB @I52@
+1 WIFE @I51@
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHIL @I55@
+0 @F18@ FAM
+1 HUSB @I53@
+1 CHIL @I60@
+1 CHIL @I61@
+0 @F19@ FAM
+1 HUSB @I56@
+1 WIFE @I55@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHIL @I59@
+0 @F20@ FAM
+1 HUSB @I54@
+1 CHIL @I62@
+1 CHIL @I63@
 0 TRLR
