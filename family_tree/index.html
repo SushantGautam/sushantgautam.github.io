@@ -21,6 +21,7 @@
     const params = new URLSearchParams(window.location.search);
     const personId = params.get('id') || params.get('indi') || 'I87';
     const generation = params.get('gen') || '-1';
+    const hasDetail = params.get('detail') === 'true';
 
     function buildViewerUrl(currentPersonId, currentGeneration, includeDetail) {
       const gedcomUrlObject = new URL('https://raw.githubusercontent.com/SushantGautam/sushantgautam.github.io/refs/heads/master/family_tree/family-tree.ged');
@@ -49,10 +50,47 @@
       window.history.replaceState(null, '', nextUrl.pathname + '?' + nextUrl.searchParams.toString() + nextUrl.hash);
     }
 
-    const includeDetail = params.get('detail') === 'true';
-    treeFrame.src = buildViewerUrl(personId, generation, includeDetail);
-    syncPageUrl(personId, generation, includeDetail);
-    treeFrame.addEventListener('load', () => syncPageUrl(personId, generation, includeDetail));
+    function readStateFromMessage(messageData) {
+      if (!messageData) return null;
+
+      if (typeof messageData === 'string') {
+        try {
+          const parsedUrl = new URL(messageData, window.location.href);
+          if (parsedUrl.hostname === 'pewu.github.io' || parsedUrl.hostname === window.location.hostname) {
+            const searchParams = parsedUrl.searchParams;
+            return {
+              id: searchParams.get('id') || searchParams.get('indi'),
+              gen: searchParams.get('gen'),
+              detail: searchParams.get('detail') === 'true' || searchParams.get('detail') === searchParams.get('id') || searchParams.get('detail') === searchParams.get('indi'),
+            };
+          }
+        } catch (error) {
+          return null;
+        }
+      }
+
+      if (typeof messageData === 'object') {
+        const currentId = messageData.id || messageData.indi || messageData.personId;
+        const currentGeneration = messageData.gen || messageData.generation;
+        if (!currentId && !currentGeneration) return null;
+        return {
+          id: currentId,
+          gen: currentGeneration,
+          detail: messageData.detail === true || messageData.detail === 'true' || messageData.detail === currentId,
+        };
+      }
+
+      return null;
+    }
+
+    window.addEventListener('message', (event) => {
+      const state = readStateFromMessage(event.data);
+      if (!state || !state.id || !state.gen) return;
+      syncPageUrl(state.id, state.gen, state.detail);
+    });
+
+    treeFrame.src = buildViewerUrl(personId, generation, hasDetail);
+    syncPageUrl(personId, generation, hasDetail);
   </script>
 </body>
 </html>
