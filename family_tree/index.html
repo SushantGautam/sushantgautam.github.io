@@ -21,7 +21,7 @@
     const personId = params.get('id') || params.get('indi') || 'I87';
     const generation = params.get('gen') || '-1';
     const gedcomUrlObject = new URL('https://raw.githubusercontent.com/SushantGautam/sushantgautam.github.io/refs/heads/master/family_tree/family-tree.ged');
-    gedcomUrlObject.searchParams.set('v', Date.now().toString());
+    gedcomUrlObject.searchParams.set('timestamp', Date.now().toString());
     const gedcomUrl = gedcomUrlObject.href;
     const topolaParams = new URLSearchParams();
     topolaParams.set('url', gedcomUrl);
