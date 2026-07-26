@@ -63,7 +63,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Se3iqnhoufwC",
-        "num_citations": 38,
+        "num_citations": 39,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:Se3iqnhoufwC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16104442376848799462",
         "cites_id": [
@@ -99,12 +99,28 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
-        "num_citations": 3,
+        "num_citations": 4,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:HDshCWvjkbEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17395010189774933035",
         "cites_id": [
             "17395010189774933035"
         ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
+        "bib": {
+            "title": "Beyond the Leaderboard: Design Lessons for Trustworthy Multimodal VQA",
+            "pub_year": "2026",
+            "author": "S Gautam, V Thambawita, MA Riegler, P Halvorsen, SA Hicks",
+            "citation": "arXiv preprint arXiv:2607.15241, 2026"
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:M3NEmzRMIkIC",
+        "num_citations": 0,
+        "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:M3NEmzRMIkIC",
+        "citedby_url": null,
+        "cites_id": []
     },
     {
         "container_type": "Publication",
@@ -312,7 +328,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hFOr9nPyWt4C",
-        "num_citations": 16,
+        "num_citations": 17,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:hFOr9nPyWt4C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9034106780643941046,16934291058456833160",
         "cites_id": [
@@ -365,7 +381,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 14,
+        "num_citations": 16,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:mB3voiENLucC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
         "cites_id": [
@@ -384,7 +400,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 45,
+        "num_citations": 47,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:Zph67rFs4hoC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
@@ -402,7 +418,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:IWHjjKOFINEC",
-        "num_citations": 6,
+        "num_citations": 7,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:IWHjjKOFINEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12906389315703579252",
         "cites_id": [
@@ -455,7 +471,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:0EnyYjriUFMC",
-        "num_citations": 27,
+        "num_citations": 28,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:0EnyYjriUFMC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16786986163287249223",
         "cites_id": [
@@ -505,10 +521,12 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hC7cP41nSMkC",
-        "num_citations": 0,
+        "num_citations": 1,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:hC7cP41nSMkC",
-        "citedby_url": null,
-        "cites_id": []
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6796522449915607576",
+        "cites_id": [
+            "6796522449915607576"
+        ]
     },
     {
         "container_type": "Publication",
@@ -521,7 +539,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:kNdYIx-mwKoC",
-        "num_citations": 16,
+        "num_citations": 17,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:kNdYIx-mwKoC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15898156474301751260,9836883919927266350",
         "cites_id": [
@@ -649,7 +667,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:LkGwnXOMwfcC",
-        "num_citations": 20,
+        "num_citations": 21,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:LkGwnXOMwfcC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2252379872870936916,4416096225620701267",
         "cites_id": [
@@ -704,7 +722,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 20,
+        "num_citations": 21,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:5nxA0vEk-isC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
@@ -722,7 +740,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hqOjcs7Dif8C",
-        "num_citations": 5,
+        "num_citations": 6,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:hqOjcs7Dif8C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2910961138576519841",
         "cites_id": [
@@ -758,7 +776,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:UebtZRa9Y70C",
-        "num_citations": 11,
+        "num_citations": 12,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:UebtZRa9Y70C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18300955658900806957",
         "cites_id": [
