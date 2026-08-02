@@ -99,7 +99,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
-        "num_citations": 4,
+        "num_citations": 3,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:HDshCWvjkbEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17395010189774933035",
         "cites_id": [
@@ -145,9 +145,9 @@
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
             "title": "Comparative analysis of audio feature extraction for real-time talking portrait synthesis",
-            "pub_year": "2025",
+            "pub_year": "2024",
             "author": "P Salehi, SA Sheshkal, V Thambawita, S Gautam, SS Sabet, D Johansen, ...",
-            "citation": "Big Data and Cognitive Computing 9 (3), 59, 2025"
+            "citation": "arXiv preprint arXiv:2411.13209, 2024"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:M3ejUd6NZC8C",
@@ -203,7 +203,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 17,
+        "num_citations": 16,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:8k81kl-MbHgC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
@@ -222,7 +222,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:ULOm3_A8WrAC",
-        "num_citations": 10,
+        "num_citations": 9,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:ULOm3_A8WrAC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12722041295787712650",
         "cites_id": [
@@ -235,8 +235,8 @@
         "bib": {
             "title": "Factgenius: Combining zero-shot prompting and fuzzy relation mining to improve fact verification with knowledge graphs",
             "pub_year": "2024",
-            "author": "S Gautam, R Pop",
-            "citation": "Proceedings of the Seventh Fact Extraction and VERification Workshop (FEVER …, 2024"
+            "author": "S Gautam",
+            "citation": "arXiv preprint arXiv:2406.01311, 2024"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:MXK_kJrjxJIC",
@@ -347,7 +347,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:iH-uZ7U-co4C",
-        "num_citations": 3,
+        "num_citations": 4,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:iH-uZ7U-co4C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8832130097051199764",
         "cites_id": [
@@ -381,7 +381,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 16,
+        "num_citations": 18,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:mB3voiENLucC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
         "cites_id": [
@@ -418,7 +418,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:IWHjjKOFINEC",
-        "num_citations": 7,
+        "num_citations": 8,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:IWHjjKOFINEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12906389315703579252",
         "cites_id": [
@@ -558,7 +558,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:L8Ckcad2t8MC",
-        "num_citations": 2,
+        "num_citations": 3,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:L8Ckcad2t8MC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14301969766245621064",
         "cites_id": [
@@ -686,7 +686,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:YOwf2qJgpHMC",
-        "num_citations": 6,
+        "num_citations": 5,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:YOwf2qJgpHMC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=561277721070249853",
         "cites_id": [
@@ -704,7 +704,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:7PzlFSSx8tAC",
-        "num_citations": 9,
+        "num_citations": 8,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:7PzlFSSx8tAC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5577454901734736224",
         "cites_id": [
@@ -722,7 +722,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 21,
+        "num_citations": 20,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:5nxA0vEk-isC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
@@ -776,7 +776,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:UebtZRa9Y70C",
-        "num_citations": 12,
+        "num_citations": 11,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:UebtZRa9Y70C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18300955658900806957",
         "cites_id": [
