@@ -63,7 +63,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Se3iqnhoufwC",
-        "num_citations": 39,
+        "num_citations": 40,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:Se3iqnhoufwC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16104442376848799462",
         "cites_id": [
@@ -92,14 +92,14 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "Beyond Audio: Enhancing SoccerNet-Echoes with Multimodal Event Extraction Using LLMs",
+            "title": "Beyond audio: Enhancing soccernet-echoes with multimodal event extraction using llms",
             "pub_year": "2025",
             "author": "MH Sarkhoosh, S Gautam, C Midoglu, T Nguyen, J Held, A Cioppa, ...",
             "citation": "International Journal of Semantic Computing 19 (04), 589-613, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:HDshCWvjkbEC",
-        "num_citations": 3,
+        "num_citations": 4,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:HDshCWvjkbEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17395010189774933035",
         "cites_id": [
@@ -145,9 +145,9 @@
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
             "title": "Comparative analysis of audio feature extraction for real-time talking portrait synthesis",
-            "pub_year": "2024",
+            "pub_year": "2025",
             "author": "P Salehi, SA Sheshkal, V Thambawita, S Gautam, SS Sabet, D Johansen, ...",
-            "citation": "arXiv preprint arXiv:2411.13209, 2024"
+            "citation": "Big Data and Cognitive Computing 9 (3), 59, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:M3ejUd6NZC8C",
@@ -203,7 +203,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:8k81kl-MbHgC",
-        "num_citations": 16,
+        "num_citations": 18,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:8k81kl-MbHgC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14059836908797980227,17343144849562763508",
         "cites_id": [
@@ -222,7 +222,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:ULOm3_A8WrAC",
-        "num_citations": 9,
+        "num_citations": 10,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:ULOm3_A8WrAC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12722041295787712650",
         "cites_id": [
@@ -235,8 +235,8 @@
         "bib": {
             "title": "Factgenius: Combining zero-shot prompting and fuzzy relation mining to improve fact verification with knowledge graphs",
             "pub_year": "2024",
-            "author": "S Gautam",
-            "citation": "arXiv preprint arXiv:2406.01311, 2024"
+            "author": "S Gautam, R Pop",
+            "citation": "Proceedings of the Seventh Fact Extraction and VERification Workshop (FEVER …, 2024"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:MXK_kJrjxJIC",
@@ -258,7 +258,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:e5wmG9Sq2KIC",
-        "num_citations": 1,
+        "num_citations": 2,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:e5wmG9Sq2KIC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=6063754614833800149",
         "cites_id": [
@@ -269,14 +269,14 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "HockeyAI: A Multi-Class Ice Hockey Dataset for Object Detection",
+            "title": "Hockeyai: a multi-class ice hockey dataset for object detection",
             "pub_year": "2025",
             "author": "M Houshmand Sarkhoosh, S Gautam, C Midoglu, S Shafiee Sabet, ...",
             "citation": "Proceedings of the 16th ACM Multimedia Systems Conference, 228-234, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:aqlVkmm33-oC",
-        "num_citations": 3,
+        "num_citations": 4,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:aqlVkmm33-oC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14146335014647719198",
         "cites_id": [
@@ -303,7 +303,7 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "HockeyRink: A Dataset for Precise Ice Hockey Rink Keypoint Mapping and Analytics",
+            "title": "Hockeyrink: a dataset for precise ice hockey rink keypoint mapping and analytics",
             "pub_year": "2025",
             "author": "M Houshmand Sarkhoosh, S Gautam, C Midoglu, S Shafiee Sabet, ...",
             "citation": "Proceedings of the 16th ACM Multimedia Systems Conference, 249-255, 2025"
@@ -328,7 +328,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hFOr9nPyWt4C",
-        "num_citations": 17,
+        "num_citations": 16,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:hFOr9nPyWt4C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=9034106780643941046,16934291058456833160",
         "cites_id": [
@@ -347,7 +347,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:iH-uZ7U-co4C",
-        "num_citations": 4,
+        "num_citations": 9,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:iH-uZ7U-co4C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=8832130097051199764",
         "cites_id": [
@@ -381,7 +381,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:mB3voiENLucC",
-        "num_citations": 18,
+        "num_citations": 20,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:mB3voiENLucC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15349487002698236806,8918181203505947311",
         "cites_id": [
@@ -400,7 +400,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Zph67rFs4hoC",
-        "num_citations": 47,
+        "num_citations": 51,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:Zph67rFs4hoC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14697964148878031877",
         "cites_id": [
@@ -411,14 +411,14 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "Medico 2025: Visual Question Answering for Gastrointestinal Imaging",
+            "title": "Medico 2025: Visual question answering for gastrointestinal imaging",
             "pub_year": "2025",
             "author": "S Gautam, V Thambawita, M Riegler, P Halvorsen, S Hicks",
             "citation": "arXiv preprint arXiv:2508.10869, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:IWHjjKOFINEC",
-        "num_citations": 8,
+        "num_citations": 9,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:IWHjjKOFINEC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12906389315703579252",
         "cites_id": [
@@ -514,10 +514,10 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "Overview of ImageCLEFmedical 2025–Visual Question Answering and Synthetic Image Generation for Gastrointestinal Tract",
+            "title": "Overview of ImageCLEFmedical 2025-Visual Question Answering and Synthetic Image Generation for Gastrointestinal Tract.",
             "pub_year": "2025",
             "author": "S Gautam, V Thambawita, M Riegler, P Halvorsen, S Hicks",
-            "citation": ""
+            "citation": "CLEF (Working Notes), 2224-2232, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:hC7cP41nSMkC",
@@ -571,7 +571,7 @@
         "bib": {
             "title": "Prompt to polyp: Clinically-aware medical image synthesis with diffusion models",
             "pub_year": "2025",
-            "author": "M Chaichuk, S Gautam, S Hicks, E Tutubalina",
+            "author": "M Chaichuk, A Moscow, S Gautam, S Hicks",
             "citation": "arXiv preprint arXiv:2505.05573, 2025"
         },
         "filled": false,
@@ -587,14 +587,14 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "Prompt to Polyp: Medical Text-Conditioned Image Synthesis with Diffusion Models",
+            "title": "Prompt to polyp: Medical text-conditioned image synthesis with diffusion models",
             "pub_year": "2025",
             "author": "M Chaichuk, S Gautam, S Hicks, E Tutubalina",
             "citation": "arXiv preprint arXiv:2505.05573, 2025"
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:QIV2ME_5wuYC",
-        "num_citations": 11,
+        "num_citations": 12,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:QIV2ME_5wuYC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15155644207586633761,38321581371502626",
         "cites_id": [
@@ -649,7 +649,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:Y0pCki6q_DkC",
-        "num_citations": 39,
+        "num_citations": 40,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:Y0pCki6q_DkC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=3669151806115340913",
         "cites_id": [
@@ -686,7 +686,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:YOwf2qJgpHMC",
-        "num_citations": 5,
+        "num_citations": 6,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:YOwf2qJgpHMC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=561277721070249853",
         "cites_id": [
@@ -704,7 +704,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:7PzlFSSx8tAC",
-        "num_citations": 8,
+        "num_citations": 9,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:7PzlFSSx8tAC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5577454901734736224",
         "cites_id": [
@@ -722,7 +722,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:5nxA0vEk-isC",
-        "num_citations": 20,
+        "num_citations": 21,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:5nxA0vEk-isC",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14535664106504492751",
         "cites_id": [
@@ -776,7 +776,7 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:UebtZRa9Y70C",
-        "num_citations": 11,
+        "num_citations": 12,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:UebtZRa9Y70C",
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=18300955658900806957",
         "cites_id": [
