@@ -280,14 +280,14 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
 
   <div class="card">
     <h3>Model lineage and protocol</h3>
-    <p class="c-desc" style="margin-bottom:0"><strong>Google base:</strong> <code>google/gemma-4-26B-A4B-it</code>, a 26B-total/A4B-active mixture-of-experts model. <strong>NbAiLab E3:</strong> the Gemma 4 checkpoint continued-pretrained on Aurora-2604 text and then supervised-fine-tuned on Aurora-SFT-2606 through epoch 3. Both were judged by Qwen/Qwen3.6-27B with 10 repetitions over 191 scenarios. The Gemma 4 pair is kept out of the dense Gemma 3/Borealis size-scaling plots because A4B is not directly comparable to the old dense parameter series.</p>
+    <p class="c-desc" style="margin-bottom:0"><strong>Google base:</strong> <code>google/gemma-4-26B-A4B-it</code>, a 26B-total/A4B-active mixture-of-experts model. <strong>NbAiLab E3:</strong> the Gemma 4 checkpoint continued-pretrained on Aurora-2604 text and then supervised-fine-tuned on Aurora-SFT-2606 through epoch 3. Both were judged by Qwen/Qwen3.6-27B with 10 repetitions over 191 scenarios. The Gemma 4 pair is shown at 26B in the total-parameter scale plots, next to the 27B Borealis models; its A4B active-compute profile is labelled explicitly and should not be interpreted as a dense-compute equivalent.</p>
   </div>
 </section>
 
 <!-- ─── SCALE ─── -->
 <section id="scale">
   <h2>Scale Comparison</h2>
-  <p class="sec-desc">How NOR score and BullshitBench score scale across the original dense Gemma 3/Borealis families. The Gemma 4 A4B pair is intentionally excluded from these size curves.</p>
+  <p class="sec-desc">NOR and BullshitBench scores by total model size. Gemma 4 is included at 26B total parameters beside the 27B Borealis models, with isolated markers because its A4B mixture-of-experts active compute is closer to 4B than to a dense 26–27B model.</p>
 
   <div class="tabs">
     <button class="tab active" data-t="sc-nor">Norwegian Score</button>
@@ -295,17 +295,17 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
     <button class="tab" data-t="sc-gain">Fine-tune Gain vs Gemma</button>
   </div>
   <div id="sc-nor" class="tab-panel active card" style="padding-top:14px">
-    <p class="c-desc">NOR avg vs model size. 270m → 1b → 4b → 12b → 27b. SOTA (gpt-5-mini) shown as dashed reference.</p>
+    <p class="c-desc">NOR avg vs total model size. Gemma 4 26B/A4B is plotted as a single reference point beside dense 27B models. SOTA (gpt-5-mini) is the dashed reference.</p>
     <canvas id="chart-scale-nor" height="320"></canvas>
   </div>
   <div id="sc-bs" class="tab-panel card" style="padding-top:14px">
-    <p class="c-desc">BullshitBench avg vs model size. Note: Gemma base consistently outperforms fine-tuned Borealis here.</p>
+    <p class="c-desc">BullshitBench avg vs total model size. Gemma 4 26B/A4B is a single MoE reference point; it is not part of the dense scaling curves.</p>
     <canvas id="chart-scale-bs" height="320"></canvas>
   </div>
   <div id="sc-gain" class="tab-panel card" style="padding-top:14px">
-    <p class="c-desc">NOR score gain of Borealis vs its Gemma base at each size. Positive = fine-tuning helped. Negative = fine-tuning hurt.</p>
+    <p class="c-desc">NOR score change relative to the corresponding Gemma base. The 26B/A4B bar compares NbAiLab E3 directly with Gemma 4 26B-A4B-it.</p>
     <canvas id="chart-scale-gain" height="240"></canvas>
-    <div class="insight ins-warn">⚠ At 270m, Norwegian SFT is counterproductive (−2.7 pts). The model is too small to absorb instruction tuning without losing generalist capability.</div>
+    <div class="insight ins-warn">⚠ E3 is −20.6 points below its same-architecture Gemma 4 base on Norwegian scenarios. At 270m, Borealis is −2.7 points below Gemma 3; these observed differences do not by themselves identify which training stage caused them.</div>
   </div>
 </section>
 
@@ -316,8 +316,8 @@ hr{border:none;border-top:1px solid var(--border);margin:36px 0}
 
   <div class="two-col">
     <div class="card">
-      <h3>Domain Scores — borealis-27b vs gpt-5-mini</h3>
-      <p class="c-desc">The 46-pt gap in Public Sector is the largest weakness.</p>
+      <h3>Domain Scores — 26B/27B-scale comparison</h3>
+      <p class="c-desc">Gemma 4 base, NbAiLab E3, borealis-27b, and the single-run gpt-5-mini reference. Family filters apply.</p>
       <canvas id="chart-domain-gap" height="280"></canvas>
     </div>
     <div class="card">
@@ -520,7 +520,7 @@ const MODELS = [
 
 const COLORS = {sota:'#f59e0b',borealis:'#2563eb',open:'#0891b2',preview:'#94a3b8',gemma:'#16a34a',gemma4:'#7c3aed',nbgemma4:'#db2777'};
 const FAM_LABELS = {sota:'SOTA',borealis:'Borealis',open:'Borealis-Open',preview:'instruct-preview †',gemma:'Gemma-3-it (base)',gemma4:'Gemma 4 base',nbgemma4:'NbAiLab Gemma 4 E3'};
-const SIZES = ['270m','1b','4b','12b','27b'];
+const SIZES = ['270m','1b','4b','12b','26B/A4B','27b'];
 
 // ─── STATE ─────────────────────────────────────────────────────────────
 const activeFamilies = new Set(['sota','borealis','open','preview','gemma','gemma4','nbgemma4']);
@@ -616,7 +616,7 @@ function buildOverall() {
 // ─── SCALE CHARTS ──────────────────────────────────────────────────────
 function buildScaleNOR() {
   destroyChart('scale-nor');
-  const families = ['sota','borealis','open','preview','gemma'].filter(f=>activeFamilies.has(f) && f!=='sota');
+  const families = ['sota','borealis','open','preview','gemma','gemma4','nbgemma4'].filter(f=>activeFamilies.has(f) && f!=='sota');
   const datasets = [];
 
   // SOTA dashed reference
@@ -629,7 +629,8 @@ function buildScaleNOR() {
       const m = MODELS.find(x=>x.family===f && x.size===sz);
       return m?m.nor:null;
     });
-    datasets.push({label:FAM_LABELS[f],data:pts,borderColor:COLORS[f],backgroundColor:hexAlpha(COLORS[f],.15),borderWidth:2.5,pointRadius:5,pointHoverRadius:7,fill:false,tension:.3,spanGaps:true});
+    const isA4B = f==='gemma4'||f==='nbgemma4';
+    datasets.push({label:FAM_LABELS[f]+(isA4B?' (26B/A4B)':''),data:pts,borderColor:COLORS[f],backgroundColor:isA4B?COLORS[f]:hexAlpha(COLORS[f],.15),borderWidth:2.5,pointRadius:isA4B?7:5,pointHoverRadius:isA4B?9:7,pointStyle:isA4B?'rectRot':'circle',showLine:!isA4B,fill:false,tension:.3,spanGaps:true});
   }
 
   charts['scale-nor'] = new Chart(document.getElementById('chart-scale-nor'),{
@@ -640,7 +641,7 @@ function buildScaleNOR() {
       plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:12}}}},
       scales:{
         y:{min:0,max:100,grid:{color:'#f1f5f9'},title:{display:true,text:'NOR avg score',font:{size:11}}},
-        x:{title:{display:true,text:'Model size',font:{size:11}}}
+        x:{title:{display:true,text:'Total parameters (Gemma 4 activates ~4B per token)',font:{size:11}}}
       }
     }
   });
@@ -648,7 +649,7 @@ function buildScaleNOR() {
 
 function buildScaleBS() {
   destroyChart('scale-bs');
-  const families = ['sota','borealis','open','preview','gemma'].filter(f=>activeFamilies.has(f) && f!=='sota');
+  const families = ['sota','borealis','open','preview','gemma','gemma4','nbgemma4'].filter(f=>activeFamilies.has(f) && f!=='sota');
   const datasets = [];
 
   if(activeFamilies.has('sota')){
@@ -660,7 +661,8 @@ function buildScaleBS() {
       const m = MODELS.find(x=>x.family===f && x.size===sz);
       return m?m.bs:null;
     });
-    datasets.push({label:FAM_LABELS[f],data:pts,borderColor:COLORS[f],backgroundColor:'transparent',borderWidth:2.5,pointRadius:5,fill:false,tension:.3,spanGaps:true});
+    const isA4B = f==='gemma4'||f==='nbgemma4';
+    datasets.push({label:FAM_LABELS[f]+(isA4B?' (26B/A4B)':''),data:pts,borderColor:COLORS[f],backgroundColor:isA4B?COLORS[f]:'transparent',borderWidth:2.5,pointRadius:isA4B?7:5,pointHoverRadius:isA4B?9:7,pointStyle:isA4B?'rectRot':'circle',showLine:!isA4B,fill:false,tension:.3,spanGaps:true});
   }
 
   charts['scale-bs'] = new Chart(document.getElementById('chart-scale-bs'),{
@@ -671,7 +673,7 @@ function buildScaleBS() {
       plugins:{legend:{position:'top',labels:{boxWidth:12,font:{size:12}}}},
       scales:{
         y:{min:0,max:55,grid:{color:'#f1f5f9'},title:{display:true,text:'BS avg score',font:{size:11}}},
-        x:{title:{display:true,text:'Model size',font:{size:11}}}
+        x:{title:{display:true,text:'Total parameters (Gemma 4 activates ~4B per token)',font:{size:11}}}
       }
     }
   });
@@ -692,6 +694,13 @@ function buildScaleGain() {
     datasets.push({label:FAM_LABELS[f],data:pts,backgroundColor:pts.map(v=>v===null?'transparent':v>=0?hexAlpha(COLORS[f],.8):hexAlpha('#dc2626',.6)),borderColor:pts.map(v=>v===null?'transparent':v>=0?COLORS[f]:'#dc2626'),borderWidth:1.5,borderRadius:4});
   }
 
+  if(activeFamilies.has('gemma4') && activeFamilies.has('nbgemma4')) {
+    const base = MODELS.find(m=>m.id==='gem4-a4b');
+    const e3 = MODELS.find(m=>m.id==='nb-gem4-e3');
+    const pts = SIZES.map(sz=>sz==='26B/A4B'?+(e3.nor-base.nor).toFixed(1):null);
+    datasets.push({label:'NbAiLab E3 vs Gemma 4 base',data:pts,backgroundColor:pts.map(v=>v===null?'transparent':hexAlpha('#dc2626',.72)),borderColor:pts.map(v=>v===null?'transparent':'#dc2626'),borderWidth:1.5,borderRadius:4});
+  }
+
   charts['scale-gain'] = new Chart(document.getElementById('chart-scale-gain'),{
     type:'bar',
     data:{labels:SIZES,datasets},
@@ -710,27 +719,30 @@ function buildScaleGain() {
 function buildDomainGap() {
   destroyChart('domain-gap');
   const domains = ['Language','Safety','Healthcare','Pub. Sector'];
-  const bor27 = MODELS.find(m=>m.id==='bor-27b');
   const sota  = MODELS.find(m=>m.id==='gpt-5-mini');
-  const borVals = [bor27.lang,bor27.safe,bor27.health,bor27.pub];
-  const sotaVals= [sota.lang, sota.safe, sota.health, sota.pub];
+  const compared = ['gpt-5-mini','gem4-a4b','nb-gem4-e3','bor-27b']
+    .map(id=>MODELS.find(m=>m.id===id))
+    .filter(m=>m && visible(m));
 
   charts['domain-gap'] = new Chart(document.getElementById('chart-domain-gap'),{
     type:'bar',
     data:{
       labels:domains,
-      datasets:[
-        {label:'borealis-27b',data:borVals,backgroundColor:hexAlpha(COLORS.borealis,.8),borderColor:COLORS.borealis,borderWidth:1.5,borderRadius:4},
-        {label:'gpt-5-mini (SOTA)',data:sotaVals,backgroundColor:hexAlpha(COLORS.sota,.8),borderColor:COLORS.sota,borderWidth:1.5,borderRadius:4}
-      ]
+      datasets:compared.map(m=>({
+        label:m.id==='gpt-5-mini'?'gpt-5-mini (n=1)':m.label,
+        data:[m.lang,m.safe,m.health,m.pub],
+        backgroundColor:hexAlpha(COLORS[m.family],.8),
+        borderColor:COLORS[m.family],borderWidth:1.5,borderRadius:4
+      }))
     },
     options:{
       responsive:true,
       plugins:{
         legend:{position:'top',labels:{boxWidth:12,font:{size:12}}},
-        tooltip:{callbacks:{afterBody:ctx=>{
-          const i=ctx[0].dataIndex;
-          return `Gap: ${(sotaVals[i]-borVals[i]).toFixed(1)} pts`;
+        tooltip:{callbacks:{afterLabel:ctx=>{
+          const sotaVals=[sota.lang,sota.safe,sota.health,sota.pub];
+          if(ctx.dataset.label.startsWith('gpt-5-mini')) return 'Single-run reference';
+          return `Gap to gpt-5-mini: ${(sotaVals[ctx.dataIndex]-ctx.parsed.y).toFixed(1)} pts`;
         }}}
       },
       scales:{y:{min:0,max:100,grid:{color:'#f1f5f9'}}}
