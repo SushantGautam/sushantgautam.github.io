@@ -55,6 +55,13 @@
             padding: 1rem;
         }
 
+        .dataset-box {
+            background: #fffbea;
+            border: 1px solid #f6df8b;
+            border-radius: 0.75rem;
+            padding: 1rem;
+        }
+
         .resource-buttons .btn {
             margin-bottom: 0.4rem;
         }
@@ -62,6 +69,25 @@
         .footer {
             color: #6c757d;
             font-size: 0.95rem;
+        }
+
+        .quick-link-icon {
+            display: inline-block;
+            min-width: 1.8rem;
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .display-5 {
+                font-size: 2rem;
+            }
+
+            .resource-buttons .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -291,6 +317,7 @@
                                 agent societies.
                             </p>
 
+
                             <!-- LIVE INSTANCE -->
                             <div class="live-box my-3">
 
@@ -306,10 +333,32 @@
                                 </a>
 
                                 <div class="small text-muted mt-1">
-                                    Explore the live Moltbook Observatory dashboard.
+                                    Explore the live Moltbook Observatory.
                                 </div>
 
                             </div>
+
+
+                            <!-- HUGGING FACE DATASET -->
+                            <div class="dataset-box my-3">
+
+                                <div class="fw-bold mb-1">
+                                    🤗 Dataset on Hugging Face
+                                </div>
+
+                                <a href="https://huggingface.co/datasets/SimulaMet/moltbook-observatory-archive"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="fw-semibold">
+                                    SimulaMet/moltbook-observatory-archive
+                                </a>
+
+                                <div class="small text-muted mt-1">
+                                    Browse and access the Moltbook Observatory Archive dataset.
+                                </div>
+
+                            </div>
+
 
                             <hr>
 
@@ -333,6 +382,13 @@
                                     💻 GitHub
                                 </a>
 
+                                <a href="https://huggingface.co/datasets/SimulaMet/moltbook-observatory-archive"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-warning">
+                                    🤗 Hugging Face Dataset
+                                </a>
+
                                 <a href="https://zenodo.org/records/18444900"
                                    target="_blank"
                                    rel="noopener noreferrer"
@@ -353,7 +409,8 @@
                                 <small class="text-muted">
                                     arXiv:
                                     <strong>2605.13860</strong>
-                                    · Code, archived data, and live observatory available
+                                    · Source code, Hugging Face dataset,
+                                    Zenodo archive, and live observatory available
                                 </small>
                             </div>
 
@@ -385,15 +442,35 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    🧬
+                    <span class="quick-link-icon">🧬</span>
                     <strong>
                         Agentic and Generative AI as Artificial Life
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         ALIFE 2026 workshop website
+                    </small>
+
+                </a>
+
+
+                <!-- Slides -->
+                <a href="https://docs.google.com/presentation/d/e/2PACX-1vRxZqo2ZpfagC8VSmEhd8a8rTmDr9EWx1dBFkrOqrKVmyvCTsn_vtCEUEcAcPIkt7ovhxz-o7yaD8j0/pub?start=false&loop=false&delayms=3000"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="list-group-item list-group-item-action py-3">
+
+                    <span class="quick-link-icon">📽️</span>
+                    <strong>
+                        ALIFE 2026 Invited Talk Slides
+                    </strong>
+
+                    <br>
+
+                    <small class="text-muted ms-4">
+                        Google Slides presentation
                     </small>
 
                 </a>
@@ -405,14 +482,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    🛡️
+                    <span class="quick-link-icon">📄</span>
                     <strong>
                         SimpleAudit — Research Paper
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         arXiv:2605.06652
                     </small>
 
@@ -425,14 +502,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    💻
+                    <span class="quick-link-icon">💻</span>
                     <strong>
                         SimpleAudit — Source Code
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         github.com/kelkalot/simpleaudit
                     </small>
 
@@ -445,14 +522,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    🔭
+                    <span class="quick-link-icon">📄</span>
                     <strong>
                         Moltbook Observatory — Research Paper
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         arXiv:2605.13860
                     </small>
 
@@ -465,15 +542,35 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    💻
+                    <span class="quick-link-icon">💻</span>
                     <strong>
                         Moltbook Observatory — Source Code
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         github.com/kelkalot/moltbook-observatory
+                    </small>
+
+                </a>
+
+
+                <!-- Moltbook Hugging Face Dataset -->
+                <a href="https://huggingface.co/datasets/SimulaMet/moltbook-observatory-archive"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="list-group-item list-group-item-action py-3">
+
+                    <span class="quick-link-icon">🤗</span>
+                    <strong>
+                        Moltbook Observatory — Hugging Face Dataset
+                    </strong>
+
+                    <br>
+
+                    <small class="text-muted ms-4">
+                        SimulaMet/moltbook-observatory-archive
                     </small>
 
                 </a>
@@ -485,14 +582,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    🗃️
+                    <span class="quick-link-icon">🗃️</span>
                     <strong>
                         Moltbook Observatory — Zenodo Archive
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         zenodo.org/records/18444900
                     </small>
 
@@ -505,14 +602,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3 list-group-item-success">
 
-                    🚀🌐
+                    <span class="quick-link-icon">🚀</span>
                     <strong>
                         Moltbook Observatory — Live Running Instance
                     </strong>
 
                     <br>
 
-                    <small>
+                    <small class="ms-4">
                         moltbook-observatory.sushant.info.np
                     </small>
 
@@ -525,14 +622,14 @@
                    rel="noopener noreferrer"
                    class="list-group-item list-group-item-action py-3">
 
-                    🌐
+                    <span class="quick-link-icon">🌐</span>
                     <strong>
                         Sushant Gautam
                     </strong>
 
                     <br>
 
-                    <small class="text-muted">
+                    <small class="text-muted ms-4">
                         Personal website — sushant.no
                     </small>
 
