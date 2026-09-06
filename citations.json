@@ -28,28 +28,11 @@
         "author_pub_id": "t3Iie8cAAAAJ:YsMSGLbcyi4C",
         "num_citations": 4,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:YsMSGLbcyi4C",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5956504715244013678,13043283320329808571",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5956504715244013678,12101746341273985725,13043283320329808571",
         "cites_id": [
             "5956504715244013678",
+            "12101746341273985725",
             "13043283320329808571"
-        ]
-    },
-    {
-        "container_type": "Publication",
-        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
-        "bib": {
-            "title": "AI-based Soccer Game Summarization: From Video Highlights to Dynamic Text Summaries. Master's Thesis, Tribhuvan University",
-            "pub_year": "2022",
-            "author": "S Gautam",
-            "citation": ""
-        },
-        "filled": false,
-        "author_pub_id": "t3Iie8cAAAAJ:4JMBOYKVnBMC",
-        "num_citations": 2,
-        "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:4JMBOYKVnBMC",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12101746341273985725",
-        "cites_id": [
-            "12101746341273985725"
         ]
     },
     {
@@ -240,11 +223,12 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:MXK_kJrjxJIC",
-        "num_citations": 9,
+        "num_citations": 11,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:MXK_kJrjxJIC",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14152010282732285598",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=14152010282732285598,5568618005679219183",
         "cites_id": [
-            "14152010282732285598"
+            "14152010282732285598",
+            "5568618005679219183"
         ]
     },
     {
@@ -436,12 +420,33 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:bEWYMUwI8FkC",
-        "num_citations": 9,
+        "num_citations": 16,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:bEWYMUwI8FkC",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5642913237875567484,8517186440387545548",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11013868860018551392,5642913237875567484,8517186440387545548,15142947341410400289,6787837988854511775",
         "cites_id": [
+            "11013868860018551392",
             "5642913237875567484",
-            "8517186440387545548"
+            "8517186440387545548",
+            "15142947341410400289",
+            "6787837988854511775"
+        ]
+    },
+    {
+        "container_type": "Publication",
+        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
+        "bib": {
+            "title": "Moltbook observatory: Passive monitoring dashboard for ai social networks, A research tool for collecting and analyzing data from Moltbook, the social network for AI agents, 2026",
+            "pub_year": "",
+            "author": "MA Riegler, S Gautam",
+            "citation": ""
+        },
+        "filled": false,
+        "author_pub_id": "t3Iie8cAAAAJ:blknAaTinKkC",
+        "num_citations": 2,
+        "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:blknAaTinKkC",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=12818287627622391652",
+        "cites_id": [
+            "12818287627622391652"
         ]
     },
     {
@@ -569,24 +574,6 @@
         "container_type": "Publication",
         "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
         "bib": {
-            "title": "Prompt to polyp: Clinically-aware medical image synthesis with diffusion models",
-            "pub_year": "2025",
-            "author": "M Chaichuk, A Moscow, S Gautam, S Hicks",
-            "citation": "arXiv preprint arXiv:2505.05573, 2025"
-        },
-        "filled": false,
-        "author_pub_id": "t3Iie8cAAAAJ:j3f4tGmQtD8C",
-        "num_citations": 4,
-        "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:j3f4tGmQtD8C",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=16204133775607122931",
-        "cites_id": [
-            "16204133775607122931"
-        ]
-    },
-    {
-        "container_type": "Publication",
-        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
-        "bib": {
             "title": "Prompt to polyp: Medical text-conditioned image synthesis with diffusion models",
             "pub_year": "2025",
             "author": "M Chaichuk, S Gautam, S Hicks, E Tutubalina",
@@ -594,12 +581,13 @@
         },
         "filled": false,
         "author_pub_id": "t3Iie8cAAAAJ:QIV2ME_5wuYC",
-        "num_citations": 13,
+        "num_citations": 15,
         "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:QIV2ME_5wuYC",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15155644207586633761,38321581371502626",
+        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15155644207586633761,38321581371502626,16204133775607122931",
         "cites_id": [
             "15155644207586633761",
-            "38321581371502626"
+            "38321581371502626",
+            "16204133775607122931"
         ]
     },
     {
@@ -745,24 +733,6 @@
         "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=2910961138576519841",
         "cites_id": [
             "2910961138576519841"
-        ]
-    },
-    {
-        "container_type": "Publication",
-        "source": "SERPAPI_GOOGLE_SCHOLAR_AUTHOR",
-        "bib": {
-            "title": "The Moltbook Observatory Archive: an incremental dataset of agent-only social network activity",
-            "pub_year": "2026",
-            "author": "S Gautam, AW Olstad, KH Pettersen, MA Riegler",
-            "citation": "arXiv preprint arXiv:2605.13860, 2026"
-        },
-        "filled": false,
-        "author_pub_id": "t3Iie8cAAAAJ:maZDTaKrznsC",
-        "num_citations": 4,
-        "pub_url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=t3Iie8cAAAAJ&pagesize=100&citation_for_view=t3Iie8cAAAAJ:maZDTaKrznsC",
-        "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=11013868860018551392",
-        "cites_id": [
-            "11013868860018551392"
         ]
     },
     {
