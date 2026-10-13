@@ -4224,6 +4224,7 @@ if((initial.social_edges||[]).length)info.append(element('div',`Observes: ${init
 const rightsStr=Object.entries(latest.rights||{}).map(([k,v])=>`${k} ${v?'✓':'✗'}`).join(' ');
 if(rightsStr)info.append(element('div',rightsStr));
 body.append(badges,info);
+const btn=element('button','Explore this agent →','btn btn-sm');btn.style.cssText='margin-top:4px;font-size:.7rem;padding:2px 10px';btn.onclick=()=>{selectAgent(p.agent_id)};body.append(btn);
 
 card.append(body);container.append(card)}
 if(profiles.length>24&&selected==='All')container.append(element('p','Showing first 24 profiles; select an agent to inspect any participant.'));
