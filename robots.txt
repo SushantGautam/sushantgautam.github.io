@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /family_tree/
 
-Sitemap:
+Sitemap: https://sushantgautam.github.io/sitemap.xml
