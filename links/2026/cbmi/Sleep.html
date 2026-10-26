@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Multimodal Sleep Analytics | CBMI 2026 | Sushant Gautam</title>
+
+    <meta name="description"
+        content="Slides and code for Multimodal Sleep Analytics for Athlete Performance in elite female football, presented at IEEE CBMI 2026.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #eef3ff 100%);
+            border-radius: 1.25rem;
+            padding: 2.5rem 1.5rem;
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.06);
+        }
+
+        .talk-title {
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resource-card {
+            height: 100%;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+        }
+
+        .paper-title {
+            line-height: 1.35;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .display-5 {
+                font-size: 2rem;
+            }
+
+            .resource-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container my-4 my-md-5">
+
+        <!-- ============================================================
+             HERO / TALK INFORMATION
+        ============================================================ -->
+        <header class="hero text-center mb-5">
+
+            <div class="mb-2">
+                <span class="badge text-bg-primary fs-6">
+                    IEEE CBMI 2026 · Conference Presentation
+                </span>
+            </div>
+
+            <h1 class="display-5 fw-bold talk-title mt-3">
+                Multimodal Sleep Analytics for Athlete Performance:
+                Chronotype Clustering, Readiness Prediction, and Anomaly Detection in Elite Female Football
+            </h1>
+
+            <p class="fs-5 mt-4 mb-1">
+                <strong>Michael A. Riegler</strong>, Dag Johansen, Pål Halvorsen
+            </p>
+
+            <p class="mb-3 text-muted">
+                Presented by <strong>Sushant Gautam</strong> · Simula Metropolitan Center for Digital Engineering
+            </p>
+
+            <hr class="my-4">
+
+            <div class="row justify-content-center g-3">
+
+                <div class="col-md-4">
+                    <strong>🗓️ Conference</strong><br>
+                    IEEE CBMI 2026<br>
+                    October 2026
+                </div>
+
+                <div class="col-md-4">
+                    <strong>📍 Location</strong><br>
+                    Rempart Building<br>
+                    Toulouse, France
+                </div>
+
+                <div class="col-md-4">
+                    <strong>🎤 Presentation</strong><br>
+                    Friday, October 23, 2026<br>
+                    10:53–11:00
+                </div>
+
+            </div>
+
+            <div class="mt-4">
+
+                <p class="mb-1">
+                    <strong>Session:</strong>
+                    Regular session 4 (10:30–11:00) · Amphitheater
+                </p>
+
+                <p class="mb-3">
+                    <strong>Conference program:</strong>
+                    <a href="https://cbmi2026.sciencesconf.org/program/details" target="_blank" rel="noopener noreferrer">
+                        cbmi2026.sciencesconf.org/program/details
+                    </a>
+                </p>
+
+                <a href="https://cbmi2026.sciencesconf.org/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline-primary">
+                    🧬 CBMI 2026 Website
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================================================
+             SLIDES
+        ============================================================ -->
+        <section class="mb-5">
+
+            <h2 class="text-center section-title">
+                📄 Presentation Slides
+            </h2>
+
+            <div class="ratio ratio-16x9 shadow-sm rounded overflow-hidden bg-white">
+
+                <iframe
+                    src="https://docs.google.com/presentation/d/1psERLs07c0JiqbAaSoh17vqKyRsJKqLxl4Eu8elcVNQ/embed?start=false&loop=false&delayms=3000"
+                    title="Multimodal Sleep Analytics CBMI 2026 Slides"
+                    frameborder="0"
+                    allowfullscreen="true"
+                    mozallowfullscreen="true"
+                    webkitallowfullscreen="true">
+                </iframe>
+
+            </div>
+
+            <div class="text-center mt-3">
+
+                <a href="https://docs.google.com/presentation/d/1psERLs07c0JiqbAaSoh17vqKyRsJKqLxl4Eu8elcVNQ/edit?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-primary">
+                    📽️ Open Slides in Google Slides
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================================================
+             RESOURCES
+        ============================================================ -->
+        <section class="mb-5">
+
+            <h2 class="text-center section-title">
+                🔬 Dataset & Code
+            </h2>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <div class="card resource-card border-0 shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <span class="badge text-bg-success mb-3">
+                                😴 REST Dataset
+                            </span>
+
+                            <h4 class="paper-title">
+                                Elite Female Football Athletes Dataset and Analysis Tools
+                            </h4>
+
+                            <p class="text-muted">
+                                17 days of wrist actigraphy, well-being questionnaires, caffeine consumption, screen
+                                time and daily hand-strength tests from 21 elite female football athletes. The
+                                repository contains sleep detection algorithms, preprocessing scripts, technical
+                                validation, and transfer-learning inference with an LSTM trained on MESA.
+                            </p>
+
+                            <hr>
+
+                            <h6 class="fw-bold mb-3">
+                                Resources
+                            </h6>
+
+                            <div class="d-flex flex-wrap gap-2 resource-buttons">
+
+                                <a href="https://github.com/simula/REST"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-dark">
+                                    💻 Code (GitHub)
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================================================
+             FOOTER
+        ============================================================ -->
+        <footer class="footer text-center mt-5">
+
+            <p class="mb-1">
+                <strong>Sushant Gautam</strong> · Simula Metropolitan Center for Digital Engineering
+            </p>
+
+            <p class="mb-0">
+                <a href="https://www.sushant.no/" target="_blank" rel="noopener noreferrer">sushant.no</a>
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
